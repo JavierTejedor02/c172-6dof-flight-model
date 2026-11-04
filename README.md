@@ -14,7 +14,20 @@ The aircraft data come from a pinned public JSBSim representation of a 1982 Cess
 
 Prerequisites: Python 3.11 or newer with `venv` and `pip`, and PowerShell. Installation requires internet access unless the dependencies are available locally. NumPy, SciPy and Matplotlib are listed in `requirements.txt`.
 
-Open PowerShell in the package root: the directory containing `run_demo.py`, `requirements.txt`, `c172sim/` and `data/`. When starting from the workspace that contains both development stages, first run `Set-Location '.\c172-flight-model-v0.1.0\c172-flight-model'`. For a separately extracted package, select the extracted directory containing those files.
+Open PowerShell in the repository root: the directory containing `run_demo.py`, `requirements.txt`, `c172sim/` and `data/`. The folder name and its parent directory do not affect the model; all commands below assume this working directory.
+
+For a new checkout, clone the repository and enter the directory created by Git:
+
+```powershell
+git clone https://github.com/JavierTejedor02/c172-6dof-flight-model.git
+Set-Location '.\c172-6dof-flight-model'
+```
+
+For an existing checkout or an extracted archive, open its root directly and skip the clone commands. A local folder named `c172-flight-model` is also valid; no version-numbered parent directory is required. Confirm the working directory before installation:
+
+```powershell
+Get-Item run_demo.py, requirements.txt
+```
 
 Run all commands below from that package root:
 
@@ -133,7 +146,9 @@ The first stage writes the raw inventory and provisional load case; the second c
 
 ## Version control
 
-The Git repository root is the directory containing this README and `run_demo.py`. The earlier audit-only package is a separate development-stage snapshot outside this repository.
+The Git repository root is the directory containing this README and `run_demo.py`. Source auditing, data preparation, simulation, documentation and tests are maintained together in this repository.
+
+Keep one working checkout and use Git commits for its history. Release identifiers such as `0.1.0` describe the software version, not a required directory name. Git tags can identify releases without creating duplicate project folders.
 
 After cloning the repository, run the installation commands above from its root. Before starting a new editing session, synchronize the current branch:
 
