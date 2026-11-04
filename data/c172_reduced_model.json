@@ -1,0 +1,330 @@
+{
+  "name": "Educational reduced C172P",
+  "source_commit": "c455897049e044860b3c282e955daca1d0a785fe",
+  "source_url": "https://github.com/JSBSim-Team/jsbsim/blob/c455897049e044860b3c282e955daca1d0a785fe/aircraft/c172x/c172x.xml",
+  "configuration": "pilot_half_fuel_v0",
+  "mass_kg": 804.6728643800001,
+  "inertia_body_kg_m2": [
+    [
+      1813.9908188000013,
+      3.874555609816438,
+      -9.577385867409436
+    ],
+    [
+      3.874555609816438,
+      1869.9162083343724,
+      9.994422777439311
+    ],
+    [
+      -9.577385867409436,
+      9.994422777439311,
+      3170.2450288521295
+    ]
+  ],
+  "cg_structural_m": [
+    1.0408272829763245,
+    -0.038085682074408114,
+    0.9357193912063133
+  ],
+  "fuel_self_inertia": [
+    {
+      "mass_kg": 29.48350405,
+      "radius_m": 0.74676,
+      "self_inertia_kg_m2": 6.576596281789646
+    },
+    {
+      "mass_kg": 29.48350405,
+      "radius_m": 0.74676,
+      "self_inertia_kg_m2": 6.576596281789646
+    }
+  ],
+  "inertia_reference": "JSBSim FGMassBalance.cpp and liquid branch of FGTank.cpp at the pinned commit; all non-pilot point masses zero",
+  "wing_area_m2": 16.16512896,
+  "span_m": 10.972800000000001,
+  "chord_m": 1.4935200000000002,
+  "aero_reference_offset_body_m": [
+    -0.05645271702367549,
+    0.038085682074408114,
+    -0.5730406087936866
+  ],
+  "thrust_offset_body_m": [
+    1.9984072829763244,
+    0.038085682074408114,
+    0.2600793912063133
+  ],
+  "coefficients": {
+    "CLDe": 0.347,
+    "CLq": 3.9,
+    "CDo": 0.032,
+    "CDDe": 0.06,
+    "CDbeta": 0.17,
+    "CYda": -0.05,
+    "CYdr": 0.098,
+    "CYp": -0.037,
+    "CYr": 0.21,
+    "Clp": -0.47,
+    "Clda": 0.23,
+    "Cldr": 0.0147,
+    "Cmalpha": -1.8,
+    "Cmq": -12.4,
+    "Cmo": 0.1,
+    "Cmde": -1.28,
+    "Cnp": -0.03,
+    "Cnr": -0.099,
+    "Cnda": 0.0053,
+    "Cndr": -0.043
+  },
+  "tables": {
+    "CL_static": [
+      [
+        -0.09,
+        -0.22
+      ],
+      [
+        0.0,
+        0.25
+      ],
+      [
+        0.09,
+        0.73
+      ],
+      [
+        0.1,
+        0.83
+      ],
+      [
+        0.12,
+        0.92
+      ],
+      [
+        0.14,
+        1.02
+      ],
+      [
+        0.16,
+        1.08
+      ],
+      [
+        0.17,
+        1.13
+      ],
+      [
+        0.19,
+        1.19
+      ],
+      [
+        0.21,
+        1.25
+      ],
+      [
+        0.24,
+        1.35
+      ],
+      [
+        0.26,
+        1.44
+      ],
+      [
+        0.28,
+        1.47
+      ],
+      [
+        0.3,
+        1.43
+      ],
+      [
+        0.32,
+        1.38
+      ],
+      [
+        0.34,
+        1.3
+      ],
+      [
+        0.36,
+        1.15
+      ]
+    ],
+    "CD_alpha": [
+      [
+        -0.0872664,
+        0.00407143
+      ],
+      [
+        -0.0698132,
+        0.0013424
+      ],
+      [
+        -0.0523599,
+        8.96747e-05
+      ],
+      [
+        -0.0349066,
+        0.000313268
+      ],
+      [
+        -0.0174533,
+        0.00201318
+      ],
+      [
+        0.0,
+        0.0051894
+      ],
+      [
+        0.0174533,
+        0.00993967
+      ],
+      [
+        0.0349066,
+        0.0162201
+      ],
+      [
+        0.0523599,
+        0.0240308
+      ],
+      [
+        0.0698132,
+        0.0333717
+      ],
+      [
+        0.0872664,
+        0.0442427
+      ],
+      [
+        0.10472,
+        0.056644
+      ],
+      [
+        0.122173,
+        0.0705754
+      ],
+      [
+        0.139626,
+        0.086037
+      ],
+      [
+        0.15708,
+        0.096239
+      ],
+      [
+        0.174533,
+        0.106859
+      ],
+      [
+        0.191986,
+        0.118034
+      ],
+      [
+        0.209439,
+        0.129765
+      ],
+      [
+        0.226893,
+        0.142366
+      ],
+      [
+        0.244346,
+        0.156452
+      ],
+      [
+        0.261799,
+        0.172732
+      ],
+      [
+        0.279253,
+        0.178209
+      ],
+      [
+        0.296706,
+        0.171598
+      ],
+      [
+        0.314159,
+        0.161786
+      ],
+      [
+        0.331613,
+        0.147493
+      ],
+      [
+        0.349066,
+        0.109678
+      ]
+    ],
+    "CY_beta": [
+      [
+        -0.349,
+        0.108
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.349,
+        -0.108
+      ]
+    ],
+    "Cl_beta": [
+      [
+        -0.349,
+        0.0311
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.349,
+        -0.0311
+      ]
+    ],
+    "Cl_r": [
+      [
+        0.0,
+        0.08
+      ],
+      [
+        0.094,
+        0.19
+      ]
+    ],
+    "Cn_beta": [
+      [
+        -0.349,
+        -0.0227
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.349,
+        0.0227
+      ]
+    ]
+  },
+  "gravity_m_s2": 9.80665,
+  "density_kg_m3": 1.1116425003060326,
+  "density_description": "ISA troposphere value at 1000 m, held constant during initial comparisons.",
+  "omitted_source_terms": [
+    "CLadot and Cmadot acceleration-dependent contributions",
+    "additional multidimensional CLalpha contribution present in c172x",
+    "flaps, stall hysteresis and ground effect",
+    "engine/propeller dynamics, slipstream, gyroscopic and propeller torque effects",
+    "autopilot, actuators, wind, Earth curvature and rotation, fuel burn and ground contact"
+  ],
+  "control_interface": "Actual elevator and effective-aileron and rudder deflections in radians; prescribed axial thrust in N.",
+  "study_domain": {
+    "Va_m_s": [
+      25,
+      75
+    ],
+    "alpha_deg": [
+      -2.5,
+      6.5
+    ],
+    "beta_abs_deg": 8,
+    "theta_abs_deg": 60
+  }
+}

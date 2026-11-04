@@ -1,0 +1,89 @@
+{
+  "model": "Educational reduced civil C172P; own dynamics, SciPy integration",
+  "source_commit": "c455897049e044860b3c282e955daca1d0a785fe",
+  "mass_kg": 804.6728643800001,
+  "inertia_body_kg_m2": [
+    [
+      1813.9908188000013,
+      3.874555609816438,
+      -9.577385867409436
+    ],
+    [
+      3.874555609816438,
+      1869.9162083343724,
+      9.994422777439311
+    ],
+    [
+      -9.577385867409436,
+      9.994422777439311,
+      3170.2450288521295
+    ]
+  ],
+  "density_kg_m3": 1.1116425003060326,
+  "trim_state": {
+    "Va_m_s": 50.0,
+    "alpha_rad": 0.014622656834586164,
+    "beta_rad": 0.0,
+    "p_rad_s": 0.0,
+    "q_rad_s": 0.0,
+    "r_rad_s": 0.0,
+    "phi_rad": 0.0006839352045585856,
+    "theta_rad": 0.014622653415072968,
+    "psi_rad": 0.0,
+    "xN_m": 0.0,
+    "xE_m": 0.0,
+    "xD_m": -1000.0
+  },
+  "trim_controls": {
+    "elevator_rad": 0.06530023529169846,
+    "aileron_rad": 0.005338134965912051,
+    "rudder_rad": 0.00027205957395414827,
+    "thrust_N": 1012.8722516746773
+  },
+  "trim_force_residual_N": [
+    -3.702069761857274e-10,
+    -5.524469770534779e-13,
+    -8.194547262974083e-10
+  ],
+  "trim_moment_residual_Nm": [
+    -6.821210263296962e-13,
+    3.158902472932823e-09,
+    -1.6271428648906294e-11
+  ],
+  "trim_scaled_residual_norm": 2.912479904686725e-13,
+  "trim_evaluations": 5,
+  "equilibrium_max_abs_state_change_first_9": [
+    3.766587042264291e-11,
+    6.03371519414253e-14,
+    1.3636063119837928e-14,
+    2.295602043381409e-14,
+    2.1884780852552332e-13,
+    9.351635812354112e-14,
+    4.850821350502188e-13,
+    5.290334142982189e-13,
+    1.5264692547679793e-12
+  ],
+  "equilibrium_max_altitude_change_m": 2.0406787371030077e-10,
+  "experiment": {
+    "duration_s": 30.0,
+    "elevator_increment_deg": -0.5,
+    "pulse_interval_s": [
+      2,
+      3
+    ]
+  },
+  "environment": {
+    "python": "3.14.4",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.9"
+  },
+  "scope_limitations": [
+    "CLadot and Cmadot acceleration-dependent contributions",
+    "additional multidimensional CLalpha contribution present in c172x",
+    "flaps, stall hysteresis and ground effect",
+    "engine/propeller dynamics, slipstream, gyroscopic and propeller torque effects",
+    "autopilot, actuators, wind, Earth curvature and rotation, fuel burn and ground contact"
+  ],
+  "reference_comparison": "Not yet compared quantitatively with a JSBSim execution or measured flight data."
+}

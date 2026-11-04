@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "purpose": "Civil Cessna 172P reference-data inventory; not a flight simulator",
+  "source": {
+    "repository": "JSBSim-Team/jsbsim",
+    "path": "aircraft/c172x/c172x.xml",
+    "commit": "c455897049e044860b3c282e955daca1d0a785fe",
+    "git_blob_sha1": "8f121c16eb81765b5ab672f80a4404e042fd179d",
+    "sha256": "b736f4b7560d5aab4d2a69026798be1d369b2b2bb5ddcf627aebfd441ba71840",
+    "byte_count": 70559,
+    "url": "https://github.com/JSBSim-Team/jsbsim/blob/c455897049e044860b3c282e955daca1d0a785fe/aircraft/c172x/c172x.xml",
+    "retrieved_date": "2026-11-04",
+    "author": "Tony Peden",
+    "description": "Models a 1982 Cessna 172P.",
+    "license_declaration": {
+      "licenseName": "GPL (General Public License)",
+      "licenseURL": "http://www.gnu.org/licenses/gpl.html"
+    },
+    "limitations": "Upstream educational model; mixes public data and estimates; limited validation.",
+    "references_listed_by_upstream": [
+      {
+        "refID": "1",
+        "author": "Cessna Aircraft Company",
+        "title": "Information Manual Skyhawk Model 172P",
+        "date": "1982"
+      },
+      {
+        "refID": "2",
+        "author": "FAA",
+        "title": "Type Certificate Data Sheet No. 3A12",
+        "date": "5 May 2011"
+      }
+    ]
+  },
+  "unit_conversion_factors": {
+    "ft_to_m": 0.3048,
+    "in_to_m": 0.0254,
+    "lb_to_kg": 0.45359237,
+    "slug_to_kg": 14.593902937206362,
+    "slug_ft2_to_kg_m2": 1.3558179483314003
+  },
+  "geometry": {
+    "wingarea": {
+      "source_value": 174.0,
+      "source_unit": "FT2",
+      "si_value": 16.16512896,
+      "si_unit": "m^2",
+      "source_xpath": "./metrics/wingarea"
+    },
+    "wingspan": {
+      "source_value": 36.0,
+      "source_unit": "FT",
+      "si_value": 10.972800000000001,
+      "si_unit": "m",
+      "source_xpath": "./metrics/wingspan"
+    },
+    "chord": {
+      "source_value": 4.9,
+      "source_unit": "FT",
+      "si_value": 1.4935200000000002,
+      "si_unit": "m",
+      "source_xpath": "./metrics/chord"
+    },
+    "htailarea": {
+      "source_value": 21.9,
+      "source_unit": "FT2",
+      "si_value": 2.034576576,
+      "si_unit": "m^2",
+      "source_xpath": "./metrics/htailarea"
+    },
+    "htailarm": {
+      "source_value": 15.7,
+      "source_unit": "FT",
+      "si_value": 4.78536,
+      "si_unit": "m",
+      "source_xpath": "./metrics/htailarm"
+    },
+    "vtailarea": {
+      "source_value": 16.5,
+      "source_unit": "FT2",
+      "si_value": 1.53290016,
+      "si_unit": "m^2",
+      "source_xpath": "./metrics/vtailarea"
+    },
+    "vtailarm": {
+      "source_value": 15.7,
+      "source_unit": "FT",
+      "si_value": 4.78536,
+      "si_unit": "m",
+      "source_xpath": "./metrics/vtailarm"
+    }
+  },
+  "aerodynamic_reference_point": {
+    "source_value": [
+      43.2,
+      0.0,
+      59.4
+    ],
+    "source_unit": "IN",
+    "si_value": [
+      1.09728,
+      0.0,
+      1.5087599999999999
+    ],
+    "si_unit": "m",
+    "frame": "upstream structural frame: x aft, y right, z up"
+  },
+  "base_aircraft": {
+    "mass": {
+      "source_value": 1454.0,
+      "source_unit": "LBS",
+      "si_value": 659.52330598,
+      "si_unit": "kg",
+      "source_xpath": "./mass_balance/emptywt"
+    },
+    "cg": {
+      "source_value": [
+        41.0,
+        0.0,
+        36.5
+      ],
+      "source_unit": "IN",
+      "si_value": [
+        1.0413999999999999,
+        0.0,
+        0.9270999999999999
+      ],
+      "si_unit": "m",
+      "frame": "upstream structural frame: x aft, y right, z up"
+    },
+    "inertia_components": {
+      "ixx": {
+        "source_value": 948.0,
+        "source_unit": "SLUG*FT2",
+        "si_value": 1285.3154150181676,
+        "si_unit": "kg*m^2",
+        "source_xpath": "./mass_balance/ixx"
+      },
+      "iyy": {
+        "source_value": 1346.0,
+        "source_unit": "SLUG*FT2",
+        "si_value": 1824.930958454065,
+        "si_unit": "kg*m^2",
+        "source_xpath": "./mass_balance/iyy"
+      },
+      "izz": {
+        "source_value": 1967.0,
+        "source_unit": "SLUG*FT2",
+        "si_value": 2666.8939043678647,
+        "si_unit": "kg*m^2",
+        "source_xpath": "./mass_balance/izz"
+      },
+      "ixz": {
+        "source_value": 0.0,
+        "source_unit": "SLUG*FT2",
+        "si_value": 0.0,
+        "si_unit": "kg*m^2",
+        "source_xpath": "./mass_balance/ixz"
+      }
+    },
+    "interpretation": "Base-aircraft properties. Do not use as loaded-aircraft inertia."
+  },
+  "source_default_point_masses": [
+    {
+      "name": "PILOT",
+      "default_mass": {
+        "source_value": 190.0,
+        "source_unit": "LBS",
+        "si_value": 86.1825503,
+        "si_unit": "kg"
+      },
+      "location": {
+        "source_value": [
+          36.0,
+          -14.0,
+          24.0
+        ],
+        "source_unit": "IN",
+        "si_value": [
+          0.9144,
+          -0.35559999999999997,
+          0.6095999999999999
+        ],
+        "si_unit": "m",
+        "frame": "upstream structural frame: x aft, y right, z up"
+      }
+    },
+    {
+      "name": "CO-PILOT",
+      "default_mass": {
+        "source_value": 140.0,
+        "source_unit": "LBS",
+        "si_value": 63.502931800000006,
+        "si_unit": "kg"
+      },
+      "location": {
+        "source_value": [
+          36.0,
+          14.0,
+          24.0
+        ],
+        "source_unit": "IN",
+        "si_value": [
+          0.9144,
+          0.35559999999999997,
+          0.6095999999999999
+        ],
+        "si_unit": "m",
+        "frame": "upstream structural frame: x aft, y right, z up"
+      }
+    },
+    {
+      "name": "PASSENGER 1",
+      "default_mass": {
+        "source_value": 130.0,
+        "source_unit": "LBS",
+        "si_value": 58.9670081,
+        "si_unit": "kg"
+      },
+      "location": {
+        "source_value": [
+          60.0,
+          -14.0,
+          24.0
+        ],
+        "source_unit": "IN",
+        "si_value": [
+          1.524,
+          -0.35559999999999997,
+          0.6095999999999999
+        ],
+        "si_unit": "m",
+        "frame": "upstream structural frame: x aft, y right, z up"
+      }
+    },
+    {
+      "name": "PASSENGER 2",
+      "default_mass": {
+        "source_value": 106.0,
+        "source_unit": "LBS",
+        "si_value": 48.08079122,
+        "si_unit": "kg"
+      },
+      "location": {
+        "source_value": [
+          60.0,
+          14.0,
+          24.0
+        ],
+        "source_unit": "IN",
+        "si_value": [
+          1.524,
+          0.35559999999999997,
+          0.6095999999999999
+        ],
+        "si_unit": "m",
+        "frame": "upstream structural frame: x aft, y right, z up"
+      }
+    },
+    {
+      "name": "LUGGAGE",
+      "default_mass": {
+        "source_value": 120.0,
+        "source_unit": "LBS",
+        "si_value": 54.4310844,
+        "si_unit": "kg"
+      },
+      "location": {
+        "source_value": [
+          95.0,
+          0.0,
+          24.0
+        ],
+        "source_unit": "IN",
+        "si_value": [
+          2.413,
+          0.0,
+          0.6095999999999999
+        ],
+        "si_unit": "m",
+        "frame": "upstream structural frame: x aft, y right, z up"
+      }
+    },
+    {
+      "name": "PesticideBomb",
+      "default_mass": {
+        "source_value": 80.0,
+        "source_unit": "LBS",
+        "si_value": 36.287389600000004,
+        "si_unit": "kg"
+      },
+      "location": {
+        "source_value": [
+          41.0,
+          144.0,
+          36.0
+        ],
+        "source_unit": "IN",
+        "si_value": [
+          1.0413999999999999,
+          3.6576,
+          0.9144
+        ],
+        "si_unit": "m",
+        "frame": "upstream structural frame: x aft, y right, z up"
+      }
+    }
+  ],
+  "source_default_fuel_tanks": [
+    {
+      "index": 0,
+      "type": "FUEL",
+      "capacity": {
+        "source_value": 130.0,
+        "source_unit": "LBS",
+        "si_value": 58.9670081,
+        "si_unit": "kg"
+      },
+      "default_contents": {
+        "source_value": 130.0,
+        "source_unit": "LBS",
+        "si_value": 58.9670081,
+        "si_unit": "kg"
+      },
+      "location": {
+        "source_value": [
+          48.0,
+          -112.0,
+          59.4
+        ],
+        "source_unit": "IN",
+        "si_value": [
+          1.2191999999999998,
+          -2.8447999999999998,
+          1.5087599999999999
+        ],
+        "si_unit": "m",
+        "frame": "upstream structural frame: x aft, y right, z up"
+      }
+    },
+    {
+      "index": 1,
+      "type": "FUEL",
+      "capacity": {
+        "source_value": 130.0,
+        "source_unit": "LBS",
+        "si_value": 58.9670081,
+        "si_unit": "kg"
+      },
+      "default_contents": {
+        "source_value": 130.0,
+        "source_unit": "LBS",
+        "si_value": 58.9670081,
+        "si_unit": "kg"
+      },
+      "location": {
+        "source_value": [
+          48.0,
+          112.0,
+          59.4
+        ],
+        "source_unit": "IN",
+        "si_value": [
+          1.2191999999999998,
+          2.8447999999999998,
+          1.5087599999999999
+        ],
+        "si_unit": "m",
+        "frame": "upstream structural frame: x aft, y right, z up"
+      }
+    }
+  ],
+  "aerodynamic_inventory": {
+    "LIFT": [
+      "aero/coefficient/CLwbh",
+      "aero/coefficient/CLDf",
+      "aero/coefficient/CLDe",
+      "aero/coefficient/CLadot",
+      "aero/coefficient/CLq",
+      "aero/coefficient/CLalpha"
+    ],
+    "DRAG": [
+      "aero/coefficient/CDo",
+      "aero/coefficient/CDDf",
+      "aero/coefficient/CDwbh",
+      "aero/coefficient/CDDe",
+      "aero/coefficient/CDbeta"
+    ],
+    "SIDE": [
+      "aero/coefficient/CYb",
+      "aero/coefficient/CYda",
+      "aero/coefficient/CYdr",
+      "aero/coefficient/CYp",
+      "aero/coefficient/CYr"
+    ],
+    "ROLL": [
+      "aero/coefficient/Clb",
+      "aero/coefficient/Clp",
+      "aero/coefficient/Clr",
+      "aero/coefficient/Clda",
+      "aero/coefficient/Cldr"
+    ],
+    "PITCH": [
+      "aero/coefficient/Cmalpha",
+      "aero/coefficient/CmDf",
+      "aero/coefficient/Cmq",
+      "aero/coefficient/Cmadot",
+      "aero/coefficient/Cmo",
+      "aero/coefficient/Cmde"
+    ],
+    "YAW": [
+      "aero/coefficient/Cnb",
+      "aero/coefficient/Cnp",
+      "aero/coefficient/Cnr",
+      "aero/coefficient/Cnda",
+      "aero/coefficient/Cndr"
+    ]
+  },
+  "propulsion_file_references": {
+    "engine": "eng_io320",
+    "propeller": "prop_75in2f",
+    "dependency_status": "Names inventoried; dependency files not acquired or evaluated in this milestone."
+  },
+  "warnings": [
+    "Source configuration includes extra point masses; defaults are not the selected load case.",
+    "Locations are in structural axes, not body axes.",
+    "Base-aircraft inertia is not the inertia of the loaded aircraft.",
+    "Source namespace 'aero/coefficient' does not guarantee a dimensionless output; inspect each function.",
+    "Geometric wingarea/wingspan and source reference chord are distinct source quantities.",
+    "Agreement with another simulator is not flight-test validation."
+  ]
+}

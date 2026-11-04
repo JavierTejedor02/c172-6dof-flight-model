@@ -1,0 +1,15 @@
+test_loaded_mass_and_inertia_are_physical (test_simulation.AircraftChecks.test_loaded_mass_and_inertia_are_physical) ... ok
+test_pulse_converges_when_solver_precision_is_increased (test_simulation.AircraftChecks.test_pulse_converges_when_solver_precision_is_increased) ... ok
+test_trim_balances_forces_moments_and_altitude_rate (test_simulation.AircraftChecks.test_trim_balances_forces_moments_and_altitude_rate) ... ok
+test_trim_stays_steady_for_thirty_seconds (test_simulation.AircraftChecks.test_trim_stays_steady_for_thirty_seconds) ... ok
+test_zero_speed_start_is_rejected (test_simulation.AircraftChecks.test_zero_speed_start_is_rejected) ... ok
+test_air_data_velocity_and_wind_axis_agree (test_simulation.FrameChecks.test_air_data_velocity_and_wind_axis_agree) ... ok
+test_heading_ninety_points_body_x_east (test_simulation.FrameChecks.test_heading_ninety_points_body_x_east) ... ok
+test_rotation_matrices_are_proper (test_simulation.FrameChecks.test_rotation_matrices_are_proper) ... ok
+test_gravity_only_matches_analytic_free_motion (test_simulation.MechanicsChecks.test_gravity_only_matches_analytic_free_motion) ... ok
+test_torque_free_energy_and_inertial_momentum (test_simulation.MechanicsChecks.test_torque_free_energy_and_inertial_momentum) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 39.313s
+
+OK

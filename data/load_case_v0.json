@@ -1,0 +1,61 @@
+{
+  "name": "pilot_half_fuel_v0",
+  "status": "mass_cg_and_inertia_defined",
+  "reference_commit": "c455897049e044860b3c282e955daca1d0a785fe",
+  "choices": {
+    "description": "One pilot, half fuel in each tank, other point masses set to zero.",
+    "pilot_mass_kg": 86.1825503,
+    "point_masses_kg": {
+      "PILOT": 86.1825503,
+      "CO-PILOT": 0.0,
+      "PASSENGER 1": 0.0,
+      "PASSENGER 2": 0.0,
+      "LUGGAGE": 0.0,
+      "PesticideBomb": 0.0
+    },
+    "fuel_mass_per_tank_kg": [
+      29.48350405,
+      29.48350405
+    ],
+    "fuel_capacity_fraction": 0.5,
+    "fuel_burn": "Frozen for initial short-duration comparisons.",
+    "flap_setting_rad": 0.0
+  },
+  "derived": {
+    "total_mass_kg": 804.6728643800001,
+    "cg_structural_m": [
+      1.0408272829763245,
+      -0.038085682074408114,
+      0.9357193912063133
+    ],
+    "cg_frame": "upstream structural frame: x aft, y right, z up",
+    "inertia_loaded_kg_m2": [
+      [
+        1813.9908188000013,
+        3.874555609816438,
+        -9.577385867409436
+      ],
+      [
+        3.874555609816438,
+        1869.9162083343724,
+        9.994422777439311
+      ],
+      [
+        -9.577385867409436,
+        9.994422777439311,
+        3170.2450288521295
+      ]
+    ],
+    "inertia_status": "Assembled with parallel-axis theorem; liquid tank self inertia follows source convention."
+  },
+  "initial_flight_condition": {
+    "status": "Target only; trim has not been solved.",
+    "true_airspeed_target_m_s": 50.0,
+    "altitude_target_m": 1000.0,
+    "environment": "local flat Earth, no wind",
+    "atmosphere_status": "ISA density at 1000 m held constant; no wind.",
+    "alpha_rad": null,
+    "theta_rad": null,
+    "controls": null
+  }
+}
