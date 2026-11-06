@@ -13,7 +13,7 @@ os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "c172sim
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from c172sim import Aircraft, level_trim, simulate_segments
+from c172sim import Aircraft, __version__, level_trim, simulate_segments
 from c172sim.dynamics import STATE_NAMES
 
 def save_csv(filename, simulation):
@@ -28,21 +28,27 @@ def main():
     parser.add_argument("--duration",type=float,default=30.0)
     parser.add_argument("--pulse-deg",type=float,default=-0.5,
                         help="Elevator increment between t=2 and t=3 seconds")
+    parser.add_argument("--method", choices=["DOP853", "EULER", "RK4"], default="DOP853")
+    parser.add_argument("--step-size", type=float, default=0.05,
+                        help="Fixed step for Euler/RK4; maximum adaptive step for DOP853 [s]")
     parser.add_argument("--output-dir",type=Path,default=Path(__file__).resolve().parent/"results")
     args=parser.parse_args()
-    if args.duration <= 3 or not np.isfinite(args.duration) or not np.isfinite(args.pulse_deg):
-        parser.error("Duration must exceed 3 s and arguments must be finite")
+    if (args.duration <= 3 or not np.isfinite(args.duration) or not np.isfinite(args.pulse_deg)
+            or not np.isfinite(args.step_size) or args.step_size <= 0):
+        parser.error("Duration must exceed 3 s, step size must be positive, and arguments must be finite")
     aircraft=Aircraft()
     trim=level_trim(aircraft)
     u=trim.controls
     pulse=replace(u,elevator_rad=u.elevator_rad+np.deg2rad(args.pulse_deg))
-    equilibrium=simulate_segments(aircraft,trim.state,[(args.duration,u)])
-    response=simulate_segments(aircraft,trim.state,[(2.0,u),(1.0,pulse),(args.duration-3.0,u)])
+    solver_options = dict(method=args.method, step_size=args.step_size, max_step=args.step_size)
+    equilibrium=simulate_segments(aircraft,trim.state,[(args.duration,u)], **solver_options)
+    response=simulate_segments(aircraft,trim.state,[(2.0,u),(1.0,pulse),(args.duration-3.0,u)], **solver_options)
     args.output_dir.mkdir(parents=True,exist_ok=True)
     save_csv(args.output_dir/"equilibrium.csv",equilibrium)
     save_csv(args.output_dir/"elevator_pulse.csv",response)
     report={
-        "model":"Educational reduced civil C172P; own dynamics, SciPy integration",
+        "model":"Educational reduced civil C172P; explicit force/moment and rigid-body model",
+        "software_version":__version__,
         "source_commit":aircraft.data["source_commit"],
         "mass_kg":aircraft.mass,"inertia_body_kg_m2":aircraft.inertia.tolist(),
         "density_kg_m3":aircraft.rho,
@@ -55,6 +61,9 @@ def main():
         "equilibrium_max_abs_state_change_first_9":np.max(np.abs(equilibrium.states[:,:9]-trim.state[:9]),axis=0).tolist(),
         "equilibrium_max_altitude_change_m":float(np.max(np.abs(equilibrium.states[:,11]-trim.state[11]))),
         "experiment":{"duration_s":args.duration,"elevator_increment_deg":args.pulse_deg,"pulse_interval_s":[2,3]},
+        "integration":{"method":args.method,"step_limit_s":args.step_size,
+                       "step_kind":"adaptive_maximum" if args.method == "DOP853" else "fixed",
+                       "equilibrium_nfev":equilibrium.nfev,"response_nfev":response.nfev},
         "environment":{"python":platform.python_version(),"numpy":np.__version__,
                        "scipy":scipy.__version__,"matplotlib":matplotlib.__version__},
         "scope_limitations":aircraft.data["omitted_source_terms"],
@@ -80,7 +89,7 @@ def main():
         ax.ticklabel_format(axis="y",style="plain",useOffset=False)
     for ax in axes[-1]:ax.set_xlabel("Time [s]")
     axes[0,0].legend(loc="best",frameon=False)
-    fig.suptitle("Reduced C172P | open-loop elevator response",fontsize=17,x=0.08,ha="left")
+    fig.suptitle(f"Reduced C172P | {args.method} | open-loop elevator response",fontsize=17,x=0.08,ha="left")
     fig.text(0.08,0.935,
              f"50 m/s, 1000 m initial altitude | elevator increment {args.pulse_deg:+.2f} deg at 2-3 s | constant density",
              color="#4b5563",fontsize=10)

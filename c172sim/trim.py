@@ -1,7 +1,6 @@
 """Straight, level, zero-sideslip equilibrium of the reduced civil-aircraft model."""
 from dataclasses import dataclass
 import numpy as np
-from scipy.optimize import least_squares
 from .aircraft import Controls
 from .frames import body_to_ned
 from .dynamics import rhs
@@ -16,6 +15,7 @@ class TrimResult:
     evaluations: int
 
 def level_trim(aircraft, airspeed=50.0, altitude=1000.0):
+    from scipy.optimize import least_squares
     if not 25 < airspeed < 75:
         raise ValueError("Requested trim speed outside the study domain")
     # Unknowns: alpha, bank, elevator, effective aileron, rudder, axial thrust.

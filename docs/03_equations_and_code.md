@@ -90,9 +90,11 @@ Initial altitude sets the NED vertical coordinate. Changing that altitude alone 
 
 ## Integration: `c172sim/simulation.py`
 
-SciPy DOP853 integrates the model's `rhs` function. Each evaluation supplies twelve state derivatives; the integrator constructs their time history.
+The model's `rhs` function supplies twelve state derivatives. Explicit Euler and classical RK4 updates are implemented in `c172sim/integrators.py`; SciPy DOP853 remains the default adaptive method. `c172sim/simulation.py` advances the state using the selected method and constructs its time history.
 
 The elevator pulse is represented by constant-control intervals. The final state of each interval initializes the next, placing input discontinuities explicitly at segment boundaries.
+
+The [integrator guide](04_integrators.md) explains the fixed-step formulas, the distinction between output sampling and adaptive steps, and the numerical accuracy/cost experiment.
 
 ## Verification evidence and limits
 

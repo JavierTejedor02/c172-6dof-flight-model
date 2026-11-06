@@ -1,6 +1,6 @@
 # Civil C172 model specification
 
-Status: version 0.1.0 is executable.
+Status: version 0.2.0 includes executable fixed-step integrators and a comparison experiment.
 
 ## Purpose and reference
 
@@ -42,6 +42,8 @@ Omit CLadot and Cmadot, additional multidimensional CLalpha, flap effects, stall
 
 The demonstration solves straight, level, beta=0 flight at 50 m/s and 1000 m. Small lateral trim offsets are allowed for the left-seat pilot's CG displacement. The solver balances all three force components and all three moment components; theta enforces zero vertical velocity.
 
-Two 30 s runs are supplied: steady trim and a -0.5 deg elevator increment between t=2 and t=3 s. SciPy DOP853 integrates the 12-state derivative, with intervals split at input changes. Typical maximum time step is 0.05 s.
+The original version 0.1.0 results contain two 30 s runs: steady trim and a -0.5 deg elevator increment between t=2 and t=3 s. DOP853 remains the default, with a maximum adaptive step of 0.05 s. Version 0.2.0 also supports explicit Euler and classical RK4, with a configurable fixed step. Every method splits intervals at input changes. Fixed methods save each step and shorten the last step of a segment; DOP853 separates output spacing from its adaptive internal steps.
 
-Ten tests check frames, analytic mechanics, mass/inertia, trim, equilibrium persistence, solver convergence and invalid initial speed. Measured flight-data validation and quantitative JSBSim comparison are pending.
+The suite contains twenty-two tests covering frames, analytic mechanics, mass/inertia, trim, equilibrium persistence, convergence, invalid inputs, fixed-step control boundaries and comparison metrics. The original ten-test result file is historical evidence, not a run of the expanded suite. Measured flight-data validation and quantitative JSBSim comparison remain pending.
+
+`compare_integrators.py` compares the perturbed trajectory using Euler, RK4 and DOP853, reports sampled numerical errors against a tight and refined DOP853 reference, and measures RHS evaluations and elapsed integration time. Reference convergence checks, failure handling and metric scales are described in [integrators and comparison](04_integrators.md).

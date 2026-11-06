@@ -2,7 +2,7 @@
 
 ## Scope
 
-Version 0.1.0 implements a nonlinear, rigid-body, 6-DOF civil-aircraft model. It solves a straight-and-level equilibrium and integrates an equilibrium trajectory and an open-loop elevator-pulse response. The twelve states use true airspeed, angle of attack and sideslip for translational velocity. JSBSim supplies reference data and is not executed.
+Version 0.2.0 implements a nonlinear, rigid-body, 6-DOF civil-aircraft model. It solves a straight-and-level equilibrium and integrates an equilibrium trajectory and an open-loop elevator-pulse response. The twelve states use true airspeed, angle of attack and sideslip for translational velocity. Euler and RK4 provide educational fixed-step alternatives to the default adaptive DOP853 integrator. JSBSim supplies reference data and is not executed.
 
 The [package README](../README.md) provides prerequisites, installation, execution commands, expected outputs and verification instructions. The [equation-to-code reference](03_equations_and_code.md) defines the governing equations.
 
@@ -22,8 +22,10 @@ Density is the ISA value at 1000 m and remains constant during the examples. Fue
 | `c172sim/aircraft.py` | State and controls | Non-gravitational resultant force and moment about the CG |
 | `c172sim/dynamics.py` | State, loads and aircraft properties | Twelve state derivatives |
 | `c172sim/trim.py` | Aircraft model, target speed and initial altitude | Equilibrium state and controls |
-| `c172sim/simulation.py` | Initial state and control segments | Time histories using SciPy DOP853 |
+| `c172sim/integrators.py` | Derivative function, time, state and step size | Explicit Euler and classical RK4 updates |
+| `c172sim/simulation.py` | Initial state and control segments | Time histories using Euler, RK4 or SciPy DOP853 |
 | `run_demo.py` | Experiment options | CSV trajectories, JSON report and saved plots |
+| `compare_integrators.py` | Step sizes, duration and timing repeats | Numerical error/cost reports and comparison figures |
 
 The derivative function encodes the physics. SciPy supplies the numerical algorithms for equilibrium optimization and time integration.
 
@@ -49,7 +51,7 @@ The demonstration uses 50 m/s and an initial altitude of 1000 m. Changing the tr
 
 ### Time integration
 
-`simulation.py` uses DOP853 with piecewise-constant controls. The elevator experiment is divided at the input changes so the integrator does not step across a discontinuity as though it were smooth. Each segment starts from the preceding segment's final state.
+`simulation.py` supports explicit Euler, classical RK4 and adaptive DOP853 with piecewise-constant controls. The elevator experiment is divided at input changes, and each segment starts from the preceding segment's final state. The [integrator comparison](04_integrators.md) documents the formulas, output sampling, step-size interpretation and accuracy/cost experiment.
 
 ## Reference experiment
 
@@ -59,7 +61,7 @@ The supplied result shows a fast response in angle of attack and pitch rate, tog
 
 ## Verification and limitations
 
-The test suite checks reference-frame geometry, air-data consistency, analytic gravity-only motion, torque-free energy and inertial angular momentum conservation, physical mass properties, trim balance, equilibrium persistence, solver convergence and zero-speed rejection. The packaged record reports ten passing tests. Reproduction commands are in the README.
+The test suite checks reference-frame geometry, air-data consistency, analytic gravity-only motion, torque-free invariants, physical mass properties, trim balance, equilibrium persistence, convergence, input rejection and fixed-step control boundaries. Analytic tests verify the simple integrators' expected orders. The packaged record reports the ten original version 0.1.0 tests; a fresh full-suite run also exercises the new tests. Reproduction commands are in the README.
 
 These checks support numerical and mechanical consistency. They do not establish aerodynamic accuracy against the real aircraft. Quantitative comparison with a JSBSim execution and measured flight data remains pending.
 
