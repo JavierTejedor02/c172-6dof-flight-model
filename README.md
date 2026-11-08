@@ -1,14 +1,41 @@
 # Educational C172P 6-DOF simulation
 
-**Version 0.2.0 - reduced civil-aircraft model with educational integrators.**
+**Version 0.3.0 - reduced civil-aircraft model with longitudinal and lateral pulse experiments.**
 
-A Python implementation of nonlinear rigid-body flight dynamics using true airspeed, angle of attack and sideslip as velocity states. It includes a straight-and-level trim calculation, open-loop time integration, an elevator-pulse example and analytic/numerical checks.
+A Python implementation of nonlinear rigid-body flight dynamics using true airspeed, angle of attack and sideslip as velocity states. It includes straight-and-level trim, open-loop time integration, independent elevator/aileron/rudder pulses, an integrator comparison and analytic/numerical checks.
 
 The implementation evaluates the forces and moments and implements Newton-Euler dynamics and Euler-angle kinematics. Explicit Euler and classical RK4 are implemented as readable fixed-step formulas; SciPy supplies the trim optimizer and adaptive DOP853 integrator. **JSBSim is not run or imported.**
 
 The aircraft data come from a pinned public JSBSim representation of a 1982 Cessna 172P. This is a deliberately reduced model, not a reproduction of the full JSBSim aircraft.
 
 ![Open-loop elevator response](results/response.png)
+
+## Lateral-directional responses
+
+The following experiments start independently from the same 50 m/s, 1000 m equilibrium. A +1 degree effective-aileron increment or a +1 degree rudder increment is held from 2 to 3 seconds; all other inputs stay at trim. After release, the surface returns to its trim deflection. Attitude and heading evolve freely because no feedback controller is active.
+
+The bundled lateral results use RK4 with a 0.01 s step and the checked recorded equilibrium. Halving the step to 0.005 s passed the recorded refinement check in [lateral_run.json](results/lateral/lateral_run.json). The elevator figure above is the original DOP853 example. These are reduced-model numerical responses, not flight-test validation.
+
+### Effective-aileron pulse
+
+Positive effective aileron initially produces positive roll acceleration in this model. The response also includes sideslip and yaw, and the residual bank continues to change the heading after the pulse ends.
+
+![Open-loop effective-aileron response](results/lateral/aileron_response.png)
+
+### Rudder pulse
+
+Positive model rudder initially produces negative yaw acceleration. The response includes coupled sideslip and roll. Signs refer to the implemented surface coordinates, not a normalized cockpit-command convention.
+
+![Open-loop rudder response](results/lateral/rudder_response.png)
+
+| Quantity | Aileron pulse | Rudder pulse |
+|---|---:|---:|
+| Surface increment relative to trim | +1 deg | +1 deg |
+| Maximum absolute sideslip | 0.448 deg | 0.801 deg |
+| Maximum absolute bank change from initial trim | 3.953 deg | 1.280 deg |
+| Heading change at 30 s | +16.637 deg | -3.535 deg |
+
+See [lateral experiments](docs/05_lateral_experiments.md) for reproduction, control signs, numerical evidence and interpretation.
 
 ## Quick start on Windows
 
@@ -40,6 +67,8 @@ python -m venv .venv
 
 Using the virtual environment's Python directly avoids changing PowerShell execution policy. If `python` is not recognized but the Windows Python launcher is installed, use `py -3 --version` and `py -3 -m venv .venv` for the first two commands. Subsequent commands use the environment's executable explicitly.
 
+An existing Python environment, including the interpreter selected in VS Code, can also be used. Confirm its dependencies with `python -c "import numpy, scipy, matplotlib"`, then run `python run_demo.py` or `python run_lateral_demo.py`. On Windows, `py -3` can replace `python` when using the Python launcher. The `.venv` commands require that environment to have been created first.
+
 The packaged data are ready to use; the XML download is needed only to reproduce data preparation.
 
 Packaged version 0.1.0 reference results record Python 3.14.4, NumPy 2.4.4, SciPy 1.17.1 and Matplotlib 3.10.9. Dependency ranges are in `requirements.txt`; the environment used for each new demonstration is recorded in `results/trim_and_run.json`. Those ranges do not pin an identical environment across installations.
@@ -54,7 +83,7 @@ Packaged version 0.1.0 reference results record Python 3.14.4, NumPy 2.4.4, SciP
 
 The demonstration first solves a 50 m/s, 1000 m level-flight target, then integrates equilibrium and perturbed trajectories. Elevator is reduced by 0.5 degrees from trim between 2 and 3 seconds. The input is split into segments so the integrator handles the discontinuities explicitly.
 
-The demonstration prints the output directory, trim angle of attack, elevator deflection, thrust and equilibrium altitude drift. For the packaged configuration, expected trim values are approximately 0.837817 deg, 3.741428 deg and 1012.872252 N respectively. Small numerical differences may occur between environments. A successful complete verification run reports `Ran 22 tests` and `OK`.
+The demonstration prints the output directory, trim angle of attack, elevator deflection, thrust and equilibrium altitude drift. For the packaged configuration, expected trim values are approximately 0.837817 deg, 3.741428 deg and 1012.872252 N respectively. Small numerical differences may occur between environments. A successful complete verification run reports `Ran 26 tests` and `OK`.
 
 Files generated by `run_demo.py` in `results/`:
 
@@ -96,6 +125,24 @@ To inspect one simple integrator separately:
 
 `--step-size` is fixed for Euler/RK4 and a maximum adaptive step for DOP853, which remains the default. See [integrators and comparison](docs/04_integrators.md) for formulas, parameter meanings, metrics, reference checks and limitations.
 
+## Run the lateral experiments
+
+```powershell
+.\.venv\Scripts\python.exe run_lateral_demo.py
+```
+
+This recomputes trim and runs an equilibrium baseline plus separate aileron and rudder pulses. Defaults are +1 degree from 2 to 3 seconds, 30 s total duration and DOP853. Select another input with `--aileron-deg` or `--rudder-deg`, and adjust the interval with `--pulse-start` and `--pulse-duration`. Other controls remain fixed at trim.
+
+To reproduce the numerical settings used for the bundled README figures:
+
+```powershell
+.\.venv\Scripts\python.exe run_lateral_demo.py --method RK4 --step-size 0.01 --trim-file results/trim_and_run.json --check-step
+```
+
+`--check-step` repeats a fixed-step experiment at half the step, rejects a failed refinement check and records measured differences in JSON. With an existing environment, `py -3 run_lateral_demo.py` is also valid after installing the dependencies for that interpreter. The script can be launched using an editor's Python Run action.
+
+Outputs in `results/lateral/`: `equilibrium.csv`, `aileron.csv`, `rudder.csv`, `lateral_run.json`, `aileron_response.png` and `rudder_response.png`. The JSON records the initial condition, actual controls, solver, environment and response metrics. The regular runner renders with Matplotlib; the bundled figures were exported offline with ReportLab, so their styling may differ. An incompatible or unbalanced recorded trim is rejected. Files with the same names are replaced on each run; use `--output-dir` to preserve a separate experiment.
+
 ## Read the code
 
 | File | Role |
@@ -107,13 +154,17 @@ To inspect one simple integrator separately:
 | `c172sim/integrators.py` | Explicit Euler and classical RK4 step formulas |
 | `c172sim/simulation.py` | Segmented integration with Euler, RK4 or SciPy DOP853 |
 | `run_demo.py` | Example setup, outputs and plots |
+| `run_lateral_demo.py` | Independent aileron/rudder experiments and lateral response plots |
 | `compare_integrators.py` | Integrator accuracy/cost experiment and comparison plots |
+| `c172sim/experiments.py` | Control pulses, independent lateral runs and recorded-trim checks |
+| `c172sim/reporting.py` | Shared trajectory CSV export |
 | `tools/audit_reference.py` | Original source audit and SI conversions |
 | `tools/build_model_data.py` | Loaded inertia assembly and reduced-model data extraction |
 | `tests/test_simulation.py` | Analytic mechanics and integration checks |
 | `tests/test_integrator_steps.py` | Analytic convergence and coupled-state checks of the simple formulas |
 | `tests/test_fixed_simulation.py` | Fixed-step flight, control-boundary and sampling checks |
 | `tests/test_comparison_metrics.py` | Error-unit scaling and exact reference timestamp checks |
+| `tests/test_lateral_experiments.py` | Lateral control signs, pulse isolation, refinement and trim reuse |
 
 The [technical overview](docs/00_technical_overview.md) describes the architecture and engineering decisions. The [equation-to-code reference](docs/03_equations_and_code.md) documents the governing equations and their implementation.
 
@@ -146,6 +197,8 @@ Tiny equilibrium drift demonstrates numerical consistency at the computed equili
 ## Verification and limits
 
 The packaged version 0.1.0 test record reports ten passing checks. They cover frame orientation, air-data consistency, gravity-only motion, torque-free energy and inertial angular momentum conservation, physical inertia, trim balance, equilibrium persistence, solver convergence and rejection of a zero-speed start. Version 0.2.0 adds twelve tests for Euler/RK4 formulas, convergence, control boundaries, input handling and comparison metrics. The verification command above checks the current installation.
+
+Version 0.3.0 adds four tests for lateral experiments. The bundled lateral trajectories also passed a separate RK4 step-halving check, recorded in `results/lateral/lateral_run.json`; this is numerical consistency evidence, not validation against the real aircraft.
 
 There is no quantitative comparison with a JSBSim execution or flight-test data yet.
 

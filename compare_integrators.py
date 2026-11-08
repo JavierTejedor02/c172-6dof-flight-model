@@ -193,7 +193,7 @@ def main():
     steps = sorted(set(args.steps), reverse=True)
     if len({f"{step:.12g}" for step in steps}) != len(steps):
         parser.error("Step sizes must be distinct at 12 significant digits")
-    from run_demo import save_csv
+    from c172sim.reporting import save_csv
 
     report, trajectories, reference = compare(args.duration, args.pulse_deg, steps, args.repeats)
     args.output_dir.mkdir(parents=True, exist_ok=True)

@@ -15,13 +15,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from c172sim import Aircraft, __version__, level_trim, simulate_segments
 from c172sim.dynamics import STATE_NAMES
-
-def save_csv(filename, simulation):
-    values = np.column_stack((simulation.time,simulation.states,
-                              -simulation.states[:,11],simulation.controls))
-    header = ("time_s,"+",".join(STATE_NAMES)+
-              ",altitude_m,elevator_rad,aileron_rad,rudder_rad,thrust_N")
-    np.savetxt(filename,values,delimiter=",",header=header,comments="",fmt="%.12g")
+from c172sim.reporting import save_csv
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)

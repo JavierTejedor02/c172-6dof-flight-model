@@ -2,7 +2,7 @@
 
 ## Scope
 
-Version 0.2.0 implements a nonlinear, rigid-body, 6-DOF civil-aircraft model. It solves a straight-and-level equilibrium and integrates an equilibrium trajectory and an open-loop elevator-pulse response. The twelve states use true airspeed, angle of attack and sideslip for translational velocity. Euler and RK4 provide educational fixed-step alternatives to the default adaptive DOP853 integrator. JSBSim supplies reference data and is not executed.
+Version 0.3.0 implements a nonlinear, rigid-body, 6-DOF civil-aircraft model. It solves straight-and-level equilibrium and integrates independent elevator, aileron and rudder pulse responses. The twelve states use true airspeed, angle of attack and sideslip for translational velocity. Euler and RK4 provide educational fixed-step alternatives to the default adaptive DOP853 integrator. JSBSim supplies reference data and is not executed.
 
 The [package README](../README.md) provides prerequisites, installation, execution commands, expected outputs and verification instructions. The [equation-to-code reference](03_equations_and_code.md) defines the governing equations.
 
@@ -25,6 +25,9 @@ Density is the ISA value at 1000 m and remains constant during the examples. Fue
 | `c172sim/integrators.py` | Derivative function, time, state and step size | Explicit Euler and classical RK4 updates |
 | `c172sim/simulation.py` | Initial state and control segments | Time histories using Euler, RK4 or SciPy DOP853 |
 | `run_demo.py` | Experiment options | CSV trajectories, JSON report and saved plots |
+| `run_lateral_demo.py` | Lateral pulse options and optional recorded trim | Independent aileron/rudder responses and figures |
+| `c172sim/experiments.py` | Trim controls, pulse definition and initial state | Control segments, checked trim reuse and lateral experiments |
+| `c172sim/reporting.py` | Simulation time histories | Shared CSV exports |
 | `compare_integrators.py` | Step sizes, duration and timing repeats | Numerical error/cost reports and comparison figures |
 
 The derivative function encodes the physics. SciPy supplies the numerical algorithms for equilibrium optimization and time integration.
@@ -58,6 +61,8 @@ The demonstration uses 50 m/s and an initial altitude of 1000 m. Changing the tr
 The default experiment lasts 30 seconds. A -0.5 degree elevator increment relative to trim is applied between 2 and 3 seconds. The dashed plot trace shows the equilibrium trajectory; the blue trace shows the perturbed response.
 
 The supplied result shows a fast response in angle of attack and pitch rate, together with a slower variation in speed and altitude. Formal modal identification would require linearization and eigenvalue analysis, which are outside this release. Lateral motion is permitted by the retained CG offset, inertia products and equation coupling.
+
+The [lateral experiments](05_lateral_experiments.md) separately apply +1 degree of effective aileron and rudder from 2 to 3 seconds, starting each trajectory from the same equilibrium. Six-panel figures show control input, sideslip, roll/yaw rates, bank and heading change. Other inputs remain at trim; no attitude or heading controller is active. The bundled RK4 results include step-refinement evidence.
 
 ## Verification and limitations
 

@@ -1,0 +1,161 @@
+{
+  "software_version": "0.3.0",
+  "source_commit": "c455897049e044860b3c282e955daca1d0a785fe",
+  "mass_kg": 804.6728643800001,
+  "density_kg_m3": 1.1116425003060326,
+  "inertia_body_kg_m2": [
+    [
+      1813.9908188000013,
+      3.874555609816438,
+      -9.577385867409436
+    ],
+    [
+      3.874555609816438,
+      1869.9162083343724,
+      9.994422777439311
+    ],
+    [
+      -9.577385867409436,
+      9.994422777439311,
+      3170.2450288521295
+    ]
+  ],
+  "trim_source": "Checked recorded equilibrium: trim_and_run.json",
+  "trim_state": {
+    "Va_m_s": 50.0,
+    "alpha_rad": 0.014622656834586164,
+    "beta_rad": 0.0,
+    "p_rad_s": 0.0,
+    "q_rad_s": 0.0,
+    "r_rad_s": 0.0,
+    "phi_rad": 0.0006839352045585856,
+    "theta_rad": 0.014622653415072968,
+    "psi_rad": 0.0,
+    "xN_m": 0.0,
+    "xE_m": 0.0,
+    "xD_m": -1000.0
+  },
+  "trim_controls": {
+    "elevator_rad": 0.06530023529169846,
+    "aileron_rad": 0.005338134965912051,
+    "rudder_rad": 0.00027205957395414827,
+    "thrust_N": 1012.8722516746773
+  },
+  "initial_first_nine_state_derivatives": [
+    -4.749104119862805e-13,
+    -2.022032702723457e-14,
+    -1.3739009929736312e-17,
+    -4.0397385835115535e-15,
+    1.689392690140165e-12,
+    -1.0470680740573345e-14,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "initial_vertical_position_rate_m_s": -3.042248611047918e-17,
+  "experiment": {
+    "duration_s": 30.0,
+    "aileron_increment_deg": 1.0,
+    "rudder_increment_deg": 1.0,
+    "pulse_interval_s": [
+      2.0,
+      3.0
+    ]
+  },
+  "integration": {
+    "method": "RK4",
+    "step_limit_s": 0.01,
+    "step_kind": "fixed",
+    "nfev": {
+      "equilibrium": 12000,
+      "aileron": 12000,
+      "rudder": 12000
+    }
+  },
+  "response_metrics": {
+    "aileron": {
+      "max_abs_sideslip_deg": 0.4476848986162154,
+      "max_abs_roll_rate_deg_s": 4.159961608101634,
+      "max_abs_yaw_rate_deg_s": 1.313032619108587,
+      "max_abs_bank_change_deg": 3.953400579004959,
+      "final_heading_change_deg": 16.637133325792448,
+      "minimum_airspeed_m_s": 49.96074658059581,
+      "maximum_airspeed_m_s": 50.111759792372055
+    },
+    "rudder": {
+      "max_abs_sideslip_deg": 0.8012542875320134,
+      "max_abs_roll_rate_deg_s": 1.5691102067845388,
+      "max_abs_yaw_rate_deg_s": 1.2866461902750532,
+      "max_abs_bank_change_deg": 1.279546732352003,
+      "final_heading_change_deg": -3.5352704754404742,
+      "minimum_airspeed_m_s": 49.88326951275752,
+      "maximum_airspeed_m_s": 50.09208271553278
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": null,
+    "matplotlib": null
+  },
+  "control_convention": "Actual effective-aileron and rudder deflections in model coordinates; positive signs are not a cockpit-command mapping.",
+  "limitations": "Open-loop reduced-model experiments, not flight-test validation or a modal-identification result. Each pulse starts independently from the same equilibrium; no controller restores attitude or heading.",
+  "step_refinement_check": {
+    "coarse_step_s": 0.01,
+    "fine_step_s": 0.005,
+    "passed": true,
+    "max_abs_difference_per_state": {
+      "equilibrium": [
+        1.9824142327706795e-12,
+        1.4276774207289122e-15,
+        1.630594694731001e-16,
+        7.196539862694466e-16,
+        1.1507149968294571e-14,
+        5.831329302571165e-16,
+        2.8934103377120657e-15,
+        4.956625387908531e-14,
+        4.565577494940427e-15,
+        5.3660187404602766e-11,
+        1.4295890859994387e-12,
+        7.310063665499911e-11
+      ],
+      "aileron": [
+        7.385830969042217e-08,
+        1.6617117872680387e-09,
+        2.2250416569988274e-10,
+        5.7107349196727775e-09,
+        2.0217645004059603e-08,
+        6.834991244861199e-10,
+        8.026764617558024e-10,
+        1.8536817913972214e-09,
+        2.3198964277382217e-10,
+        1.1266820365563035e-07,
+        8.725396583031397e-08,
+        1.3236558515927754e-07
+      ],
+      "rudder": [
+        6.089473316706062e-07,
+        7.60585401257674e-09,
+        1.2228846268946825e-09,
+        2.468906077843225e-09,
+        9.081057124121165e-08,
+        3.439221595014086e-09,
+        1.2611291212716313e-09,
+        1.0974712404479559e-08,
+        1.3797683412475337e-09,
+        2.4073436861726805e-06,
+        5.468788870643948e-07,
+        3.1191194693747093e-06
+      ]
+    },
+    "first_nine_state_difference_limit": 1e-05,
+    "position_difference_limit_m": 0.001,
+    "meaning": "Sampled numerical consistency check, not comparison with flight data."
+  },
+  "figure_renderer": {
+    "name": "ReportLab LinePlot",
+    "version": "4.4.9",
+    "rasterizer": "Poppler pdftoppm (bundled)",
+    "note": "Standard scientific charts exported offline; the regular runner uses Matplotlib."
+  }
+}
