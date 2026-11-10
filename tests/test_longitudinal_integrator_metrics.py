@@ -1,9 +1,9 @@
-"""Check physical error units and exact candidate/reference timestamp matching."""
+"""Longitudinal integrator benchmark units and exact reference timestamps."""
 from types import SimpleNamespace
 import unittest
 
 import numpy as np
-from compare_integrators import error_metrics, matched_states
+from compare_longitudinal_integrators import error_metrics, matched_states
 
 
 class ComparisonMetricChecks(unittest.TestCase):

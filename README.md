@@ -1,14 +1,18 @@
 # Educational C172P 6-DOF simulation
 
-**Version 0.3.0 - reduced civil-aircraft model with longitudinal and lateral pulse experiments.**
+**Version 0.4.0 - nonlinear and local perturbation models, candidate modes and explicit experiment names.**
 
-A Python implementation of nonlinear rigid-body flight dynamics using true airspeed, angle of attack and sideslip as velocity states. It includes straight-and-level trim, open-loop time integration, independent elevator/aileron/rudder pulses, an integrator comparison and analytic/numerical checks.
+A Python implementation of nonlinear rigid-body flight dynamics using true airspeed, angle of attack and sideslip as velocity states. It includes straight-and-level trim, independent longitudinal/lateral pulses, an integrator comparison, local perturbation matrices, candidate dynamic modes and linear/nonlinear response comparisons.
 
 The implementation evaluates the forces and moments and implements Newton-Euler dynamics and Euler-angle kinematics. Explicit Euler and classical RK4 are implemented as readable fixed-step formulas; SciPy supplies the trim optimizer and adaptive DOP853 integrator. **JSBSim is not run or imported.**
 
 The aircraft data come from a pinned public JSBSim representation of a 1982 Cessna 172P. This is a deliberately reduced model, not a reproduction of the full JSBSim aircraft.
 
-![Open-loop elevator response](results/response.png)
+## Longitudinal response
+
+The elevator example applies a -0.5 degree increment from 2 to 3 seconds. Other controls remain at trim.
+
+![Open-loop longitudinal elevator response](results/longitudinal/response.png)
 
 ## Lateral-directional responses
 
@@ -37,11 +41,33 @@ Positive model rudder initially produces negative yaw acceleration. The response
 
 See [lateral experiments](docs/05_lateral_experiments.md) for reproduction, control signs, numerical evidence and interpretation.
 
+## Local models and candidate dynamic modes
+
+The local-model study exports the full twelve-state A and B matrices and analyzes eight dynamic states, excluding neutral heading/position kinematics. The smooth central approximation identifies candidate phugoid, short-period, Dutch-roll, roll-subsidence and spiral modes. Full coupling is retained.
+
+The drag term `CDbeta * abs(beta)` has different left/right derivatives at the zero-sideslip trim. The study therefore reports a central LTI approximation and a directional, piecewise-linear approximation that retains this first-order effect. The original nonlinear aerodynamics are unchanged. Frozen local spectra do not prove nonlinear stability or real-aircraft accuracy.
+
+![Central and one-sided candidate dynamic spectra](results/linear_analysis/dynamic_modes.png)
+
+Eighteen pulse comparisons cover elevator, aileron and rudder inputs at +/-0.25, +/-0.5 and +/-1 degree. The differentiation increments and representative integration steps are independently refined. The normalized-error study exposes the central approximation's lateral error floor at the beta corner:
+
+![Positive and negative pulse-amplitude study](results/linear_analysis/amplitude_sweep.png)
+
+| Analysis output | File |
+|---|---|
+| Full ordered matrices | [A](results/linear_analysis/A.csv), [B](results/linear_analysis/B.csv) |
+| Candidate eigenvalues, periods and damping | [Modal report](results/linear_analysis/modes.md) |
+| Longitudinal linear/nonlinear response | [Elevator comparison](results/linear_analysis/longitudinal_linear_nonlinear.png) |
+| Lateral linear/nonlinear responses | [Aileron](results/linear_analysis/aileron_linear_nonlinear.png), [rudder](results/linear_analysis/rudder_linear_nonlinear.png) |
+| All case metrics and refinement evidence | [Comparison report](results/linear_analysis/comparison.json) |
+
+See [local models and modes](docs/06_local_models_and_modes.md) for derivation, control/state ordering, the nonsmooth treatment, reproduction and limits.
+
 ## Quick start on Windows
 
 Prerequisites: Python 3.11 or newer with `venv` and `pip`, and PowerShell. Installation requires internet access unless the dependencies are available locally. NumPy, SciPy and Matplotlib are listed in `requirements.txt`.
 
-Open PowerShell in the repository root: the directory containing `run_demo.py`, `requirements.txt`, `c172sim/` and `data/`. The folder name and its parent directory do not affect the model; all commands below assume this working directory.
+Open PowerShell in the repository root: the directory containing `run_longitudinal_demo.py`, `requirements.txt`, `c172sim/` and `data/`. The folder name and its parent directory do not affect the model; all commands below assume this working directory.
 
 For a new checkout, clone the repository and enter the directory created by Git:
 
@@ -53,7 +79,7 @@ Set-Location '.\c172-6dof-flight-model'
 For an existing checkout or an extracted archive, open its root directly and skip the clone commands. A local folder named `c172-flight-model` is also valid; no version-numbered parent directory is required. Confirm the working directory before installation:
 
 ```powershell
-Get-Item run_demo.py, requirements.txt
+Get-Item run_longitudinal_demo.py, requirements.txt
 ```
 
 Run all commands below from that package root:
@@ -62,30 +88,30 @@ Run all commands below from that package root:
 python --version
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe run_demo.py
+.\.venv\Scripts\python.exe run_longitudinal_demo.py
 ```
 
 Using the virtual environment's Python directly avoids changing PowerShell execution policy. If `python` is not recognized but the Windows Python launcher is installed, use `py -3 --version` and `py -3 -m venv .venv` for the first two commands. Subsequent commands use the environment's executable explicitly.
 
-An existing Python environment, including the interpreter selected in VS Code, can also be used. Confirm its dependencies with `python -c "import numpy, scipy, matplotlib"`, then run `python run_demo.py` or `python run_lateral_demo.py`. On Windows, `py -3` can replace `python` when using the Python launcher. The `.venv` commands require that environment to have been created first.
+An existing Python environment, including the interpreter selected in VS Code, can also be used. Confirm its dependencies with `python -c "import numpy, scipy, matplotlib"`, then run `python run_longitudinal_demo.py` or `python run_lateral_demo.py`. On Windows, `py -3` can replace `python` when using the Python launcher. The `.venv` commands require that environment to have been created first.
 
 The packaged data are ready to use; the XML download is needed only to reproduce data preparation.
 
-Packaged version 0.1.0 reference results record Python 3.14.4, NumPy 2.4.4, SciPy 1.17.1 and Matplotlib 3.10.9. Dependency ranges are in `requirements.txt`; the environment used for each new demonstration is recorded in `results/trim_and_run.json`. Those ranges do not pin an identical environment across installations.
+Packaged version 0.1.0 reference results record Python 3.14.4, NumPy 2.4.4, SciPy 1.17.1 and Matplotlib 3.10.9. Dependency ranges are in `requirements.txt`; the environment used for each new demonstration is recorded in `results/longitudinal/trim_and_run.json`. Those ranges do not pin an identical environment across installations.
 
 ## Run and inspect
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
-.\.venv\Scripts\python.exe run_demo.py --duration 30 --pulse-deg -0.5
-.\.venv\Scripts\python.exe run_demo.py --help
+.\.venv\Scripts\python.exe run_longitudinal_demo.py --duration 30 --pulse-deg -0.5
+.\.venv\Scripts\python.exe run_longitudinal_demo.py --help
 ```
 
 The demonstration first solves a 50 m/s, 1000 m level-flight target, then integrates equilibrium and perturbed trajectories. Elevator is reduced by 0.5 degrees from trim between 2 and 3 seconds. The input is split into segments so the integrator handles the discontinuities explicitly.
 
-The demonstration prints the output directory, trim angle of attack, elevator deflection, thrust and equilibrium altitude drift. For the packaged configuration, expected trim values are approximately 0.837817 deg, 3.741428 deg and 1012.872252 N respectively. Small numerical differences may occur between environments. A successful complete verification run reports `Ran 26 tests` and `OK`.
+The demonstration prints the output directory, trim angle of attack, elevator deflection, thrust and equilibrium altitude drift. For the packaged configuration, expected trim values are approximately 0.837817 deg, 3.741428 deg and 1012.872252 N respectively. Small numerical differences may occur between environments. A successful complete verification run reports `OK`; the required dependencies must be installed to run all tests without skips or import errors.
 
-Files generated by `run_demo.py` in `results/`:
+Files generated by `run_longitudinal_demo.py` in `results/longitudinal/`:
 
 | File | Content |
 |---|---|
@@ -94,7 +120,7 @@ Files generated by `run_demo.py` in `results/`:
 | `elevator_pulse.csv` | Full 12-state perturbed time history and controls |
 | `trim_and_run.json` | Trim values, residuals, environment and run metadata |
 
-The packaged `results/test_run.txt` records the original ten-test version 0.1.0 verification run; it does not verify the new integrators. `run_demo.py` does not create or update it. To record a fresh test run in PowerShell:
+The packaged `results/test_run.txt` records the original ten-test version 0.1.0 verification run; it does not verify the new integrators. `run_longitudinal_demo.py` does not create or update it. To record a fresh test run in PowerShell:
 
 ```powershell
 New-Item -ItemType Directory -Path results -Force | Out-Null
@@ -106,21 +132,21 @@ if ($testExitCode -ne 0) { throw 'Verification failed; see results/test_run.txt'
 
 The demonstration replaces files with the same names in its output directory. Use `--output-dir results/custom_run` to retain a separate experiment. Duration must be finite and greater than 3 seconds; `--pulse-deg` must be finite. A large pulse may exceed the documented study domain and stop integration. Plots are saved to disk without opening an interactive window.
 
-## Compare numerical integrators
+## Compare longitudinal numerical integrators
 
 For an integrator comparison, run:
 
 ```powershell
-.\.venv\Scripts\python.exe compare_integrators.py
+.\.venv\Scripts\python.exe compare_longitudinal_integrators.py
 ```
 
-This uses the same elevator pulse with Euler, RK4 and DOP853 at four step settings, compares each trajectory with a refined numerical reference, and measures RHS evaluations and median integration time. Reports, trajectory CSVs and two figures are written to `results/integrator_comparison/`. Failed candidates are reported without accuracy scores. The script also runs with defaults using an editor's Python Run action.
+This uses the same elevator pulse with Euler, RK4 and DOP853 at four step settings, compares each trajectory with a refined numerical reference, and measures RHS evaluations and median integration time. Reports, trajectory CSVs and two figures are written to `results/longitudinal_integrator_comparison/`. Failed candidates are reported without accuracy scores. The script also runs with defaults using an editor's Python Run action.
 
 To inspect one simple integrator separately:
 
 ```powershell
-.\.venv\Scripts\python.exe run_demo.py --method EULER --step-size 0.025 --output-dir results/euler_demo
-.\.venv\Scripts\python.exe run_demo.py --method RK4 --step-size 0.05 --output-dir results/rk4_demo
+.\.venv\Scripts\python.exe run_longitudinal_demo.py --method EULER --step-size 0.025 --output-dir results/euler_demo
+.\.venv\Scripts\python.exe run_longitudinal_demo.py --method RK4 --step-size 0.05 --output-dir results/rk4_demo
 ```
 
 `--step-size` is fixed for Euler/RK4 and a maximum adaptive step for DOP853, which remains the default. See [integrators and comparison](docs/04_integrators.md) for formulas, parameter meanings, metrics, reference checks and limitations.
@@ -136,14 +162,41 @@ This recomputes trim and runs an equilibrium baseline plus separate aileron and 
 To reproduce the numerical settings used for the bundled README figures:
 
 ```powershell
-.\.venv\Scripts\python.exe run_lateral_demo.py --method RK4 --step-size 0.01 --trim-file results/trim_and_run.json --check-step
+.\.venv\Scripts\python.exe run_lateral_demo.py --method RK4 --step-size 0.01 --trim-file results/longitudinal/trim_and_run.json --check-step
 ```
 
 `--check-step` repeats a fixed-step experiment at half the step, rejects a failed refinement check and records measured differences in JSON. With an existing environment, `py -3 run_lateral_demo.py` is also valid after installing the dependencies for that interpreter. The script can be launched using an editor's Python Run action.
 
 Outputs in `results/lateral/`: `equilibrium.csv`, `aileron.csv`, `rudder.csv`, `lateral_run.json`, `aileron_response.png` and `rudder_response.png`. The JSON records the initial condition, actual controls, solver, environment and response metrics. The regular runner renders with Matplotlib; the bundled figures were exported offline with ReportLab, so their styling may differ. An incompatible or unbalanced recorded trim is rejected. Files with the same names are replaced on each run; use `--output-dir` to preserve a separate experiment.
 
+## Run the local-model study
+
+```powershell
+.\.venv\Scripts\python.exe run_linear_analysis.py
+```
+
+To reuse the checked reference trim:
+
+```powershell
+.\.venv\Scripts\python.exe run_linear_analysis.py --trim-file results/longitudinal/trim_and_run.json
+```
+
+This writes matrices, modal reports, eighteen linear/nonlinear comparisons, an amplitude sweep and figures to `results/linear_analysis/`. Default integration is RK4 with a 0.01 s step; the positive largest pulse for each surface is checked at 0.005 s. `--no-plots` supports a NumPy-only data run when a recorded trim is supplied. Normal plotting uses Matplotlib; bundled charts use ReportLab from the same numeric arrays. No additional plotting dependency is required for ordinary execution.
+
+## Experiment names and result directories
+
+| Entry point | Study | Default results |
+|---|---|---|
+| `run_longitudinal_demo.py` | Elevator pulse and trim baseline | `results/longitudinal/` |
+| `run_lateral_demo.py` | Independent aileron and rudder pulses | `results/lateral/` |
+| `compare_longitudinal_integrators.py` | Euler/RK4/DOP853 on the elevator pulse | `results/longitudinal_integrator_comparison/` |
+| `run_linear_analysis.py` | Coupled local models, modes and all three control pulses | `results/linear_analysis/` |
+
+The prior numerical results have been retained under their corresponding directories. Their original software-version metadata remains historical evidence. The generic model modules are shared by longitudinal and lateral experiments.
+
 ## Read the code
+
+Longitudinal and lateral labels identify the experiments. The common aircraft, dynamics, frame transformations and integrators retain the full coupled 6-DOF model.
 
 | File | Role |
 |---|---|
@@ -153,9 +206,12 @@ Outputs in `results/lateral/`: `equilibrium.csv`, `aileron.csv`, `rudder.csv`, `
 | `c172sim/trim.py` | Numerical level-flight equilibrium calculation |
 | `c172sim/integrators.py` | Explicit Euler and classical RK4 step formulas |
 | `c172sim/simulation.py` | Segmented integration with Euler, RK4 or SciPy DOP853 |
-| `run_demo.py` | Example setup, outputs and plots |
+| `run_longitudinal_demo.py` | Longitudinal elevator pulse, equilibrium baseline and plots |
 | `run_lateral_demo.py` | Independent aileron/rudder experiments and lateral response plots |
-| `compare_integrators.py` | Integrator accuracy/cost experiment and comparison plots |
+| `compare_longitudinal_integrators.py` | Longitudinal integrator accuracy/cost comparison |
+| `run_linear_analysis.py` | Local matrices, candidate modes, amplitude sweeps and nonlinear comparisons |
+| `c172sim/linearization.py` | Smooth-part Jacobians, exact drag cusp split and modal participation |
+| `c172sim/analysis_plots.py` | Plot definitions and Matplotlib renderer for the local-model study |
 | `c172sim/experiments.py` | Control pulses, independent lateral runs and recorded-trim checks |
 | `c172sim/reporting.py` | Shared trajectory CSV export |
 | `tools/audit_reference.py` | Original source audit and SI conversions |
@@ -163,8 +219,9 @@ Outputs in `results/lateral/`: `equilibrium.csv`, `aileron.csv`, `rudder.csv`, `
 | `tests/test_simulation.py` | Analytic mechanics and integration checks |
 | `tests/test_integrator_steps.py` | Analytic convergence and coupled-state checks of the simple formulas |
 | `tests/test_fixed_simulation.py` | Fixed-step flight, control-boundary and sampling checks |
-| `tests/test_comparison_metrics.py` | Error-unit scaling and exact reference timestamp checks |
+| `tests/test_longitudinal_integrator_metrics.py` | Longitudinal benchmark error scaling and reference timestamp checks |
 | `tests/test_lateral_experiments.py` | Lateral control signs, pulse isolation, refinement and trim reuse |
+| `tests/test_linearization.py` | Drag split, local-order checks, modal invariance, comparison and export |
 
 The [technical overview](docs/00_technical_overview.md) describes the architecture and engineering decisions. The [equation-to-code reference](docs/03_equations_and_code.md) documents the governing equations and their implementation.
 
@@ -200,6 +257,10 @@ The packaged version 0.1.0 test record reports ten passing checks. They cover fr
 
 Version 0.3.0 adds four tests for lateral experiments. The bundled lateral trajectories also passed a separate RK4 step-halving check, recorded in `results/lateral/lateral_run.json`; this is numerical consistency evidence, not validation against the real aircraft.
 
+Version 0.4.0 adds nine tests for local perturbation models and their output. The local matrices and response study include their own differentiation and integration refinement records. Existing source-data and flight-result records keep the software versions that originally generated them.
+
+The bundled [version 0.4.0 verification record](results/linear_analysis/verification.txt) contains 35 discovered tests: 27 passed and eight requiring SciPy were skipped because SciPy was unavailable in that execution environment. All nine new local-model tests passed. A full-dependency verification run remains necessary to exercise those eight checks with the current code.
+
 There is no quantitative comparison with a JSBSim execution or flight-test data yet.
 
 Simplifications are explicit in [the audit](docs/02_data_audit.md) and the data JSON. They include omitted alpha-rate contributions and the additional multidimensional lift term in the upstream c172x file; no stall hysteresis, ground effect, flaps, wind, actuator, engine/propeller dynamics, fuel burn or ground contact. Thrust is an input, not a validated engine model.
@@ -223,7 +284,7 @@ The first stage writes the raw inventory and provisional load case; the second c
 
 ## Version control
 
-The Git repository root is the directory containing this README and `run_demo.py`. Source auditing, data preparation, simulation, documentation and tests are maintained together in this repository.
+The Git repository root is the directory containing this README and `run_longitudinal_demo.py`. Source auditing, data preparation, simulation, documentation and tests are maintained together in this repository.
 
 Keep one working checkout and use Git commits for its history. Release identifiers such as `0.1.0` describe the software version, not a required directory name. Git tags can identify releases without creating duplicate project folders.
 

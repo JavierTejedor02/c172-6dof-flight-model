@@ -1,4 +1,4 @@
-"""Compare Euler, RK4 and DOP853 on the same open-loop C172 elevator pulse."""
+"""Compare Euler, RK4 and DOP853 on the same longitudinal elevator pulse."""
 from __future__ import annotations
 
 import argparse
@@ -103,7 +103,7 @@ def compare(duration, pulse_deg, steps, repeats):
             row.update(error_metrics(simulation.states, matched_states(reference, simulation.time)))
     report = {
         "software_version": __version__,
-        "experiment": {"duration_s": duration, "elevator_increment_deg": pulse_deg,
+        "experiment": {"channel": "longitudinal", "duration_s": duration, "elevator_increment_deg": pulse_deg,
                        "pulse_interval_s": [2, 3], "steps_s": steps, "timing_repeats": repeats},
         "environment": {"python": platform.python_version(), "numpy": np.__version__,
                         "scipy": scipy.__version__, "matplotlib": matplotlib.__version__},
@@ -185,7 +185,7 @@ def main():
     parser.add_argument("--steps", type=float, nargs="+", default=[0.2, 0.1, 0.05, 0.025],
                         help="Fixed steps for Euler/RK4; maximum adaptive steps for DOP853 [s]")
     parser.add_argument("--repeats", type=int, default=3, help="Complete integrations per timing measurement")
-    parser.add_argument("--output-dir", type=Path, default=Path(__file__).resolve().parent / "results" / "integrator_comparison")
+    parser.add_argument("--output-dir", type=Path, default=Path(__file__).resolve().parent / "results" / "longitudinal_integrator_comparison")
     args = parser.parse_args()
     if (not np.isfinite(args.duration) or args.duration <= 3 or not np.isfinite(args.pulse_deg)
             or not np.all(np.isfinite(args.steps)) or min(args.steps) <= 0 or args.repeats < 1):

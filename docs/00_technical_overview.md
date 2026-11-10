@@ -2,7 +2,7 @@
 
 ## Scope
 
-Version 0.3.0 implements a nonlinear, rigid-body, 6-DOF civil-aircraft model. It solves straight-and-level equilibrium and integrates independent elevator, aileron and rudder pulse responses. The twelve states use true airspeed, angle of attack and sideslip for translational velocity. Euler and RK4 provide educational fixed-step alternatives to the default adaptive DOP853 integrator. JSBSim supplies reference data and is not executed.
+Version 0.4.0 implements a nonlinear, rigid-body, 6-DOF civil-aircraft model, independent longitudinal/lateral pulse experiments, local perturbation matrices and candidate modal analysis. The twelve states use true airspeed, angle of attack and sideslip for translational velocity. Euler and RK4 provide educational fixed-step alternatives to the default adaptive DOP853 integrator. JSBSim supplies reference data and is not executed.
 
 The [package README](../README.md) provides prerequisites, installation, execution commands, expected outputs and verification instructions. The [equation-to-code reference](03_equations_and_code.md) defines the governing equations.
 
@@ -24,11 +24,13 @@ Density is the ISA value at 1000 m and remains constant during the examples. Fue
 | `c172sim/trim.py` | Aircraft model, target speed and initial altitude | Equilibrium state and controls |
 | `c172sim/integrators.py` | Derivative function, time, state and step size | Explicit Euler and classical RK4 updates |
 | `c172sim/simulation.py` | Initial state and control segments | Time histories using Euler, RK4 or SciPy DOP853 |
-| `run_demo.py` | Experiment options | CSV trajectories, JSON report and saved plots |
+| `run_longitudinal_demo.py` | Experiment options | CSV trajectories, JSON report and saved plots |
 | `run_lateral_demo.py` | Lateral pulse options and optional recorded trim | Independent aileron/rudder responses and figures |
 | `c172sim/experiments.py` | Trim controls, pulse definition and initial state | Control segments, checked trim reuse and lateral experiments |
 | `c172sim/reporting.py` | Simulation time histories | Shared CSV exports |
-| `compare_integrators.py` | Step sizes, duration and timing repeats | Numerical error/cost reports and comparison figures |
+| `compare_longitudinal_integrators.py` | Step sizes, duration and timing repeats | Numerical error/cost reports and comparison figures |
+| `run_linear_analysis.py` | Checked trim, amplitudes and step size | Local matrices, candidate spectra and nonlinear comparisons |
+| `c172sim/linearization.py` | Nonlinear RHS and operating condition | Smooth-part Jacobians, cusp coefficient and modal participation |
 
 The derivative function encodes the physics. SciPy supplies the numerical algorithms for equilibrium optimization and time integration.
 
@@ -63,6 +65,8 @@ The default experiment lasts 30 seconds. A -0.5 degree elevator increment relati
 The supplied result shows a fast response in angle of attack and pitch rate, together with a slower variation in speed and altitude. Formal modal identification would require linearization and eigenvalue analysis, which are outside this release. Lateral motion is permitted by the retained CG offset, inertia products and equation coupling.
 
 The [lateral experiments](05_lateral_experiments.md) separately apply +1 degree of effective aileron and rudder from 2 to 3 seconds, starting each trajectory from the same equilibrium. Six-panel figures show control input, sideslip, roll/yaw rates, bank and heading change. Other inputs remain at trim; no attitude or heading controller is active. The bundled RK4 results include step-refinement evidence.
+
+The [local-model study](06_local_models_and_modes.md) compares eighteen positive/negative pulses against central and directional perturbation approximations. The `abs(beta)` drag corner is retained explicitly, not smoothed. Eight-state spectra are classified as candidate modes using modal participation; heading and position kinematics are excluded. A and B retain all twelve states for trajectory deviations.
 
 ## Verification and limitations
 

@@ -17,7 +17,7 @@ class FixedSimulationChecks(unittest.TestCase):
         # Use the existing recorded equilibrium as a reproducible initial state.
         # These integrator tests do not need to run an optimizer first.
         saved = json.loads((Path(__file__).resolve().parents[1] /
-                            "results" / "trim_and_run.json").read_text(encoding="utf-8"))
+                            "results" / "longitudinal" / "trim_and_run.json").read_text(encoding="utf-8"))
         cls.trim = SimpleNamespace(state=np.array(list(saved["trim_state"].values())),
                                    controls=Controls(**saved["trim_controls"]))
 

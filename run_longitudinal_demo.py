@@ -1,4 +1,4 @@
-"""Run trim, equilibrium, and an elevator-pulse experiment for the reduced C172."""
+"""Run trim, equilibrium and a longitudinal elevator-pulse experiment."""
 from __future__ import annotations
 import argparse
 from dataclasses import asdict, replace
@@ -25,7 +25,7 @@ def main():
     parser.add_argument("--method", choices=["DOP853", "EULER", "RK4"], default="DOP853")
     parser.add_argument("--step-size", type=float, default=0.05,
                         help="Fixed step for Euler/RK4; maximum adaptive step for DOP853 [s]")
-    parser.add_argument("--output-dir",type=Path,default=Path(__file__).resolve().parent/"results")
+    parser.add_argument("--output-dir",type=Path,default=Path(__file__).resolve().parent/"results"/"longitudinal")
     args=parser.parse_args()
     if (args.duration <= 3 or not np.isfinite(args.duration) or not np.isfinite(args.pulse_deg)
             or not np.isfinite(args.step_size) or args.step_size <= 0):
@@ -54,7 +54,7 @@ def main():
         "trim_evaluations":trim.evaluations,
         "equilibrium_max_abs_state_change_first_9":np.max(np.abs(equilibrium.states[:,:9]-trim.state[:9]),axis=0).tolist(),
         "equilibrium_max_altitude_change_m":float(np.max(np.abs(equilibrium.states[:,11]-trim.state[11]))),
-        "experiment":{"duration_s":args.duration,"elevator_increment_deg":args.pulse_deg,"pulse_interval_s":[2,3]},
+        "experiment":{"channel":"longitudinal", "duration_s":args.duration,"elevator_increment_deg":args.pulse_deg,"pulse_interval_s":[2,3]},
         "integration":{"method":args.method,"step_limit_s":args.step_size,
                        "step_kind":"adaptive_maximum" if args.method == "DOP853" else "fixed",
                        "equilibrium_nfev":equilibrium.nfev,"response_nfev":response.nfev},
@@ -83,7 +83,7 @@ def main():
         ax.ticklabel_format(axis="y",style="plain",useOffset=False)
     for ax in axes[-1]:ax.set_xlabel("Time [s]")
     axes[0,0].legend(loc="best",frameon=False)
-    fig.suptitle(f"Reduced C172P | {args.method} | open-loop elevator response",fontsize=17,x=0.08,ha="left")
+    fig.suptitle(f"Reduced C172P | {args.method} | longitudinal elevator response",fontsize=17,x=0.08,ha="left")
     fig.text(0.08,0.935,
              f"50 m/s, 1000 m initial altitude | elevator increment {args.pulse_deg:+.2f} deg at 2-3 s | constant density",
              color="#4b5563",fontsize=10)

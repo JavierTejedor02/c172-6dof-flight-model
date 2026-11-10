@@ -74,7 +74,7 @@ DOP853 locates a domain-boundary event. Euler and RK4 check saved nodes, and RK4
 Complete installation using the [README](../README.md), then run:
 
 ```powershell
-.\.venv\Scripts\python.exe compare_integrators.py
+.\.venv\Scripts\python.exe compare_longitudinal_integrators.py
 ```
 
 Defaults: 30 seconds, -0.5 degree elevator increment from 2 to 3 seconds, steps of 0.2, 0.1, 0.05 and 0.025 seconds, and three complete integrations per timing measurement. The script can also be launched without arguments using an editor's Python Run action.
@@ -82,14 +82,14 @@ Defaults: 30 seconds, -0.5 degree elevator increment from 2 to 3 seconds, steps 
 For a shorter experiment:
 
 ```powershell
-.\.venv\Scripts\python.exe compare_integrators.py --duration 10 --steps 0.1 0.05 0.025 --repeats 1
+.\.venv\Scripts\python.exe compare_longitudinal_integrators.py --duration 10 --steps 0.1 0.05 0.025 --repeats 1
 ```
 
 For standalone Euler or RK4 trajectories:
 
 ```powershell
-.\.venv\Scripts\python.exe run_demo.py --method EULER --step-size 0.025 --output-dir results/euler_demo
-.\.venv\Scripts\python.exe run_demo.py --method RK4 --step-size 0.05 --output-dir results/rk4_demo
+.\.venv\Scripts\python.exe run_longitudinal_demo.py --method EULER --step-size 0.025 --output-dir results/euler_demo
+.\.venv\Scripts\python.exe run_longitudinal_demo.py --method RK4 --step-size 0.05 --output-dir results/rk4_demo
 ```
 
 ## Numerical reference and metrics
@@ -106,7 +106,7 @@ The reference is numerical, not exact. Errors near the reference-refinement diff
 
 ## Outputs
 
-Default directory: `results/integrator_comparison/`. `--output-dir` selects another location. Generated files with the same names are replaced; consult the current report's completed-run list when inspecting CSVs from a reused directory.
+Default directory: `results/longitudinal_integrator_comparison/`. `--output-dir` selects another location. Generated files with the same names are replaced; consult the current report's completed-run list when inspecting CSVs from a reused directory.
 
 | File | Contents |
 |---|---|

@@ -28,7 +28,7 @@ An existing Python interpreter with the required dependencies is equally valid, 
 The default run recomputes trim. For the checked initial condition and integrator settings used in the bundled results:
 
 ```powershell
-.\.venv\Scripts\python.exe run_lateral_demo.py --method RK4 --step-size 0.01 --trim-file results/trim_and_run.json --check-step
+.\.venv\Scripts\python.exe run_lateral_demo.py --method RK4 --step-size 0.01 --trim-file results/longitudinal/trim_and_run.json --check-step
 ```
 
 The recorded trim must match the current source revision, mass, inertia and density, lie inside the study domain, and satisfy the current equations' equilibrium acceptance checks. Otherwise it is rejected and trim must be recomputed. Reusing a recorded state does not silently override the aircraft data.

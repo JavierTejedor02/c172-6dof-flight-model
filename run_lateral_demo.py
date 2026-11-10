@@ -147,7 +147,7 @@ def main():
     else:
         state, controls = checked_trim_state(aircraft, args.trim_file)
         trim_source = f"Checked recorded equilibrium: {args.trim_file.name}"
-    experiment = {"duration_s": args.duration, "aileron_increment_deg": args.aileron_deg,
+    experiment = {"channel": "lateral_directional", "duration_s": args.duration, "aileron_increment_deg": args.aileron_deg,
                   "rudder_increment_deg": args.rudder_deg,
                   "pulse_interval_s": [args.pulse_start, args.pulse_start + args.pulse_duration]}
     responses = lateral_responses(

@@ -1,0 +1,1129 @@
+{
+  "software_version": "0.4.0",
+  "source_commit": "c455897049e044860b3c282e955daca1d0a785fe",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5"
+  },
+  "trim_state": {
+    "Va_m_s": 50.0,
+    "alpha_rad": 0.014622656834586164,
+    "beta_rad": 0.0,
+    "p_rad_s": 0.0,
+    "q_rad_s": 0.0,
+    "r_rad_s": 0.0,
+    "phi_rad": 0.0006839352045585856,
+    "theta_rad": 0.014622653415072968,
+    "psi_rad": 0.0,
+    "xN_m": 0.0,
+    "xE_m": 0.0,
+    "xD_m": -1000.0
+  },
+  "trim_controls": {
+    "elevator_rad": 0.06530023529169846,
+    "aileron_rad": 0.005338134965912051,
+    "rudder_rad": 0.00027205957395414827,
+    "thrust_N": 1012.8722516746773
+  },
+  "experiment": {
+    "duration_s": 30.0,
+    "amplitudes_deg": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "pulse_interval_s": [
+      2,
+      3
+    ],
+    "both_signs": true,
+    "method": "RK4",
+    "step_size_s": 0.01,
+    "reference": "Nonlinear trajectory minus the common nonlinear trim-control baseline"
+  },
+  "state_names": [
+    "Va_m_s",
+    "alpha_rad",
+    "beta_rad",
+    "p_rad_s",
+    "q_rad_s",
+    "r_rad_s",
+    "phi_rad",
+    "theta_rad",
+    "psi_rad",
+    "xN_m",
+    "xE_m",
+    "xD_m"
+  ],
+  "input_names": [
+    "elevator_rad",
+    "aileron_rad",
+    "rudder_rad",
+    "thrust_N"
+  ],
+  "error_scales_native_units": {
+    "Va_m_s": 1.0,
+    "alpha_rad": 0.017453292519943295,
+    "beta_rad": 0.017453292519943295,
+    "p_rad_s": 0.017453292519943295,
+    "q_rad_s": 0.017453292519943295,
+    "r_rad_s": 0.017453292519943295,
+    "phi_rad": 0.017453292519943295,
+    "theta_rad": 0.017453292519943295,
+    "psi_rad": 0.017453292519943295,
+    "xN_m": 1.0,
+    "xE_m": 1.0,
+    "xD_m": 1.0
+  },
+  "error_definition": "Sampled perturbation errors. Dynamic metrics use the first eight states scaled by 1 m/s, 1 deg or 1 deg/s. Position errors are recorded separately.",
+  "jacobian_refinement": {
+    "passed": true,
+    "scaled_difference_limit": 1e-05,
+    "matrices": {
+      "A": {
+        "max_abs_difference": 3.552713678800501e-09,
+        "max_difference_divided_by_one_plus_abs_refined": 3.5527124671105637e-09
+      },
+      "B": {
+        "max_abs_difference": 2.431903567412519e-10,
+        "max_difference_divided_by_one_plus_abs_refined": 1.0208491717650918e-11
+      }
+    }
+  },
+  "integration_refinement": {
+    "performed": true,
+    "passed": true,
+    "coarse_step_s": 0.01,
+    "fine_step_s": 0.005,
+    "checked_cases": "Positive largest amplitude for each surface",
+    "max_abs_differences_by_state": {
+      "elevator": {
+        "nonlinear_delta": [
+          4.878458526036411e-09,
+          1.1591835824553698e-09,
+          7.997482613219392e-12,
+          5.020657645052676e-10,
+          7.209082483750073e-09,
+          2.630843036911107e-11,
+          5.266763566068311e-11,
+          9.74539293013832e-10,
+          8.573792283778081e-12,
+          2.9718307814619038e-08,
+          2.137882759711829e-09,
+          3.7000063457526267e-08
+        ],
+        "central_lti_delta": [
+          1.2980876581969447e-09,
+          1.1744271891794833e-09,
+          4.940745620789222e-12,
+          5.032297841238084e-10,
+          7.289251688358256e-09,
+          2.299569437863927e-11,
+          5.3063917788889053e-11,
+          9.88838885773724e-10,
+          3.3311499446440213e-12,
+          1.8303952434685702e-10,
+          1.4245361834586134e-11,
+          3.211165458538723e-09
+        ],
+        "directional_delta": [
+          1.2423150175244757e-08,
+          1.174661503483554e-09,
+          2.948672564256037e-11,
+          5.032433486856086e-10,
+          7.290668659065691e-09,
+          9.012962858684359e-11,
+          5.3067728109004036e-11,
+          9.891080975099609e-10,
+          3.140345427275759e-11,
+          7.441525884388511e-08,
+          6.5854255382191695e-09,
+          9.894748487226934e-08
+        ]
+      },
+      "aileron": {
+        "nonlinear_delta": [
+          7.385819600358445e-08,
+          1.6617118774736594e-09,
+          2.225041591946697e-10,
+          5.710734933550565e-09,
+          2.021764430613156e-08,
+          6.834991392312695e-10,
+          8.026765059912511e-10,
+          1.8536820134418264e-09,
+          2.3198967052939778e-10,
+          1.126642246163101e-07,
+          8.725254474484245e-08,
+          1.3241810847830493e-07
+        ],
+        "central_lti_delta": [
+          4.3764520544879726e-12,
+          4.927799247350867e-12,
+          4.636967060865117e-11,
+          5.710574055295403e-09,
+          2.132957123369885e-11,
+          2.0787865268674828e-10,
+          8.027115725589562e-10,
+          3.932524866794127e-12,
+          4.3360249418755714e-11,
+          4.578371603978457e-13,
+          2.1266099992089949e-10,
+          9.251577463647263e-12
+        ],
+        "directional_delta": [
+          1.2529980551040376e-07,
+          2.686414312187593e-09,
+          4.276175960635925e-10,
+          5.71068878296721e-09,
+          3.111185139750188e-08,
+          1.2250535932900597e-09,
+          8.168600518221325e-10,
+          3.865788108028956e-09,
+          4.4639517429723163e-10,
+          6.351128362114267e-07,
+          5.720167450817826e-08,
+          8.423554310743597e-07
+        ]
+      },
+      "rudder": {
+        "nonlinear_delta": [
+          6.089474453574439e-07,
+          7.60585408196568e-09,
+          1.2228846130168947e-09,
+          2.468906017127903e-09,
+          9.081057037471727e-08,
+          3.439221588075192e-09,
+          1.2611291316799722e-09,
+          1.0974713466130326e-08,
+          1.379763775455345e-09,
+          2.407343799859518e-06,
+          5.468774588734959e-07,
+          3.119119128314196e-06
+        ],
+        "central_lti_delta": [
+          1.1405878682941434e-12,
+          8.680985905839449e-13,
+          1.0299423119919382e-10,
+          4.542314640740286e-10,
+          6.787945585392391e-12,
+          2.2985686097543034e-10,
+          8.428560280271391e-11,
+          7.949749202265861e-13,
+          9.642152506116053e-11,
+          2.0309614585803729e-13,
+          1.5582957146875742e-10,
+          3.677188761819217e-12
+        ],
+        "directional_delta": [
+          1.1568270649742196e-07,
+          1.3474105941912009e-09,
+          2.699879627591356e-10,
+          5.843744672190399e-10,
+          1.7131634858771547e-08,
+          8.072214573206019e-10,
+          2.074363909809751e-10,
+          1.8421499391012286e-09,
+          2.067930549021213e-10,
+          3.215051852523132e-07,
+          2.733645487751346e-08,
+          4.098899910598419e-07
+        ]
+      }
+    },
+    "first_nine_state_limit": 1e-05,
+    "position_limit_m": 0.001
+  },
+  "nonsmooth_policy": "A is the central/smooth-part LTI approximation; the original RHS has no unique beta Jacobian. The directional model adds cusp*abs(delta_beta).",
+  "cases": [
+    {
+      "surface": "elevator",
+      "increment_deg": 0.25,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.0013581676446791917,
+        "rms_dynamic_scaled_error": 0.0003094560658087817,
+        "relative_to_peak_dynamic_response": 0.0020212522456633103,
+        "peak_dynamic_response_scaled": 0.6719436664044297,
+        "max_altitude_error_m": 0.01841933039927307,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.0008217608641804541,
+          "alpha_rad": 4.799029351475019e-06,
+          "beta_rad": 1.3188423266598247e-06,
+          "p_rad_s": 2.998720078867045e-06,
+          "q_rad_s": 2.370449719370834e-05,
+          "r_rad_s": 3.5451768517304994e-06,
+          "phi_rad": 3.916414692655941e-06,
+          "theta_rad": 2.3501409331687026e-05,
+          "psi_rad": 3.1620680535528303e-06,
+          "xN_m": 0.021339027892043394,
+          "xE_m": 0.004856565545092728,
+          "xD_m": 0.01841933039927307
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.0014340470575165208,
+        "rms_dynamic_scaled_error": 0.0001746021382855524,
+        "relative_to_peak_dynamic_response": 0.0021341775050728673,
+        "peak_dynamic_response_scaled": 0.6719436664044297,
+        "max_altitude_error_m": 0.0050359455686992405,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.00039564118811105664,
+          "alpha_rad": 5.053363940852804e-06,
+          "beta_rad": 1.3234652370615091e-06,
+          "p_rad_s": 3.0236378067204984e-06,
+          "q_rad_s": 2.5028842782199787e-05,
+          "r_rad_s": 3.681275945521996e-06,
+          "phi_rad": 3.6400612601128262e-06,
+          "theta_rad": 1.24451929497775e-05,
+          "psi_rad": 3.6640064037605623e-06,
+          "xN_m": 0.009670190162909154,
+          "xE_m": 0.0056037625644655975,
+          "xD_m": 0.0050359455686992405
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "elevator_positive_0.25"
+    },
+    {
+      "surface": "elevator",
+      "increment_deg": -0.25,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.0013682703321953385,
+        "rms_dynamic_scaled_error": 0.0003117688923094213,
+        "relative_to_peak_dynamic_response": 0.0020376439623379853,
+        "peak_dynamic_response_scaled": 0.671496275838783,
+        "max_altitude_error_m": 0.0185694436090883,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.000829751887577973,
+          "alpha_rad": 4.774963660769162e-06,
+          "beta_rad": 1.3186747670332768e-06,
+          "p_rad_s": 2.9757557226344866e-06,
+          "q_rad_s": 2.3616169549988374e-05,
+          "r_rad_s": 3.5233276056108487e-06,
+          "phi_rad": 3.889893031357389e-06,
+          "theta_rad": 2.3880822354165228e-05,
+          "psi_rad": 3.201941562429138e-06,
+          "xN_m": 0.02143249950200654,
+          "xE_m": 0.004853219360186234,
+          "xD_m": 0.0185694436090883
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.0014289930720570176,
+        "rms_dynamic_scaled_error": 0.00017311515117304682,
+        "relative_to_peak_dynamic_response": 0.0021280729670049565,
+        "peak_dynamic_response_scaled": 0.671496275838783,
+        "max_altitude_error_m": 0.00498694557369439,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.0003851498148350063,
+          "alpha_rad": 5.028691939894074e-06,
+          "beta_rad": 1.32187372580809e-06,
+          "p_rad_s": 3.0005143647714432e-06,
+          "q_rad_s": 2.4940634095583537e-05,
+          "r_rad_s": 3.6610422436609324e-06,
+          "phi_rad": 3.6119936887472155e-06,
+          "theta_rad": 1.2389039163962674e-05,
+          "psi_rad": 3.727947415768911e-06,
+          "xN_m": 0.009610433350051406,
+          "xE_m": 0.00560957039671095,
+          "xD_m": 0.00498694557369439
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "elevator_negative_0.25"
+    },
+    {
+      "surface": "elevator",
+      "increment_deg": 0.5,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.00559801573163545,
+        "rms_dynamic_scaled_error": 0.0008335422175864291,
+        "relative_to_peak_dynamic_response": 0.004163938299012769,
+        "peak_dynamic_response_scaled": 1.3444041024725768,
+        "max_altitude_error_m": 0.04382963352232161,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.002235841925945503,
+          "alpha_rad": 1.976018397566344e-05,
+          "beta_rad": 4.860910150271099e-06,
+          "p_rad_s": 1.2096796801726339e-05,
+          "q_rad_s": 9.77038060954779e-05,
+          "r_rad_s": 1.4480763649752595e-05,
+          "phi_rad": 1.5208165832978054e-05,
+          "theta_rad": 5.863142927012982e-05,
+          "psi_rad": 1.3493195657213793e-05,
+          "xN_m": 0.062050232851543985,
+          "xE_m": 0.020765321591701635,
+          "xD_m": 0.04382963352232161
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.005750677497496696,
+        "rms_dynamic_scaled_error": 0.0007003101985972791,
+        "relative_to_peak_dynamic_response": 0.004277491780127916,
+        "peak_dynamic_response_scaled": 1.3444041024725768,
+        "max_altitude_error_m": 0.020202655321463592,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.0015848184060116288,
+          "alpha_rad": 2.0275988324477967e-05,
+          "beta_rad": 5.3169835988309386e-06,
+          "p_rad_s": 1.2146632257433408e-05,
+          "q_rad_s": 0.00010036825655166531,
+          "r_rad_s": 1.478277042887893e-05,
+          "phi_rad": 1.4660443369808856e-05,
+          "theta_rad": 4.9956416069564524e-05,
+          "psi_rad": 1.4525975353773049e-05,
+          "xN_m": 0.03871255739327206,
+          "xE_m": 0.022275630574355887,
+          "xD_m": 0.020202655321463592
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "elevator_positive_0.5"
+    },
+    {
+      "surface": "elevator",
+      "increment_deg": -0.5,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.007405808311954068,
+        "rms_dynamic_scaled_error": 0.001559116522439912,
+        "relative_to_peak_dynamic_response": 0.00551566745877523,
+        "peak_dynamic_response_scaled": 1.3426857886748942,
+        "max_altitude_error_m": 0.05815402117091073,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.00412596259745146,
+          "alpha_rad": 1.427964572715823e-05,
+          "beta_rad": 5.5914713958805766e-06,
+          "p_rad_s": 7.301113621248833e-06,
+          "q_rad_s": 6.14861534687771e-05,
+          "r_rad_s": 9.283366721942566e-06,
+          "phi_rad": 2.0067282738417012e-05,
+          "theta_rad": 0.00012925573881516182,
+          "psi_rad": 1.773766753153383e-05,
+          "xN_m": 0.06895680682829974,
+          "xE_m": 0.018544181536892523,
+          "xD_m": 0.05815402117091073
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.0062956878889554105,
+        "rms_dynamic_scaled_error": 0.0015313797222022856,
+        "relative_to_peak_dynamic_response": 0.004688876535416874,
+        "peak_dynamic_response_scaled": 1.3426857886748942,
+        "max_altitude_error_m": 0.047336125597936735,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.004089538495174863,
+          "alpha_rad": 1.3833515506354171e-05,
+          "beta_rad": 5.415949547351827e-06,
+          "p_rad_s": 7.158191785548544e-06,
+          "q_rad_s": 5.907974554954405e-05,
+          "r_rad_s": 1.0778425865809249e-05,
+          "phi_rad": 1.9456074824638183e-05,
+          "theta_rad": 0.00010988048234020307,
+          "psi_rad": 1.577784137497991e-05,
+          "xN_m": 0.045312674524389474,
+          "xE_m": 0.019969743889533653,
+          "xD_m": 0.047336125597936735
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "elevator_negative_0.5"
+    },
+    {
+      "surface": "elevator",
+      "increment_deg": 1.0,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.02281380620627088,
+        "rms_dynamic_scaled_error": 0.0028797643065873327,
+        "relative_to_peak_dynamic_response": 0.008478206036813042,
+        "peak_dynamic_response_scaled": 2.6908765966775903,
+        "max_altitude_error_m": 0.11587269377596998,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.006890651560102379,
+          "alpha_rad": 8.057622732386346e-05,
+          "beta_rad": 2.0527539182615766e-05,
+          "p_rad_s": 4.890797463507279e-05,
+          "q_rad_s": 0.0003981760332113435,
+          "r_rad_s": 5.897473536780997e-05,
+          "phi_rad": 6.054927350232888e-05,
+          "theta_rad": 0.0001982915036740085,
+          "psi_rad": 5.501647120859099e-05,
+          "xN_m": 0.20180120301116578,
+          "xE_m": 0.08495633280479176,
+          "xD_m": 0.11587269377596998
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.023119129737993373,
+        "rms_dynamic_scaled_error": 0.0028167290718395513,
+        "relative_to_peak_dynamic_response": 0.008591672232958742,
+        "peak_dynamic_response_scaled": 2.6908765966775903,
+        "max_altitude_error_m": 0.08128669554222423,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.00635771292592352,
+          "alpha_rad": 8.160783602149252e-05,
+          "beta_rad": 2.1454716049759865e-05,
+          "p_rad_s": 4.9007645546486926e-05,
+          "q_rad_s": 0.0004035049341237183,
+          "r_rad_s": 5.9599718651180804e-05,
+          "phi_rad": 5.945744290672319e-05,
+          "theta_rad": 0.00020124664919312155,
+          "psi_rad": 5.707332980404382e-05,
+          "xN_m": 0.15512585209462193,
+          "xE_m": 0.08798578722928241,
+          "xD_m": 0.08128669554222423
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "elevator_positive_1"
+    },
+    {
+      "surface": "elevator",
+      "increment_deg": -1.0,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.027213785979487048,
+        "rms_dynamic_scaled_error": 0.006003013325827625,
+        "relative_to_peak_dynamic_response": 0.010119475568066033,
+        "peak_dynamic_response_scaled": 2.689248646971927,
+        "max_altitude_error_m": 0.20851714129913201,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.014787094724013239,
+          "alpha_rad": 4.5674794273932104e-05,
+          "beta_rad": 1.9382368982185895e-05,
+          "p_rad_s": 2.7160739478177074e-05,
+          "q_rad_s": 0.0001740532714465887,
+          "r_rad_s": 3.4152455165718614e-05,
+          "phi_rad": 7.893856222080829e-05,
+          "theta_rad": 0.000474970167275119,
+          "psi_rad": 6.390021405949797e-05,
+          "xN_m": 0.22824718973973912,
+          "xE_m": 0.07668892348204537,
+          "xD_m": 0.20851714129913201
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.025019776333338184,
+        "rms_dynamic_scaled_error": 0.0060531378231274404,
+        "relative_to_peak_dynamic_response": 0.009303630722845305,
+        "peak_dynamic_response_scaled": 2.689248646971927,
+        "max_altitude_error_m": 0.18803600584347718,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.016231819128753766,
+          "alpha_rad": 4.276658517560032e-05,
+          "beta_rad": 1.9046579669102588e-05,
+          "p_rad_s": 2.685985480642937e-05,
+          "q_rad_s": 0.00020311316045186923,
+          "r_rad_s": 3.713360863393271e-05,
+          "phi_rad": 7.772714486967581e-05,
+          "theta_rad": 0.0004366774751293056,
+          "psi_rad": 6.299022955541175e-05,
+          "xN_m": 0.18095892513191858,
+          "xE_m": 0.0795406315843632,
+          "xD_m": 0.18803600584347718
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "elevator_negative_1"
+    },
+    {
+      "surface": "aileron",
+      "increment_deg": 0.25,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.027418043628752168,
+        "rms_dynamic_scaled_error": 0.006119816629592869,
+        "relative_to_peak_dynamic_response": 0.026364370204939185,
+        "peak_dynamic_response_scaled": 1.0399658105095029,
+        "max_altitude_error_m": 0.27886051069833345,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.014744172594419474,
+          "alpha_rad": 5.5079104698601926e-05,
+          "beta_rad": 1.8011235409049094e-05,
+          "p_rad_s": 2.3976143719870195e-05,
+          "q_rad_s": 0.00020411074849085043,
+          "r_rad_s": 2.7293956112678028e-05,
+          "phi_rad": 5.841401462388339e-05,
+          "theta_rad": 0.00047853513577717914,
+          "psi_rad": 0.0001495351084467994,
+          "xN_m": 1.384848460355702,
+          "xE_m": 0.04133695394110504,
+          "xD_m": 0.27886051069833345
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.00794134841921601,
+        "rms_dynamic_scaled_error": 0.00229823785241165,
+        "relative_to_peak_dynamic_response": 0.007636162976670707,
+        "peak_dynamic_response_scaled": 1.0399658105095029,
+        "max_altitude_error_m": 0.052129477206046604,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.00794134841921601,
+          "alpha_rad": 6.936999164088089e-06,
+          "beta_rad": 9.700229751764345e-07,
+          "p_rad_s": 3.2720653937516847e-06,
+          "q_rad_s": 6.270295757186055e-05,
+          "r_rad_s": 5.4994987140708634e-06,
+          "phi_rad": 2.8447086040796904e-05,
+          "theta_rad": 0.00012254874959540316,
+          "psi_rad": 9.7093037544696e-05,
+          "xN_m": 1.230420981136249,
+          "xE_m": 0.02209134747970154,
+          "xD_m": 0.052129477206046604
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "aileron_positive_0.25"
+    },
+    {
+      "surface": "aileron",
+      "increment_deg": -0.25,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.027673699564421984,
+        "rms_dynamic_scaled_error": 0.006210875517002969,
+        "relative_to_peak_dynamic_response": 0.02660984500437732,
+        "peak_dynamic_response_scaled": 1.0399797353148679,
+        "max_altitude_error_m": 0.2815373606902105,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.014954302306331647,
+          "alpha_rad": 5.56694638340365e-05,
+          "beta_rad": 1.9111557087693617e-05,
+          "p_rad_s": 2.503750666359297e-05,
+          "q_rad_s": 0.0002055995747449028,
+          "r_rad_s": 3.0628747712538144e-05,
+          "phi_rad": 7.765289360354109e-05,
+          "theta_rad": 0.0004829971736068843,
+          "psi_rad": 0.0001987129327226389,
+          "xN_m": 1.3790253824822363,
+          "xE_m": 0.10625525610582542,
+          "xD_m": 0.2815373606902105
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.007917907527321978,
+        "rms_dynamic_scaled_error": 0.0023627953462223286,
+        "relative_to_peak_dynamic_response": 0.007613520973968522,
+        "peak_dynamic_response_scaled": 1.0399797353148679,
+        "max_altitude_error_m": 0.051965233941365346,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.007917907527321978,
+          "alpha_rad": 6.922330008339712e-06,
+          "beta_rad": 1.524207392812919e-06,
+          "p_rad_s": 2.7313166952989574e-06,
+          "q_rad_s": 6.248747341311984e-05,
+          "r_rad_s": 9.859939457171427e-06,
+          "phi_rad": 4.9610521616677214e-05,
+          "theta_rad": 0.00012192728580964312,
+          "psi_rad": 0.00014569440481247697,
+          "xN_m": 1.2223496243889074,
+          "xE_m": 0.08677083679285147,
+          "xD_m": 0.051965233941365346
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "aileron_negative_0.25"
+    },
+    {
+      "surface": "aileron",
+      "increment_deg": 0.5,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.06250428397424228,
+        "rms_dynamic_scaled_error": 0.01395521454423479,
+        "relative_to_peak_dynamic_response": 0.03005090195339003,
+        "peak_dynamic_response_scaled": 2.079947020265433,
+        "max_altitude_error_m": 0.6166181300555909,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.02895375941042162,
+          "alpha_rad": 0.00010835228098705935,
+          "beta_rad": 3.5057869291838396e-05,
+          "p_rad_s": 4.827576291561162e-05,
+          "q_rad_s": 0.0004837642525493634,
+          "r_rad_s": 5.30386945572555e-05,
+          "phi_rad": 0.00016938467703446133,
+          "theta_rad": 0.0010909055519520545,
+          "psi_rad": 0.00046057967721468973,
+          "xN_m": 5.234119321657381,
+          "xE_m": 0.030489969842378173,
+          "xD_m": 0.6166181300555909
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.03178529299447086,
+        "rms_dynamic_scaled_error": 0.00917887782531428,
+        "relative_to_peak_dynamic_response": 0.015281780105348341,
+        "peak_dynamic_response_scaled": 2.079947020265433,
+        "max_altitude_error_m": 0.20864778730185757,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.03178529299447086,
+          "alpha_rad": 2.7785538567768953e-05,
+          "beta_rad": 3.791892778106493e-06,
+          "p_rad_s": 1.3164325393330849e-05,
+          "q_rad_s": 0.00025095223866132755,
+          "r_rad_s": 2.1365557543318557e-05,
+          "phi_rad": 0.00010996693966676407,
+          "theta_rad": 0.0004903003331815491,
+          "psi_rad": 0.0003556955354104552,
+          "xN_m": 4.925264363218476,
+          "xE_m": 0.01878903438081636,
+          "xD_m": 0.20864778730185757
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "aileron_positive_0.5"
+    },
+    {
+      "surface": "aileron",
+      "increment_deg": -0.5,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.06286349968283596,
+        "rms_dynamic_scaled_error": 0.014249706563254971,
+        "relative_to_peak_dynamic_response": 0.030223846696244783,
+        "peak_dynamic_response_scaled": 2.0799304706189683,
+        "max_altitude_error_m": 0.6200794700039378,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.028764502245202526,
+          "alpha_rad": 0.00010953299094717715,
+          "beta_rad": 3.871296821912314e-05,
+          "p_rad_s": 5.2318986233751495e-05,
+          "q_rad_s": 0.00048671638614220306,
+          "r_rad_s": 6.289255778519579e-05,
+          "phi_rad": 0.0002529952614461761,
+          "theta_rad": 0.0010971750487918986,
+          "psi_rad": 0.0007198783078403714,
+          "xN_m": 5.183869127127473,
+          "xE_m": 0.4904607643560439,
+          "xD_m": 0.6200794700039378
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.031633504235566344,
+        "rms_dynamic_scaled_error": 0.009472024283171695,
+        "relative_to_peak_dynamic_response": 0.015208923895495653,
+        "peak_dynamic_response_scaled": 2.0799304706189683,
+        "max_altitude_error_m": 0.20753091368878884,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.031633504235566344,
+          "alpha_rad": 2.7655733798512214e-05,
+          "beta_rad": 6.2598310895884204e-06,
+          "p_rad_s": 1.0602881425241894e-05,
+          "q_rad_s": 0.0002493911851879426,
+          "r_rad_s": 4.118540655878404e-05,
+          "phi_rad": 0.00020299299518023936,
+          "theta_rad": 0.00048730008120017774,
+          "psi_rad": 0.0006138412520200476,
+          "xN_m": 4.870517610940814,
+          "xE_m": 0.451491925730096,
+          "xD_m": 0.20753091368878884
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "aileron_negative_0.5"
+    },
+    {
+      "surface": "aileron",
+      "increment_deg": 1.0,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.16740457880325488,
+        "rms_dynamic_scaled_error": 0.04045408066514371,
+        "relative_to_peak_dynamic_response": 0.04024185667415725,
+        "peak_dynamic_response_scaled": 4.159961608102434,
+        "max_altitude_error_m": 1.5433700821209608,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.11144008411480527,
+          "alpha_rad": 0.00020953213376002458,
+          "beta_rad": 6.737270852333159e-05,
+          "p_rad_s": 9.765444004272488e-05,
+          "q_rad_s": 0.0012705666308813848,
+          "r_rad_s": 0.00010509882548773337,
+          "phi_rad": 0.0005308182813311829,
+          "theta_rad": 0.0029217610830311064,
+          "psi_rad": 0.0013688206918039403,
+          "xN_m": 20.293101116659855,
+          "xE_m": 0.8557270743334584,
+          "xD_m": 1.5433700821209608
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.1271849948483273,
+        "rms_dynamic_scaled_error": 0.036592145312010924,
+        "relative_to_peak_dynamic_response": 0.030573598227591026,
+        "peak_dynamic_response_scaled": 4.159961608102434,
+        "max_altitude_error_m": 0.8353866970391893,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.1271849948483273,
+          "alpha_rad": 0.00011114839333934908,
+          "beta_rad": 1.4431245418854589e-05,
+          "p_rad_s": 5.366510011512479e-05,
+          "q_rad_s": 0.0010031334536554331,
+          "r_rad_s": 8.013552702269486e-05,
+          "phi_rad": 0.0004114841880675374,
+          "theta_rad": 0.0019607315329940866,
+          "psi_rad": 0.0011590524081954712,
+          "xN_m": 19.675391199782045,
+          "xE_m": 0.9327095001791577,
+          "xD_m": 0.8353866970391893
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "aileron_positive_1"
+    },
+    {
+      "surface": "aileron",
+      "increment_deg": -1.0,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.16717021641905003,
+        "rms_dynamic_scaled_error": 0.04178670735154571,
+        "relative_to_peak_dynamic_response": 0.04018755436801584,
+        "peak_dynamic_response_scaled": 4.159750924084501,
+        "max_altitude_error_m": 1.5390806093762757,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.10986150388046512,
+          "alpha_rad": 0.00021186764098112971,
+          "beta_rad": 7.863446698134786e-05,
+          "p_rad_s": 0.00011473887763788454,
+          "q_rad_s": 0.0012762538226079746,
+          "r_rad_s": 0.00019111412525587776,
+          "phi_rad": 0.0009271393012282234,
+          "theta_rad": 0.0029176706877839078,
+          "psi_rad": 0.0029099365126288856,
+          "xN_m": 19.907436845950187,
+          "xE_m": 2.7020898501035617,
+          "xD_m": 1.5390806093762757
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.1261182656031018,
+        "rms_dynamic_scaled_error": 0.03803729897234782,
+        "relative_to_peak_dynamic_response": 0.03031870607273404,
+        "peak_dynamic_response_scaled": 4.159750924084501,
+        "max_altitude_error_m": 0.8272674908220152,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.1261182656031018,
+          "alpha_rad": 0.00011007212193887298,
+          "beta_rad": 2.697129780760755e-05,
+          "p_rad_s": 3.983818588324103e-05,
+          "q_rad_s": 0.000991398312755317,
+          "r_rad_s": 0.00018150737919896652,
+          "phi_rad": 0.0008509484571383313,
+          "theta_rad": 0.0019446602028913426,
+          "psi_rad": 0.002697862400988238,
+          "xN_m": 19.28073381357687,
+          "xE_m": 2.624152172851666,
+          "xD_m": 0.8272674908220152
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "aileron_negative_1"
+    },
+    {
+      "surface": "rudder",
+      "increment_deg": 0.25,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.03934986052031228,
+        "rms_dynamic_scaled_error": 0.010086776388725705,
+        "relative_to_peak_dynamic_response": 0.10037131665601233,
+        "peak_dynamic_response_scaled": 0.3920428846736184,
+        "max_altitude_error_m": 0.2786507348570554,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.029402649644797937,
+          "alpha_rad": 0.0001009633355217759,
+          "beta_rad": 3.1548717228922036e-05,
+          "p_rad_s": 4.294950896673619e-05,
+          "q_rad_s": 0.00029231578102783797,
+          "r_rad_s": 4.319195031979e-05,
+          "phi_rad": 4.826942466151221e-05,
+          "theta_rad": 0.0006867846262799783,
+          "psi_rad": 7.699746956399238e-05,
+          "xN_m": 0.20808588125454863,
+          "xE_m": 0.023571022876536674,
+          "xD_m": 0.2786507348570554
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.0012937171293645091,
+        "rms_dynamic_scaled_error": 0.0001363316533355579,
+        "relative_to_peak_dynamic_response": 0.0032999377872692374,
+        "peak_dynamic_response_scaled": 0.3920428846736184,
+        "max_altitude_error_m": 0.002298749064896244,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.0003525593664391452,
+          "alpha_rad": 2.083576579537682e-06,
+          "beta_rad": 2.3158761100562143e-06,
+          "p_rad_s": 4.671516994074358e-06,
+          "q_rad_s": 2.25796234968601e-05,
+          "r_rad_s": 6.086534492966904e-06,
+          "phi_rad": 3.3990098870550003e-06,
+          "theta_rad": 8.783970200257698e-06,
+          "psi_rad": 6.723394132169755e-06,
+          "xN_m": 0.05767460845654421,
+          "xE_m": 0.0011647022431056087,
+          "xD_m": 0.002298749064896244
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "rudder_positive_0.25"
+    },
+    {
+      "surface": "rudder",
+      "increment_deg": -0.25,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.039570934401765366,
+        "rms_dynamic_scaled_error": 0.010162519246150026,
+        "relative_to_peak_dynamic_response": 0.10068444536548213,
+        "peak_dynamic_response_scaled": 0.3930193413503329,
+        "max_altitude_error_m": 0.2799729755199108,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.029551218986560834,
+          "alpha_rad": 0.00010194332381099422,
+          "beta_rad": 3.298709704568925e-05,
+          "p_rad_s": 4.651744197269579e-05,
+          "q_rad_s": 0.0002946149704572469,
+          "r_rad_s": 4.605614627220165e-05,
+          "phi_rad": 4.5665491552702477e-05,
+          "theta_rad": 0.0006906430934014982,
+          "psi_rad": 6.910071639251551e-05,
+          "xN_m": 0.20913101550445212,
+          "xE_m": 0.02207823799133557,
+          "xD_m": 0.2799729755199108
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.0013115914472380894,
+        "rms_dynamic_scaled_error": 0.00012945407323807775,
+        "relative_to_peak_dynamic_response": 0.0033372185774158936,
+        "peak_dynamic_response_scaled": 0.3930193413503329,
+        "max_altitude_error_m": 0.0022772240229010643,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.00035122831150562195,
+          "alpha_rad": 2.1071492734198632e-06,
+          "beta_rad": 2.2698194552676952e-06,
+          "p_rad_s": 4.750131894659826e-06,
+          "q_rad_s": 2.2891589195302148e-05,
+          "r_rad_s": 5.796352199890749e-06,
+          "phi_rad": 1.9119843826203957e-06,
+          "theta_rad": 9.019157229252055e-06,
+          "psi_rad": 2.9835618374956033e-06,
+          "xN_m": 0.05817336045572713,
+          "xE_m": 0.0006554827300435662,
+          "xD_m": 0.0022772240229010643
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "rudder_negative_0.25"
+    },
+    {
+      "surface": "rudder",
+      "increment_deg": 0.5,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.07917665069089763,
+        "rms_dynamic_scaled_error": 0.020274322737280116,
+        "relative_to_peak_dynamic_response": 0.10095933136435373,
+        "peak_dynamic_response_scaled": 0.7842430176677356,
+        "max_altitude_error_m": 0.5614219528753833,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.05864955468622877,
+          "alpha_rad": 0.00020529049904667395,
+          "beta_rad": 6.184508181553226e-05,
+          "p_rad_s": 8.336310086269443e-05,
+          "q_rad_s": 0.0005674439814977493,
+          "r_rad_s": 8.389014834204062e-05,
+          "phi_rad": 0.00010211506996977374,
+          "theta_rad": 0.001381893245257607,
+          "psi_rad": 0.0001673369530012271,
+          "xN_m": 0.42304450555335754,
+          "xE_m": 0.050233920880152994,
+          "xD_m": 0.5614219528753833
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.005175712219419826,
+        "rms_dynamic_scaled_error": 0.0005453097564843789,
+        "relative_to_peak_dynamic_response": 0.0065996280525543,
+        "peak_dynamic_response_scaled": 0.7842430176677356,
+        "max_altitude_error_m": 0.009193090816096039,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.0014097834806233028,
+          "alpha_rad": 8.335543913605366e-06,
+          "beta_rad": 9.281810332899287e-06,
+          "p_rad_s": 1.869881908730901e-05,
+          "q_rad_s": 9.033321936457916e-05,
+          "r_rad_s": 2.4382374958218864e-05,
+          "phi_rad": 1.3592998083950328e-05,
+          "theta_rad": 3.5158058421585364e-05,
+          "psi_rad": 2.6788802137581863e-05,
+          "xN_m": 0.23062266411697852,
+          "xE_m": 0.005421279613290864,
+          "xD_m": 0.009193090816096039
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "rudder_positive_0.5"
+    },
+    {
+      "surface": "rudder",
+      "increment_deg": -0.5,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.07960349177281296,
+        "rms_dynamic_scaled_error": 0.020417836835442793,
+        "relative_to_peak_dynamic_response": 0.10127247625645101,
+        "peak_dynamic_response_scaled": 0.7860328365155608,
+        "max_altitude_error_m": 0.5639808734834091,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.05894077742121251,
+          "alpha_rad": 0.00020726315320350672,
+          "beta_rad": 6.689831367065729e-05,
+          "p_rad_s": 9.704411802752711e-05,
+          "q_rad_s": 0.0005715889888151534,
+          "r_rad_s": 9.451355167413395e-05,
+          "phi_rad": 9.10492199728075e-05,
+          "theta_rad": 0.0013893430275198043,
+          "psi_rad": 0.0001350550773862695,
+          "xN_m": 0.42516436883662084,
+          "xE_m": 0.04255466076289949,
+          "xD_m": 0.5639808734834091
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.005246195549366544,
+        "rms_dynamic_scaled_error": 0.0005176644559102575,
+        "relative_to_peak_dynamic_response": 0.006674270215761765,
+        "peak_dynamic_response_scaled": 0.7860328365155608,
+        "max_altitude_error_m": 0.00910445141092725,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.001404036922218438,
+          "alpha_rad": 8.427568360321486e-06,
+          "beta_rad": 9.09706111784246e-06,
+          "p_rad_s": 1.9013204308556837e-05,
+          "q_rad_s": 9.156338553991891e-05,
+          "r_rad_s": 2.3219925076800423e-05,
+          "phi_rad": 7.588950476997668e-06,
+          "theta_rad": 3.609143584167203e-05,
+          "psi_rad": 1.1952278212726264e-05,
+          "xN_m": 0.23266765664380096,
+          "xE_m": 0.0024309982822003917,
+          "xD_m": 0.00910445141092725
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "rudder_negative_0.5"
+    },
+    {
+      "surface": "rudder",
+      "increment_deg": 1.0,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.16025987124668628,
+        "rms_dynamic_scaled_error": 0.04096795348974335,
+        "relative_to_peak_dynamic_response": 0.1021342354117905,
+        "peak_dynamic_response_scaled": 1.5691102067836666,
+        "max_altitude_error_m": 1.1393193878247623,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.11667897881181381,
+          "alpha_rad": 0.00042466659328256585,
+          "beta_rad": 0.00011912362439848306,
+          "p_rad_s": 0.00015759213487792894,
+          "q_rad_s": 0.0010770998409547383,
+          "r_rad_s": 0.00016004055414640256,
+          "phi_rad": 0.00022663972510733425,
+          "theta_rad": 0.002797062412076865,
+          "psi_rad": 0.0003874054312443531,
+          "xN_m": 1.1756583643806047,
+          "xE_m": 0.11739661398043211,
+          "xD_m": 1.1393193878247623
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.020709714859990107,
+        "rms_dynamic_scaled_error": 0.0021811231595828305,
+        "relative_to_peak_dynamic_response": 0.013198381331315474,
+        "peak_dynamic_response_scaled": 1.5691102067836666,
+        "max_altitude_error_m": 0.036754219775739116,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.005635697336696659,
+          "alpha_rad": 3.335274819830637e-05,
+          "beta_rad": 3.7272993330005034e-05,
+          "p_rad_s": 7.489408291625781e-05,
+          "q_rad_s": 0.0003614527114560239,
+          "r_rad_s": 9.78168697889927e-05,
+          "phi_rad": 5.4346750006813854e-05,
+          "theta_rad": 0.00014080888065569623,
+          "psi_rad": 0.00010630912951706262,
+          "xN_m": 0.9218444413166649,
+          "xE_m": 0.027771331446707848,
+          "xD_m": 0.036754219775739116
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "rudder_positive_1"
+    },
+    {
+      "surface": "rudder",
+      "increment_deg": -1.0,
+      "central_lti": {
+        "max_dynamic_scaled_error": 0.16105328664439142,
+        "rms_dynamic_scaled_error": 0.04122134067485357,
+        "relative_to_peak_dynamic_response": 0.10244796375239171,
+        "peak_dynamic_response_scaled": 1.5720496605832397,
+        "max_altitude_error_m": 1.1441092177023982,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.11733264703642583,
+          "alpha_rad": 0.00042871928924780056,
+          "beta_rad": 0.00013780602600923847,
+          "p_rad_s": 0.00021163857275409512,
+          "q_rad_s": 0.0010840733323482983,
+          "r_rad_s": 0.00020028566303622285,
+          "phi_rad": 0.0001814546633383731,
+          "theta_rad": 0.0028109101231028402,
+          "psi_rad": 0.00025813471802053206,
+          "xN_m": 1.182612118256349,
+          "xE_m": 0.07407468711956966,
+          "xD_m": 1.1441092177023982
+        }
+      },
+      "directional": {
+        "max_dynamic_scaled_error": 0.02098351888218533,
+        "rms_dynamic_scaled_error": 0.0020695227810552078,
+        "relative_to_peak_dynamic_response": 0.013347872785647447,
+        "peak_dynamic_response_scaled": 1.5720496605832397,
+        "max_altitude_error_m": 0.03638501047321019,
+        "max_abs_error_by_state": {
+          "Va_m_s": 0.005609493339965861,
+          "alpha_rad": 3.370273598338349e-05,
+          "beta_rad": 3.652972541948966e-05,
+          "p_rad_s": 7.615102760083763e-05,
+          "q_rad_s": 0.0003662314931485341,
+          "r_rad_s": 9.315315483590268e-05,
+          "phi_rad": 3.054888418455373e-05,
+          "theta_rad": 0.00014448324513659065,
+          "psi_rad": 4.7952909886366316e-05,
+          "xN_m": 0.9304231177966413,
+          "xE_m": 0.0158966309706301,
+          "xD_m": 0.03638501047321019
+        }
+      },
+      "nfev_nonlinear": 12000,
+      "nfev_each_approximation": 12000,
+      "case": "rudder_negative_1"
+    }
+  ],
+  "limitations": "Internal consistency of this reduced model, not independent aircraft validation. Central-LTI spectra are approximation spectra at the beta cusp; directional models are piecewise linear, not LTI. Longitudinal/lateral labels refer to inputs and modal participation; the coupled matrices are retained.",
+  "trim_source": "Checked record: trim_and_run.json",
+  "figure_renderer": {
+    "name": "ReportLab LinePlot",
+    "version": "4.4.9",
+    "rasterizer": "Poppler pdftoppm (bundled)",
+    "note": "Numerical results generated by run_linear_analysis.py; ordinary regeneration uses Matplotlib."
+  }
+}

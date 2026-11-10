@@ -1,8 +1,8 @@
 """Checks against analytic mechanics and integration consistency, not JSBSim validation."""
 from dataclasses import replace
+from importlib.util import find_spec
 import unittest
 import numpy as np
-from scipy.integrate import solve_ivp
 from c172sim import Aircraft, Controls, level_trim, simulate_segments
 from c172sim.frames import body_velocity, body_to_ned, wind_to_body
 from c172sim.dynamics import rhs, rhs_from_loads
@@ -23,7 +23,9 @@ class FrameChecks(unittest.TestCase):
         np.testing.assert_allclose(wind_to_body(0.08,-0.03)[:,0],vector/47,atol=1e-14)
 
 class MechanicsChecks(unittest.TestCase):
+    @unittest.skipUnless(find_spec("scipy") is not None, "SciPy is required for the analytic integration check")
     def test_gravity_only_matches_analytic_free_motion(self):
+        from scipy.integrate import solve_ivp
         x=np.array([50,0.03,0.01,0,0,0,0.1,0.2,0.3,0,0,-1000.0])
         Vned=body_to_ned(*x[6:9])@body_velocity(*x[:3])
         final=2.0
@@ -34,7 +36,9 @@ class MechanicsChecks(unittest.TestCase):
                                    atol=1e-8,rtol=0)
         np.testing.assert_allclose(body_to_ned(*end[6:9])@body_velocity(*end[:3]),
                                    Vned+np.array([0,0,9.80665])*final,atol=1e-8,rtol=0)
+    @unittest.skipUnless(find_spec("scipy") is not None, "SciPy is required for the analytic integration check")
     def test_torque_free_energy_and_inertial_momentum(self):
+        from scipy.integrate import solve_ivp
         J=np.array([[2.0,0.1,0.0],[0.1,3.0,0.2],[0.0,0.2,4.0]])
         x=np.array([50,0.02,0.01,0.1,0.2,0.3,0.1,0.15,-0.2,0,0,0],dtype=float)
         result=solve_ivp(lambda t,s:rhs_from_loads(s,np.zeros(3),np.zeros(3),10,J,gravity=0),
@@ -48,6 +52,7 @@ class MechanicsChecks(unittest.TestCase):
             np.testing.assert_allclose(body_to_ned(*state[6:9])@J@state[3:6],H0,atol=1e-9,rtol=0)
             np.testing.assert_allclose(body_to_ned(*state[6:9])@body_velocity(*state[:3]),V0,atol=1e-8,rtol=0)
 
+@unittest.skipUnless(find_spec("scipy") is not None, "SciPy is required to recompute trim and DOP853 trajectories")
 class AircraftChecks(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

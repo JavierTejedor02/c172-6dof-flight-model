@@ -10,7 +10,7 @@ from c172sim import Aircraft
 from c172sim.dynamics import rhs
 from c172sim.experiments import checked_trim_state, lateral_responses, pulse_segments, step_refinement_check
 
-TRIM_FILE = Path(__file__).resolve().parents[1] / "results" / "trim_and_run.json"
+TRIM_FILE = Path(__file__).resolve().parents[1] / "results" / "longitudinal" / "trim_and_run.json"
 
 
 class LateralExperimentChecks(unittest.TestCase):

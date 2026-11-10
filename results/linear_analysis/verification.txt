@@ -1,0 +1,46 @@
+test_fixed_methods_stop_on_domain_exit (test_fixed_simulation.FixedSimulationChecks.test_fixed_methods_stop_on_domain_exit) ... ok
+test_fixed_step_is_independent_of_adaptive_output_interval (test_fixed_simulation.FixedSimulationChecks.test_fixed_step_is_independent_of_adaptive_output_interval) ... ok
+test_fractional_steps_land_on_control_boundaries (test_fixed_simulation.FixedSimulationChecks.test_fractional_steps_land_on_control_boundaries) ... ok
+test_invalid_method_steps_durations_and_sampling_are_rejected (test_fixed_simulation.FixedSimulationChecks.test_invalid_method_steps_durations_and_sampling_are_rejected) ... ok
+test_refined_steps_reduce_flight_trajectory_error (test_fixed_simulation.FixedSimulationChecks.test_refined_steps_reduce_flight_trajectory_error) ... skipped 'SciPy is required for the DOP853 reference'
+test_constant_acceleration_updates_coupled_position_and_velocity (test_integrator_steps.StepFormulaChecks.test_constant_acceleration_updates_coupled_position_and_velocity) ... ok
+test_euler_converges_at_first_order_for_exponential (test_integrator_steps.StepFormulaChecks.test_euler_converges_at_first_order_for_exponential) ... ok
+test_harmonic_oscillator_accuracy (test_integrator_steps.StepFormulaChecks.test_harmonic_oscillator_accuracy) ... ok
+test_rk4_converges_at_fourth_order_for_exponential (test_integrator_steps.StepFormulaChecks.test_rk4_converges_at_fourth_order_for_exponential) ... ok
+test_time_dependent_rhs_is_evaluated_at_intermediate_times (test_integrator_steps.StepFormulaChecks.test_time_dependent_rhs_is_evaluated_at_intermediate_times) ... ok
+test_independent_trajectories_and_step_refinement (test_lateral_experiments.LateralExperimentChecks.test_independent_trajectories_and_step_refinement) ... ok
+test_initial_acceleration_respects_model_control_signs (test_lateral_experiments.LateralExperimentChecks.test_initial_acceleration_respects_model_control_signs) ... ok
+test_pulse_changes_only_the_selected_surface_and_restores_trim (test_lateral_experiments.LateralExperimentChecks.test_pulse_changes_only_the_selected_surface_and_restores_trim) ... ok
+test_recorded_trim_rejects_mismatched_properties_or_balance (test_lateral_experiments.LateralExperimentChecks.test_recorded_trim_rejects_mismatched_properties_or_balance) ... ok
+test_beta_drag_split_matches_the_original_force_and_moment_model (test_linearization.LinearizationChecks.test_beta_drag_split_matches_the_original_force_and_moment_model) ... ok
+test_differentiation_refinement_and_physical_data_are_preserved (test_linearization.LinearizationChecks.test_differentiation_refinement_and_physical_data_are_preserved) ... ok
+test_directional_first_order_model_has_second_order_local_remainder (test_linearization.LinearizationChecks.test_directional_first_order_model_has_second_order_local_remainder) ... ok
+test_modal_frequency_and_participation_are_unit_invariant (test_linearization.LinearizationChecks.test_modal_frequency_and_participation_are_unit_invariant) ... ok
+test_moving_trim_and_cyclic_coordinates_are_distinguished (test_linearization.LinearizationChecks.test_moving_trim_and_cyclic_coordinates_are_distinguished) ... ok
+test_one_sided_beta_derivatives_disagree_by_the_predicted_cusp (test_linearization.LinearizationChecks.test_one_sided_beta_derivatives_disagree_by_the_predicted_cusp) ... ok
+test_other_lookup_corners_are_rejected_without_changing_trim_loads (test_linearization.LinearizationChecks.test_other_lookup_corners_are_rejected_without_changing_trim_loads) ... ok
+elevator +0.25 deg: compared
+elevator -0.25 deg: compared
+aileron  +0.25 deg: compared
+aileron  -0.25 deg: compared
+rudder   +0.25 deg: compared
+rudder   -0.25 deg: compared
+test_pulse_comparison_checks_all_surfaces_and_both_signs (test_linearization.LinearizationChecks.test_pulse_comparison_checks_all_surfaces_and_both_signs) ... ok
+test_zero_input_perturbation_stays_zero (test_linearization.LinearizationChecks.test_zero_input_perturbation_stays_zero) ... ok
+test_reference_sampling_requires_exact_timestamps (test_longitudinal_integrator_metrics.ComparisonMetricChecks.test_reference_sampling_requires_exact_timestamps) ... ok
+test_scaled_error_respects_physical_unit_scales (test_longitudinal_integrator_metrics.ComparisonMetricChecks.test_scaled_error_respects_physical_unit_scales) ... ok
+test_loaded_mass_and_inertia_are_physical (test_simulation.AircraftChecks.test_loaded_mass_and_inertia_are_physical) ... skipped 'SciPy is required to recompute trim and DOP853 trajectories'
+test_pulse_converges_when_solver_precision_is_increased (test_simulation.AircraftChecks.test_pulse_converges_when_solver_precision_is_increased) ... skipped 'SciPy is required to recompute trim and DOP853 trajectories'
+test_trim_balances_forces_moments_and_altitude_rate (test_simulation.AircraftChecks.test_trim_balances_forces_moments_and_altitude_rate) ... skipped 'SciPy is required to recompute trim and DOP853 trajectories'
+test_trim_stays_steady_for_thirty_seconds (test_simulation.AircraftChecks.test_trim_stays_steady_for_thirty_seconds) ... skipped 'SciPy is required to recompute trim and DOP853 trajectories'
+test_zero_speed_start_is_rejected (test_simulation.AircraftChecks.test_zero_speed_start_is_rejected) ... skipped 'SciPy is required to recompute trim and DOP853 trajectories'
+test_air_data_velocity_and_wind_axis_agree (test_simulation.FrameChecks.test_air_data_velocity_and_wind_axis_agree) ... ok
+test_heading_ninety_points_body_x_east (test_simulation.FrameChecks.test_heading_ninety_points_body_x_east) ... ok
+test_rotation_matrices_are_proper (test_simulation.FrameChecks.test_rotation_matrices_are_proper) ... ok
+test_gravity_only_matches_analytic_free_motion (test_simulation.MechanicsChecks.test_gravity_only_matches_analytic_free_motion) ... skipped 'SciPy is required for the analytic integration check'
+test_torque_free_energy_and_inertial_momentum (test_simulation.MechanicsChecks.test_torque_free_energy_and_inertial_momentum) ... skipped 'SciPy is required for the analytic integration check'
+
+----------------------------------------------------------------------
+Ran 35 tests in 11.076s
+
+OK (skipped=8)
