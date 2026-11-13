@@ -133,4 +133,4 @@ The normal plot renderer is Matplotlib. Bundled charts are standard ReportLab pl
 
 `tests/test_linearization.py` checks the drag decomposition, one-sided gap, second-order directional remainder, finite-difference convergence, unchanged physical data, moving trim/neutral coordinates, rejection of other slope corners, zero-input propagation, analytic modal frequency, unit-invariant participation and complete short-run comparison/export.
 
-The bundled [verification record](../results/linear_analysis/verification.txt) reports 27 passing tests, including all nine new local-model tests, and eight SciPy-dependent skips out of 35 discovered tests. SciPy was unavailable in that execution environment. Run the complete suite with the declared dependencies to exercise the skipped checks; the record does not establish a full-dependency pass.
+The [verification summary](../results/performance/verification_summary.md) records all 42 tests passing without failures or skips, including the local-model checks. Install the declared dependencies and run the complete suite to reproduce verification.

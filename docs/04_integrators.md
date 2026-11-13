@@ -121,9 +121,9 @@ Numerical values are produced by running the experiment; no unmeasured compariso
 
 ## Verification
 
-`tests/test_integrator_steps.py` checks analytic exponential convergence, coupled constant-acceleration motion, a time-dependent derivative and a harmonic oscillator. These formula tests need NumPy but not SciPy. `tests/test_fixed_simulation.py` uses the recorded equilibrium as its initial-state fixture and checks flight convergence, shortened boundary steps, control switching, evaluation counts, step/output separation, invalid input and domain exit. Its DOP853-reference check is explicitly skipped when SciPy is unavailable. The complete suite requires `requirements.txt` dependencies.
+`tests/test_integrator_steps.py` checks analytic exponential convergence, coupled constant-acceleration motion, a time-dependent derivative and a harmonic oscillator. These formula tests need NumPy but not SciPy. `tests/test_fixed_simulation.py` uses the recorded equilibrium as its initial-state fixture and checks flight convergence, shortened boundary steps, control switching, evaluation counts, step/output separation, invalid input and domain exit. Its DOP853-reference check requires SciPy. The complete suite requires `requirements.txt` dependencies.
 
-`tests/test_comparison_metrics.py` verifies physical error-unit scaling and exact reference timestamp matching without requiring SciPy or Matplotlib.
+`tests/test_longitudinal_integrator_metrics.py` verifies physical error-unit scaling and exact reference timestamp matching without requiring SciPy or Matplotlib.
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
