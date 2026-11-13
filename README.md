@@ -1,5 +1,7 @@
 # Educational C172P 6-DOF simulation
 
+[![Verification](https://github.com/JavierTejedor02/c172-6dof-flight-model/actions/workflows/verification.yml/badge.svg?branch=main)](https://github.com/JavierTejedor02/c172-6dof-flight-model/actions/workflows/verification.yml)
+
 **Version 0.5.0 - stationary propulsion, depleting-fuel cruise missions and sampled endurance/range comparisons.**
 
 A Python implementation of nonlinear rigid-body flight dynamics using true airspeed, angle of attack and sideslip as velocity states. It includes straight-and-level trim, independent longitudinal/lateral pulses, an integrator comparison, local perturbation matrices, candidate dynamic modes, linear/nonlinear response comparisons and a separate quasi-steady cruise/fuel study.
@@ -96,7 +98,7 @@ git clone https://github.com/JavierTejedor02/c172-6dof-flight-model.git
 Set-Location '.\c172-6dof-flight-model'
 ```
 
-For an existing checkout or an extracted archive, open its root directly and skip the clone commands. A local folder named `c172-flight-model` is also valid; no version-numbered parent directory is required. Confirm the working directory before installation:
+For an existing checkout or an extracted archive, open the repository root and skip the clone commands. Confirm the working directory before installation:
 
 ```powershell
 Get-Item run_longitudinal_demo.py, requirements.txt
@@ -117,7 +119,7 @@ An existing Python environment, including the interpreter selected in VS Code, c
 
 The packaged data are ready to use; the XML download is needed only to reproduce data preparation.
 
-Packaged version 0.1.0 reference results record Python 3.14.4, NumPy 2.4.4, SciPy 1.17.1 and Matplotlib 3.10.9. Dependency ranges are in `requirements.txt`; the environment used for each new demonstration is recorded in `results/longitudinal/trim_and_run.json`. Those ranges do not pin an identical environment across installations.
+Dependency ranges are listed in `requirements.txt`. Each study records its solver settings and execution environment in its JSON report.
 
 ## Run and inspect
 
@@ -184,7 +186,7 @@ To reproduce the numerical settings used for the bundled README figures:
 
 `--check-step` repeats a fixed-step experiment at half the step, rejects a failed refinement check and records measured differences in JSON. With an existing environment, `py -3 run_lateral_demo.py` is also valid after installing the dependencies for that interpreter. The script can be launched using an editor's Python Run action.
 
-Outputs in `results/lateral/`: `equilibrium.csv`, `aileron.csv`, `rudder.csv`, `lateral_run.json`, `aileron_response.png` and `rudder_response.png`. The JSON records the initial condition, actual controls, solver, environment and response metrics. The regular runner renders with Matplotlib; the bundled figures were exported offline with ReportLab, so their styling may differ. An incompatible or unbalanced recorded trim is rejected. Files with the same names are replaced on each run; use `--output-dir` to preserve a separate experiment.
+Outputs in `results/lateral/`: `equilibrium.csv`, `aileron.csv`, `rudder.csv`, `lateral_run.json`, `aileron_response.png` and `rudder_response.png`. The JSON records the initial condition, actual controls, solver, environment and response metrics. An incompatible or unbalanced recorded trim is rejected. Files with the same names are replaced on each run; use `--output-dir` to preserve a separate experiment.
 
 ## Run the local-model study
 
@@ -198,7 +200,7 @@ To reuse the checked reference trim:
 .\.venv\Scripts\python.exe run_linear_analysis.py --trim-file results/longitudinal/trim_and_run.json
 ```
 
-This writes matrices, modal reports, eighteen linear/nonlinear comparisons, an amplitude sweep and figures to `results/linear_analysis/`. Default integration is RK4 with a 0.01 s step; the positive largest pulse for each surface is checked at 0.005 s. `--no-plots` supports a NumPy-only data run when a recorded trim is supplied. Normal plotting uses Matplotlib; bundled charts use ReportLab from the same numeric arrays. No additional plotting dependency is required for ordinary execution.
+This writes matrices, modal reports, eighteen linear/nonlinear comparisons, an amplitude sweep and figures to `results/linear_analysis/`. Default integration is RK4 with a 0.01 s step; the positive largest pulse for each surface is checked at 0.005 s. `--no-plots` writes numerical outputs without rendering figures.
 
 ## Run the cruise performance study
 
@@ -222,7 +224,7 @@ This calculation is a sequence of equilibria with a stationary motor/propeller m
 | `run_linear_analysis.py` | Coupled local models, modes and all three control pulses | `results/linear_analysis/` |
 | `run_performance_analysis.py` | Stationary propulsion, fuel depletion and sampled cruise strategies | `results/performance/` |
 
-The prior numerical results have been retained under their corresponding directories. Their original software-version metadata remains historical evidence. The generic model modules are shared by longitudinal and lateral experiments.
+Each study has its own result directory. Aircraft dynamics, frame transformations and integrators are shared by longitudinal and lateral experiments.
 
 ## Read the code
 
@@ -290,19 +292,13 @@ The loaded inertia includes point-mass shifts and the source liquid-tank self-in
 
 Tiny equilibrium drift demonstrates numerical consistency at the computed equilibrium. It does not establish physical accuracy.
 
-## Verification and limits
+## Verification
 
-Verification on 2026-11-13: **42 tests passed, with no failures or skips**. See the [verification summary](results/performance/verification_summary.md) for the result and reproduction command.
+The [Verification workflow](https://github.com/JavierTejedor02/c172-6dof-flight-model/actions/workflows/verification.yml) runs on pushes and pull requests using Windows, Linux and Python 3.12. It installs the declared dependencies, checks compatibility and runs `python tools/verify_project.py`. Verification requires a nonempty suite with all tests passing and no skips. Each job provides its test log and environment metadata as downloadable artifacts.
 
-The [Verification workflow](.github/workflows/verification.yml) installs `requirements.txt`, checks dependency compatibility and runs the same verification command on Windows and Linux with Python 3.12 for pushes and pull requests. It can also be started manually from the repository's Actions tab. Each job uploads its test log and JSON summary as a downloadable artifact. The first hosted result is available after the workflow is committed and pushed.
+The suite covers reference frames, analytic mechanics, mass properties, trim balance, equilibrium persistence, integration convergence, control boundaries, local perturbation models, propulsion matching and fuel-coordinate missions. Study-specific refinement checks are recorded with the numerical results. The badge above shows the current status; detailed results are available in GitHub Actions.
 
-The packaged version 0.1.0 test record reports ten passing checks. They cover frame orientation, air-data consistency, gravity-only motion, torque-free energy and inertial angular momentum conservation, physical inertia, trim balance, equilibrium persistence, solver convergence and rejection of a zero-speed start. Version 0.2.0 adds twelve tests for Euler/RK4 formulas, convergence, control boundaries, input handling and comparison metrics. The verification command above checks the current installation.
-
-Version 0.3.0 adds four tests for lateral experiments. The bundled lateral trajectories also passed a separate RK4 step-halving check, recorded in `results/lateral/lateral_run.json`; this is numerical consistency evidence, not validation against the real aircraft.
-
-Version 0.4.0 adds nine tests for local perturbation models and their output. The local matrices and response study include their own differentiation and integration refinement records. Existing source-data and flight-result records keep the software versions that originally generated them.
-
-Version 0.5.0 adds seven performance tests. Reproduction of the packaged load and trim, engine/propeller residuals and speed/fuel-grid refinement are internal consistency evidence. Existing reports retain their original calculation-version labels.
+## Model limitations
 
 There is no quantitative comparison with a JSBSim execution or flight-test data yet.
 

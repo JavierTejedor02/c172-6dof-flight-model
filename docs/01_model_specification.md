@@ -1,6 +1,6 @@
 # Civil C172 model specification
 
-Status: version 0.5.0 includes longitudinal/lateral pulse experiments, integrator comparisons, local perturbation/modal analysis and a separate stationary-propulsion cruise/fuel study.
+The model includes longitudinal/lateral pulse experiments, integrator comparisons, local perturbation/modal analysis and a separate stationary-propulsion cruise/fuel study.
 
 ## Purpose and reference
 
@@ -42,9 +42,9 @@ Omit CLadot and Cmadot, additional multidimensional CLalpha, flap effects, stall
 
 The demonstration solves straight, level, beta=0 flight at 50 m/s and 1000 m. Small lateral trim offsets are allowed for the left-seat pilot's CG displacement. The solver balances all three force components and all three moment components; theta enforces zero vertical velocity.
 
-The original version 0.1.0 results contain two 30 s runs: steady trim and a -0.5 deg elevator increment between t=2 and t=3 s. DOP853 remains the default, with a maximum adaptive step of 0.05 s. Version 0.2.0 also supports explicit Euler and classical RK4, with a configurable fixed step. Every method splits intervals at input changes. Fixed methods save each step and shorten the last step of a segment; DOP853 separates output spacing from its adaptive internal steps.
+The longitudinal example contains two 30 s runs: steady trim and a -0.5 deg elevator increment between t=2 and t=3 s. DOP853 is the default, with a maximum adaptive step of 0.05 s. Explicit Euler and classical RK4 provide configurable fixed-step alternatives. Every method splits intervals at input changes. Fixed methods save each step and shorten the last step of a segment; DOP853 separates output spacing from its adaptive internal steps.
 
-The suite contains forty-two tests covering frames, analytic mechanics, mass/inertia, trim, equilibrium persistence, convergence, input handling, control boundaries, comparison metrics, lateral experiments, local models and quasi-steady performance. All forty-two tests passed with the declared dependencies installed; see the [verification summary](../results/performance/verification_summary.md). Measured flight-data validation and quantitative JSBSim comparison remain pending.
+The suite covers frames, analytic mechanics, mass/inertia, trim, equilibrium persistence, convergence, input handling, control boundaries, comparison metrics, lateral experiments, local models and quasi-steady performance. Run `python tools/verify_project.py` to execute it. Current CI status and execution records are linked from the [README](../README.md#verification). Measured flight-data validation and quantitative JSBSim comparison remain pending.
 
 `compare_longitudinal_integrators.py` compares the perturbed trajectory using Euler, RK4 and DOP853, reports sampled numerical errors against a tight and refined DOP853 reference, and measures RHS evaluations and elapsed integration time. Reference convergence checks, failure handling and metric scales are described in [integrators and comparison](04_integrators.md).
 

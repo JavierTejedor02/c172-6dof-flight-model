@@ -4,8 +4,6 @@
 
 Euler, classical RK4 and DOP853 solve the same twelve-state C172 model with the same loaded properties, atmosphere, initial trim and elevator pulse. Changing the integrator does not change the force/moment equations. This experiment isolates numerical accuracy and cost.
 
-The integrator comparison was introduced in version 0.2.0. Earlier bundled trajectory files and `results/test_run.txt` remain reference records from version 0.1.0; they are not measurements of that experiment.
-
 ## From derivatives to a trajectory
 
 `c172sim/dynamics.py` defines the first-order system:

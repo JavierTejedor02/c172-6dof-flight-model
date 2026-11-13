@@ -143,7 +143,7 @@ def load_reference(source: Path) -> tuple[dict, dict]:
         "propulsion_file_references": {
             "engine": propulsion.find("engine").attrib.get("file"),
             "propeller": propulsion.find("engine/thruster").attrib.get("file"),
-            "dependency_status": "Names inventoried; dependency files not acquired or evaluated in this milestone.",
+            "dependency_status": "Component names only; propulsion parameters are extracted separately by tools/build_propulsion_data.py.",
         },
         "warnings": [
             "Source configuration includes extra point masses; defaults are not the selected load case.",

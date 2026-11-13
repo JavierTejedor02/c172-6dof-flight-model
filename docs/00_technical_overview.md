@@ -2,7 +2,7 @@
 
 ## Scope
 
-Version 0.5.0 implements a nonlinear, rigid-body, 6-DOF civil-aircraft model, independent longitudinal/lateral pulse experiments, local perturbation matrices, candidate modal analysis and a separate quasi-steady cruise/fuel study. The twelve dynamic states use true airspeed, angle of attack and sideslip for translational velocity. Euler and RK4 provide educational fixed-step alternatives to the default adaptive DOP853 integrator. JSBSim supplies reference data and propulsion equation references; it is not executed.
+The project implements a nonlinear, rigid-body, 6-DOF civil-aircraft model, independent longitudinal/lateral pulse experiments, local perturbation matrices, candidate modal analysis and a separate quasi-steady cruise/fuel study. The twelve dynamic states use true airspeed, angle of attack and sideslip for translational velocity. Euler and RK4 provide educational fixed-step alternatives to the default adaptive DOP853 integrator. JSBSim supplies reference data and propulsion equation references; it is not executed.
 
 The [package README](../README.md) provides prerequisites, installation, execution commands, expected outputs and verification instructions. The [equation-to-code reference](03_equations_and_code.md) defines the governing equations.
 
@@ -66,7 +66,7 @@ The demonstration uses 50 m/s and an initial altitude of 1000 m. Changing the tr
 
 The default experiment lasts 30 seconds. A -0.5 degree elevator increment relative to trim is applied between 2 and 3 seconds. The dashed plot trace shows the equilibrium trajectory; the blue trace shows the perturbed response.
 
-The supplied result shows a fast response in angle of attack and pitch rate, together with a slower variation in speed and altitude. Formal modal identification would require linearization and eigenvalue analysis, which are outside this release. Lateral motion is permitted by the retained CG offset, inertia products and equation coupling.
+The supplied result shows a fast response in angle of attack and pitch rate, together with a slower variation in speed and altitude. The local-model study uses linearization and eigenvalue analysis to identify candidate dynamic modes. Lateral motion is permitted by the retained CG offset, inertia products and equation coupling.
 
 The [lateral experiments](05_lateral_experiments.md) separately apply +1 degree of effective aileron and rudder from 2 to 3 seconds, starting each trajectory from the same equilibrium. Six-panel figures show control input, sideslip, roll/yaw rates, bank and heading change. Other inputs remain at trim; no attitude or heading controller is active. The bundled RK4 results include step-refinement evidence.
 
@@ -74,8 +74,8 @@ The [local-model study](06_local_models_and_modes.md) compares eighteen positive
 
 ## Verification and limitations
 
-The test suite checks reference-frame geometry, air-data consistency, analytic gravity-only motion, torque-free invariants, physical mass properties, trim balance, equilibrium persistence, convergence, input rejection and fixed-step control boundaries. Analytic tests verify the simple integrators' expected orders. The packaged record reports the ten original version 0.1.0 tests; a fresh full-suite run also exercises the new tests. Reproduction commands are in the README.
+The test suite checks reference-frame geometry, air-data consistency, analytic gravity-only motion, torque-free invariants, physical mass properties, trim balance, equilibrium persistence, convergence, input rejection, fixed-step control boundaries, local perturbation models and quasi-steady performance. Analytic tests verify the simple integrators' expected orders. Run `python tools/verify_project.py` from the repository root. The same command runs in GitHub Actions on Windows and Linux; the [README](../README.md#verification) links to the current status and execution records.
 
 These checks support numerical and mechanical consistency. They do not establish aerodynamic accuracy against the real aircraft. Quantitative comparison with a JSBSim execution and measured flight data remains pending.
 
-The reduced model omits acceleration-dependent aerodynamic terms, the additional multidimensional lift contribution, flap effects, stall hysteresis, ground effect, wind, actuators, engine/propeller dynamics, fuel burn and ground contact. The [model specification](01_model_specification.md) defines the monitored study domain and control interface.
+The dynamic model omits acceleration-dependent aerodynamic terms, the additional multidimensional lift contribution, flap effects, stall hysteresis, ground effect, wind, actuators, engine/propeller dynamics, fuel burn and ground contact. The separate cruise study models stationary propulsion and changing fuel loads through successive equilibria. The [model specification](01_model_specification.md) defines the monitored study domain and control interface.

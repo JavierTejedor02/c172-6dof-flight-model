@@ -1,4 +1,4 @@
-"""Actual performance samples, shared by normal and offline chart renderers."""
+"""Renderer-independent definitions of cruise-performance figures."""
 import numpy as np
 
 COLORS = {"maximum_endurance": "#1781a0", "maximum_range": "#d37e22", "fixed_speed": "#172c3b"}

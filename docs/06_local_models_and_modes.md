@@ -2,7 +2,7 @@
 
 ## Scope and reproduction
 
-Version 0.4.0 studies the existing reduced civil C172 model near its 50 m/s, 1000 m straight-and-level trim. It exports full twelve-state perturbation matrices, analyzes eight dynamic states and compares positive/negative control pulses of 0.25, 0.5 and 1 degree. The original aerodynamic and rigid-body equations remain unchanged.
+The local-model study evaluates the reduced civil C172 model near its 50 m/s, 1000 m straight-and-level trim. It exports full twelve-state perturbation matrices, analyzes eight dynamic states and compares positive/negative control pulses of 0.25, 0.5 and 1 degree. The aerodynamic and rigid-body equations are shared with the nonlinear simulation.
 
 From the repository root with dependencies installed:
 
@@ -125,7 +125,7 @@ All study outputs are under `results/linear_analysis/`:
 
 Archive keys have the form `<case>__time`, `<case>__nonlinear_delta`, `<case>__central_lti_delta` and `<case>__directional_delta`; `state_names` fixes the column order. Surface inputs can be reconstructed from the recorded trim and the case amplitude/time interval. Files with matching names are replaced on a new run; use `--output-dir` to retain another study.
 
-The normal plot renderer is Matplotlib. Bundled charts are standard ReportLab plots rendered from the same numerical arrays; styling can differ during regeneration. The exact renderer is recorded in JSON. The data-only command and the numerical model do not depend on either plotting backend.
+Figures are rendered from the numerical arrays. The plotting command uses Matplotlib, and the JSON report records the renderer used for the supplied figures. The data-only command does not load a plotting backend.
 
 ## Code and tests
 
@@ -133,4 +133,4 @@ The normal plot renderer is Matplotlib. Bundled charts are standard ReportLab pl
 
 `tests/test_linearization.py` checks the drag decomposition, one-sided gap, second-order directional remainder, finite-difference convergence, unchanged physical data, moving trim/neutral coordinates, rejection of other slope corners, zero-input propagation, analytic modal frequency, unit-invariant participation and complete short-run comparison/export.
 
-The [verification summary](../results/performance/verification_summary.md) records all 42 tests passing without failures or skips, including the local-model checks. Install the declared dependencies and run the complete suite to reproduce verification.
+Run `python tools/verify_project.py` from the repository root to execute the complete suite. The [README](../README.md#verification) links to the current CI status and execution records.

@@ -2,7 +2,7 @@
 
 ## Scope and reproduction
 
-Version 0.5.0 adds a separate performance study for the educational civil C172 model. It assembles successive fuel loads, balances all six forces/moments, matches stationary propeller/engine operating points and compares sampled cruise strategies. The existing 12-state dynamic demonstrations retain fixed mass and prescribed thrust. Fuel has not been added to their integrated state.
+The performance study assembles successive fuel loads for the educational civil C172 model, balances all six forces/moments, matches stationary propeller/engine operating points and compares sampled cruise strategies. The 12-state dynamic demonstrations retain fixed mass and prescribed thrust.
 
 With Python 3.11 or newer and the repository dependencies installed, run from the directory containing `run_longitudinal_demo.py` and `requirements.txt`:
 
@@ -102,9 +102,8 @@ All outputs are written to `results/performance/`; matching files are replaced o
 | `summary.md` | Comparison with explicit domain-edge flags |
 | `cruise_performance.png` | Initial-load angle, thrust, shaft power, hourly/distance fuel flow and efficiency versus speed |
 | `cruise_missions.png` | Fuel, accumulated distance, selected speed and fuel-flow histories |
-| `verification_summary.md` | Verification result and reproduction command; maintained separately from the performance runner |
 
-Normal plotting uses Matplotlib. Bundled figures may be rendered offline with standard ReportLab charts from the exported samples; their renderer is recorded in JSON, and regenerated styling may differ.
+Figures are rendered from the numerical samples. The plotting command uses Matplotlib; renderer metadata for the supplied figures is recorded in JSON.
 
 `tests/test_performance.py` checks source load reconstruction, independent snapshots, the reference equilibrium, several same-weight balanced speeds, different consumption criteria, propeller normalization, internal motor losses, inverse matching, rejected demands, analytic constant-flow mission integration and short-study exports. Run the complete suite with:
 
@@ -114,7 +113,7 @@ Normal plotting uses Matplotlib. Bundled figures may be rendered offline with st
 
 The source-derived motor and aerodynamic model have not been independently compared with measured fuel flow or the C172P performance handbook. Small numerical residuals and refined grids verify consistency of this implementation, not real-aircraft accuracy.
 
-The [verification summary](../results/performance/verification_summary.md) records the execution on 2026-11-13: all 42 tests passed without failures or skips.
+The [README](../README.md#verification) links to the current CI status and execution records.
 
 ## Reproduce propulsion data preparation
 

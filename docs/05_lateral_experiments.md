@@ -84,7 +84,7 @@ The largest position-component difference was approximately `3.12e-6 m`. This su
 | `aileron_response.png` | Six-panel aileron response |
 | `rudder_response.png` | Six-panel rudder response |
 
-The bundled charts were exported from those numerical trajectories using standard ReportLab LinePlot charts and rasterized to PNG. `run_lateral_demo.py` uses Matplotlib for normal regeneration; styling may differ while the numeric settings remain reproducible. ReportLab is not required to run the project. A new run replaces files in its output directory and records its actual environment and settings in JSON.
+Figures are rendered from the numerical trajectories. `run_lateral_demo.py` uses Matplotlib; renderer metadata for the supplied figures is stored in `lateral_run.json`. A new run replaces files in its output directory and records its environment and settings in JSON.
 
 ## Verification
 
