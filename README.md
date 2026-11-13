@@ -1,10 +1,10 @@
 # Educational C172P 6-DOF simulation
 
-**Version 0.4.0 - nonlinear and local perturbation models, candidate modes and explicit experiment names.**
+**Version 0.5.0 - stationary propulsion, depleting-fuel cruise missions and sampled endurance/range comparisons.**
 
-A Python implementation of nonlinear rigid-body flight dynamics using true airspeed, angle of attack and sideslip as velocity states. It includes straight-and-level trim, independent longitudinal/lateral pulses, an integrator comparison, local perturbation matrices, candidate dynamic modes and linear/nonlinear response comparisons.
+A Python implementation of nonlinear rigid-body flight dynamics using true airspeed, angle of attack and sideslip as velocity states. It includes straight-and-level trim, independent longitudinal/lateral pulses, an integrator comparison, local perturbation matrices, candidate dynamic modes, linear/nonlinear response comparisons and a separate quasi-steady cruise/fuel study.
 
-The implementation evaluates the forces and moments and implements Newton-Euler dynamics and Euler-angle kinematics. Explicit Euler and classical RK4 are implemented as readable fixed-step formulas; SciPy supplies the trim optimizer and adaptive DOP853 integrator. **JSBSim is not run or imported.**
+The implementation evaluates the forces and moments and implements Newton-Euler dynamics and Euler-angle kinematics. Explicit Euler and classical RK4 are implemented as readable fixed-step formulas; SciPy supplies the default trim optimizer and adaptive DOP853 integrator. The performance sweep also offers a NumPy Newton trim backend and a stationary adaptation of the source propulsion equations. **JSBSim is not run or imported.**
 
 The aircraft data come from a pinned public JSBSim representation of a 1982 Cessna 172P. This is a deliberately reduced model, not a reproduction of the full JSBSim aircraft.
 
@@ -62,6 +62,26 @@ Eighteen pulse comparisons cover elevator, aileron and rudder inputs at +/-0.25,
 | All case metrics and refinement evidence | [Comparison report](results/linear_analysis/comparison.json) |
 
 See [local models and modes](docs/06_local_models_and_modes.md) for derivation, control/state ordering, the nonsmooth treatment, reproduction and limits.
+
+## Cruise performance, endurance and range
+
+Weight determines the lift required, while speed and angle of attack can trade off to produce it. Each accepted speed below is a newly balanced flight of the same initial load. Minimum fuel per hour favors endurance; minimum fuel per kilometre favors range. Source motor losses and propeller efficiency are included in the consumption calculation.
+
+![Balanced cruise speeds and their different fuel costs](results/performance/cruise_performance.png)
+
+The mission study recalculates mass, CG, inertia, trim and propulsion as fuel decreases. It compares sampled endurance/range selections with a constant 50 m/s reference, all starting with 58.967 kg fuel and retaining 10 kg. The retained amount is an illustrative analysis choice, not an operational reserve rule.
+
+![Same fuel budget with three quasi-steady cruise strategies](results/performance/cruise_missions.png)
+
+Bundled model results for that common 48.967 kg fuel burn:
+
+| Sampled strategy | Cruise duration [h] | Cruise distance [km] | Initial speed [m/s] |
+|---|---:|---:|---:|
+| Endurance selection | 4.44 | 518 | 33.0 |
+| Range selection | 4.31 | 621 | 40.5 |
+| Fixed-speed reference | 3.06 | 550 | 50.0 |
+
+These are idealized cruise segments at 1000 m with no wind, fixed fuel/air ratio and cost-free speed transitions. Finite speed samples and the reduced model domain constrain the results. A selected feasible-speed edge is explicitly flagged; it must not be presented as a proven real-aircraft optimum. See the [results summary](results/performance/summary.md), [numerical report](results/performance/performance.json) and [performance guide](docs/07_cruise_performance.md). Neither the reduced aerodynamics nor fuel flow has been validated against the C172P handbook.
 
 ## Quick start on Windows
 
@@ -183,6 +203,18 @@ To reuse the checked reference trim:
 
 This writes matrices, modal reports, eighteen linear/nonlinear comparisons, an amplitude sweep and figures to `results/linear_analysis/`. Default integration is RK4 with a 0.01 s step; the positive largest pulse for each surface is checked at 0.005 s. `--no-plots` supports a NumPy-only data run when a recorded trim is supplied. Normal plotting uses Matplotlib; bundled charts use ReportLab from the same numeric arrays. No additional plotting dependency is required for ordinary execution.
 
+## Run the cruise performance study
+
+From the repository root, after installing the declared dependencies:
+
+```powershell
+.\.venv\Scripts\python.exe run_performance_analysis.py
+```
+
+The command prints feasible-speed counts for each fuel load, then duration/distance summaries for three strategies. It writes operating points, rejected points, mission CSVs, JSON/Markdown summaries and two figures to `results/performance/`. Both fuel and speed grids are refined by default; computation may take several minutes. `--no-plots` supports a NumPy-only numerical run. `--help` lists configuration options, including initial/retained fuel and fixed reference speed. Use `--output-dir` to preserve a separate study.
+
+This calculation is a sequence of equilibria with a stationary motor/propeller model. The twelve-state dynamic runners continue to use fixed mass and prescribed thrust. A dynamic fuel state, autopilot and takeoff/climb/descent mission are not implemented.
+
 ## Experiment names and result directories
 
 | Entry point | Study | Default results |
@@ -191,6 +223,7 @@ This writes matrices, modal reports, eighteen linear/nonlinear comparisons, an a
 | `run_lateral_demo.py` | Independent aileron and rudder pulses | `results/lateral/` |
 | `compare_longitudinal_integrators.py` | Euler/RK4/DOP853 on the elevator pulse | `results/longitudinal_integrator_comparison/` |
 | `run_linear_analysis.py` | Coupled local models, modes and all three control pulses | `results/linear_analysis/` |
+| `run_performance_analysis.py` | Stationary propulsion, fuel depletion and sampled cruise strategies | `results/performance/` |
 
 The prior numerical results have been retained under their corresponding directories. Their original software-version metadata remains historical evidence. The generic model modules are shared by longitudinal and lateral experiments.
 
@@ -222,6 +255,13 @@ Longitudinal and lateral labels identify the experiments. The common aircraft, d
 | `tests/test_longitudinal_integrator_metrics.py` | Longitudinal benchmark error scaling and reference timestamp checks |
 | `tests/test_lateral_experiments.py` | Lateral control signs, pulse isolation, refinement and trim reuse |
 | `tests/test_linearization.py` | Drag split, local-order checks, modal invariance, comparison and export |
+| `c172sim/propulsion.py` | Source-derived stationary engine/propeller matching, flow and losses |
+| `c172sim/mass_properties.py` | Independent load snapshots as both tanks deplete equally |
+| `c172sim/performance.py` | Speed samples, per-load equilibria, fuel-coordinate missions and refinement |
+| `c172sim/performance_plots.py` | Cruise-performance and mission chart definitions |
+| `run_performance_analysis.py` | Performance-study configuration, results and figures |
+| `tools/build_propulsion_data.py` | Identity-checked propulsion data preparation |
+| `tests/test_performance.py` | Changing loads, steady balances, objective differences, matching and mission checks |
 
 The [technical overview](docs/00_technical_overview.md) describes the architecture and engineering decisions. The [equation-to-code reference](docs/03_equations_and_code.md) documents the governing equations and their implementation.
 
@@ -237,7 +277,7 @@ Inputs are actual elevator, effective-aileron and rudder deflections in radians,
 
 ## Configuration and first result
 
-One pilot, half capacity in each tank, other point masses zero; fuel mass held fixed. Flaps are zero. Density is the ISA value at 1000 m and is held constant during these short examples.
+One pilot, half capacity in each tank, other point masses zero; fuel mass is held fixed in the dynamic pulse examples. The separate performance study depletes the tanks equally. Flaps are zero. Density is the ISA value at 1000 m and is held constant in these studies.
 
 | Quantity | Example result |
 |---|---:|
@@ -253,17 +293,21 @@ Tiny equilibrium drift demonstrates numerical consistency at the computed equili
 
 ## Verification and limits
 
+The latest full-dependency verification on 2026-11-13 reports **42 tests passed, with no failures or skips**. See the [verification summary](results/performance/verification_summary.md) for the current result and earlier execution records.
+
 The packaged version 0.1.0 test record reports ten passing checks. They cover frame orientation, air-data consistency, gravity-only motion, torque-free energy and inertial angular momentum conservation, physical inertia, trim balance, equilibrium persistence, solver convergence and rejection of a zero-speed start. Version 0.2.0 adds twelve tests for Euler/RK4 formulas, convergence, control boundaries, input handling and comparison metrics. The verification command above checks the current installation.
 
 Version 0.3.0 adds four tests for lateral experiments. The bundled lateral trajectories also passed a separate RK4 step-halving check, recorded in `results/lateral/lateral_run.json`; this is numerical consistency evidence, not validation against the real aircraft.
 
 Version 0.4.0 adds nine tests for local perturbation models and their output. The local matrices and response study include their own differentiation and integration refinement records. Existing source-data and flight-result records keep the software versions that originally generated them.
 
-The bundled [version 0.4.0 verification record](results/linear_analysis/verification.txt) contains 35 discovered tests: 27 passed and eight requiring SciPy were skipped because SciPy was unavailable in that execution environment. All nine new local-model tests passed. A full-dependency verification run remains necessary to exercise those eight checks with the current code.
+The historical [version 0.4.0 verification record](results/linear_analysis/verification.txt) contains 35 discovered tests: 27 passed and eight requiring SciPy were skipped because SciPy was unavailable in that execution environment. All nine new local-model tests passed. Those dependency-related skips were subsequently covered by the full-dependency verification reported above.
+
+Version 0.5.0 adds seven performance tests. The earlier [limited-dependency execution log](results/performance/verification.txt) records 34 passing tests and eight SciPy-dependent skips; it is retained unchanged as historical evidence. The latest full-dependency result is recorded in the verification summary above. Reproduction of the packaged load and trim, engine/propeller residuals and speed/fuel-grid refinement are internal consistency evidence. Existing reports retain their original calculation-version labels.
 
 There is no quantitative comparison with a JSBSim execution or flight-test data yet.
 
-Simplifications are explicit in [the audit](docs/02_data_audit.md) and the data JSON. They include omitted alpha-rate contributions and the additional multidimensional lift term in the upstream c172x file; no stall hysteresis, ground effect, flaps, wind, actuator, engine/propeller dynamics, fuel burn or ground contact. Thrust is an input, not a validated engine model.
+Simplifications are explicit in [the audit](docs/02_data_audit.md) and the data JSON. They include omitted alpha-rate contributions and the additional multidimensional lift term in the upstream c172x file; no stall hysteresis, ground effect, flaps, wind, actuators or ground contact. The 6-DOF dynamic runners omit engine/propeller dynamics and fuel burn, and use prescribed thrust. The separate performance study adds stationary propulsion and fuel bookkeeping; its source-derived motor model is not independently validated.
 
 The model monitors its documented airborne study domain. These numerical study bounds are not certified aircraft operating limits. A trajectory leaving the domain stops with an error.
 

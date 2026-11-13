@@ -1,0 +1,816 @@
+fuel_remaining_kg,speed_m_s,reason
+58.9670081,26.0,Trim did not converge inside domain: residual=0.41259510530139903
+58.9670081,26.5,Trim did not converge inside domain: residual=0.3820355845578589
+58.9670081,27.0,Trim did not converge inside domain: residual=0.3510065590639313
+58.9670081,27.5,Trim did not converge inside domain: residual=0.31949933867031927
+58.9670081,28.0,Trim did not converge inside domain: residual=0.2875091309843672
+58.9670081,28.5,Trim did not converge inside domain: residual=0.2550362401615176
+58.9670081,29.0,Trim did not converge inside domain: residual=0.2220352157656662
+58.9670081,29.5,Trim did not converge inside domain: residual=0.18772104186961952
+58.9670081,30.0,Trim did not converge inside domain: residual=0.151994164466339
+58.9670081,30.5,Trim did not converge inside domain: residual=0.11564889723909924
+58.9670081,31.0,Trim did not converge inside domain: residual=0.0786802373079719
+58.9670081,31.5,Trim did not converge inside domain: residual=0.04108204580074626
+58.9670081,32.0,Trim did not converge inside domain: residual=0.002856154136635152
+58.9670081,64.0,Requested operating point is not bracketed
+58.9670081,64.5,Requested operating point is not bracketed
+58.9670081,65.0,Requested operating point is not bracketed
+58.9670081,65.5,Requested operating point is not bracketed
+58.9670081,66.0,Requested operating point is not bracketed
+58.9670081,66.5,Requested operating point is not bracketed
+58.9670081,67.0,Requested operating point is not bracketed
+58.9670081,67.5,Requested operating point is not bracketed
+58.9670081,68.0,Requested operating point is not bracketed
+58.9670081,68.5,Requested operating point is not bracketed
+58.9670081,69.0,Requested operating point is not bracketed
+58.9670081,69.5,Requested operating point is not bracketed
+58.9670081,70.0,Requested operating point is not bracketed
+58.9670081,70.5,Requested operating point is not bracketed
+58.9670081,71.0,Requested operating point is not bracketed
+58.9670081,71.5,Requested operating point is not bracketed
+58.9670081,72.0,Requested operating point is not bracketed
+58.9670081,72.5,Requested operating point is not bracketed
+58.9670081,73.0,Requested operating point is not bracketed
+58.9670081,73.5,Requested operating point is not bracketed
+58.9670081,74.0,Requested operating point is not bracketed
+56.926716095833335,26.0,Trim did not converge inside domain: residual=0.4107959822659663
+56.926716095833335,26.5,Trim did not converge inside domain: residual=0.38016009437134374
+56.926716095833335,27.0,Trim did not converge inside domain: residual=0.3490527918976642
+56.926716095833335,27.5,Trim did not converge inside domain: residual=0.31746556629297185
+56.926716095833335,28.0,Trim did not converge inside domain: residual=0.28539387153212925
+56.926716095833335,28.5,Trim did not converge inside domain: residual=0.2528383899838965
+56.926716095833335,29.0,Trim did not converge inside domain: residual=0.21969585343146486
+56.926716095833335,29.5,Trim did not converge inside domain: residual=0.18523067965113013
+56.926716095833335,30.0,Trim did not converge inside domain: residual=0.14940445462944474
+56.926716095833335,30.5,Trim did not converge inside domain: residual=0.11295779615077078
+56.926716095833335,31.0,Trim did not converge inside domain: residual=0.07588556166462486
+56.926716095833335,31.5,Trim did not converge inside domain: residual=0.038182147125724396
+56.926716095833335,64.0,Requested operating point is not bracketed
+56.926716095833335,64.5,Requested operating point is not bracketed
+56.926716095833335,65.0,Requested operating point is not bracketed
+56.926716095833335,65.5,Requested operating point is not bracketed
+56.926716095833335,66.0,Requested operating point is not bracketed
+56.926716095833335,66.5,Requested operating point is not bracketed
+56.926716095833335,67.0,Requested operating point is not bracketed
+56.926716095833335,67.5,Requested operating point is not bracketed
+56.926716095833335,68.0,Requested operating point is not bracketed
+56.926716095833335,68.5,Requested operating point is not bracketed
+56.926716095833335,69.0,Requested operating point is not bracketed
+56.926716095833335,69.5,Requested operating point is not bracketed
+56.926716095833335,70.0,Requested operating point is not bracketed
+56.926716095833335,70.5,Requested operating point is not bracketed
+56.926716095833335,71.0,Requested operating point is not bracketed
+56.926716095833335,71.5,Requested operating point is not bracketed
+56.926716095833335,72.0,Requested operating point is not bracketed
+56.926716095833335,72.5,Requested operating point is not bracketed
+56.926716095833335,73.0,Requested operating point is not bracketed
+56.926716095833335,73.5,Requested operating point is not bracketed
+56.926716095833335,74.0,Requested operating point is not bracketed
+54.88642409166667,26.0,Trim did not converge inside domain: residual=0.4089875342227816
+54.88642409166667,26.5,Trim did not converge inside domain: residual=0.378274823698459
+54.88642409166667,27.0,Trim did not converge inside domain: residual=0.3470887885527729
+54.88642409166667,27.5,Trim did not converge inside domain: residual=0.315421105432242
+54.88642409166667,28.0,Trim did not converge inside domain: residual=0.2832674816403031
+54.88642409166667,28.5,Trim did not converge inside domain: residual=0.2506289917295865
+54.88642409166667,29.0,Trim did not converge inside domain: residual=0.2173438551797404
+54.88642409166667,29.5,Trim did not converge inside domain: residual=0.18272651811043764
+54.88642409166667,30.0,Trim did not converge inside domain: residual=0.14680037285084926
+54.88642409166667,30.5,Trim did not converge inside domain: residual=0.11025174241765627
+54.88642409166667,31.0,Trim did not converge inside domain: residual=0.07307521379137472
+54.88642409166667,31.5,Trim did not converge inside domain: residual=0.03526613551640134
+54.88642409166667,64.0,Requested operating point is not bracketed
+54.88642409166667,64.5,Requested operating point is not bracketed
+54.88642409166667,65.0,Requested operating point is not bracketed
+54.88642409166667,65.5,Requested operating point is not bracketed
+54.88642409166667,66.0,Requested operating point is not bracketed
+54.88642409166667,66.5,Requested operating point is not bracketed
+54.88642409166667,67.0,Requested operating point is not bracketed
+54.88642409166667,67.5,Requested operating point is not bracketed
+54.88642409166667,68.0,Requested operating point is not bracketed
+54.88642409166667,68.5,Requested operating point is not bracketed
+54.88642409166667,69.0,Requested operating point is not bracketed
+54.88642409166667,69.5,Requested operating point is not bracketed
+54.88642409166667,70.0,Requested operating point is not bracketed
+54.88642409166667,70.5,Requested operating point is not bracketed
+54.88642409166667,71.0,Requested operating point is not bracketed
+54.88642409166667,71.5,Requested operating point is not bracketed
+54.88642409166667,72.0,Requested operating point is not bracketed
+54.88642409166667,72.5,Requested operating point is not bracketed
+54.88642409166667,73.0,Requested operating point is not bracketed
+54.88642409166667,73.5,Requested operating point is not bracketed
+54.88642409166667,74.0,Requested operating point is not bracketed
+52.8461320875,26.0,Trim did not converge inside domain: residual=0.4071696832437016
+52.8461320875,26.5,Trim did not converge inside domain: residual=0.3763796913178488
+52.8461320875,27.0,Trim did not converge inside domain: residual=0.3451144646604296
+52.8461320875,27.5,Trim did not converge inside domain: residual=0.31336586887362355
+52.8461320875,28.0,Trim did not converge inside domain: residual=0.2811298719077007
+52.8461320875,28.5,Trim did not converge inside domain: residual=0.24840795523551384
+52.8461320875,29.0,Trim did not converge inside domain: residual=0.21497911851402138
+52.8461320875,29.5,Trim did not converge inside domain: residual=0.1802084409417429
+52.8461320875,30.0,Trim did not converge inside domain: residual=0.14418179823334043
+52.8461320875,30.5,Trim did not converge inside domain: residual=0.10753061046644964
+52.8461320875,31.0,Trim did not converge inside domain: residual=0.07024921629146846
+52.8461320875,31.5,Trim did not converge inside domain: residual=0.03233387635358221
+52.8461320875,64.0,Requested operating point is not bracketed
+52.8461320875,64.5,Requested operating point is not bracketed
+52.8461320875,65.0,Requested operating point is not bracketed
+52.8461320875,65.5,Requested operating point is not bracketed
+52.8461320875,66.0,Requested operating point is not bracketed
+52.8461320875,66.5,Requested operating point is not bracketed
+52.8461320875,67.0,Requested operating point is not bracketed
+52.8461320875,67.5,Requested operating point is not bracketed
+52.8461320875,68.0,Requested operating point is not bracketed
+52.8461320875,68.5,Requested operating point is not bracketed
+52.8461320875,69.0,Requested operating point is not bracketed
+52.8461320875,69.5,Requested operating point is not bracketed
+52.8461320875,70.0,Requested operating point is not bracketed
+52.8461320875,70.5,Requested operating point is not bracketed
+52.8461320875,71.0,Requested operating point is not bracketed
+52.8461320875,71.5,Requested operating point is not bracketed
+52.8461320875,72.0,Requested operating point is not bracketed
+52.8461320875,72.5,Requested operating point is not bracketed
+52.8461320875,73.0,Requested operating point is not bracketed
+52.8461320875,73.5,Requested operating point is not bracketed
+52.8461320875,74.0,Requested operating point is not bracketed
+50.80584008333334,26.0,Trim did not converge inside domain: residual=0.4053423506174306
+50.80584008333334,26.5,Trim did not converge inside domain: residual=0.3744746151906082
+50.80584008333334,27.0,Trim did not converge inside domain: residual=0.34312973496288846
+50.80584008333334,27.5,Trim did not converge inside domain: residual=0.31129976852397995
+50.80584008333334,28.0,Trim did not converge inside domain: residual=0.2789809520845415
+50.80584008333334,28.5,Trim did not converge inside domain: residual=0.24617518958084525
+50.80584008333334,29.0,Trim did not converge inside domain: residual=0.21260153996080794
+50.80584008333334,29.5,Trim did not converge inside domain: residual=0.17767633057284776
+50.80584008333334,30.0,Trim did not converge inside domain: residual=0.14154860853738038
+50.80584008333334,30.5,Trim did not converge inside domain: residual=0.10479427335646338
+50.80584008333334,31.0,Trim did not converge inside domain: residual=0.06740743788997883
+50.80584008333334,31.5,Trim did not converge inside domain: residual=0.029385233524670644
+50.80584008333334,64.0,Requested operating point is not bracketed
+50.80584008333334,64.5,Requested operating point is not bracketed
+50.80584008333334,65.0,Requested operating point is not bracketed
+50.80584008333334,65.5,Requested operating point is not bracketed
+50.80584008333334,66.0,Requested operating point is not bracketed
+50.80584008333334,66.5,Requested operating point is not bracketed
+50.80584008333334,67.0,Requested operating point is not bracketed
+50.80584008333334,67.5,Requested operating point is not bracketed
+50.80584008333334,68.0,Requested operating point is not bracketed
+50.80584008333334,68.5,Requested operating point is not bracketed
+50.80584008333334,69.0,Requested operating point is not bracketed
+50.80584008333334,69.5,Requested operating point is not bracketed
+50.80584008333334,70.0,Requested operating point is not bracketed
+50.80584008333334,70.5,Requested operating point is not bracketed
+50.80584008333334,71.0,Requested operating point is not bracketed
+50.80584008333334,71.5,Requested operating point is not bracketed
+50.80584008333334,72.0,Requested operating point is not bracketed
+50.80584008333334,72.5,Requested operating point is not bracketed
+50.80584008333334,73.0,Requested operating point is not bracketed
+50.80584008333334,73.5,Requested operating point is not bracketed
+50.80584008333334,74.0,Requested operating point is not bracketed
+48.76554807916667,26.0,Trim did not converge inside domain: residual=0.40350545674160987
+48.76554807916667,26.5,Trim did not converge inside domain: residual=0.37255951236599166
+48.76554807916667,27.0,Trim did not converge inside domain: residual=0.3411345133190954
+48.76554807916667,27.5,Trim did not converge inside domain: residual=0.3092227153789566
+48.76554807916667,28.0,Trim did not converge inside domain: residual=0.27682063102578225
+48.76554807916667,28.5,Trim did not converge inside domain: residual=0.24393060315396514
+48.76554807916667,29.0,Trim did not converge inside domain: residual=0.210211015107018
+48.76554807916667,29.5,Trim did not converge inside domain: residual=0.17513006809674514
+48.76554807916667,30.0,Trim did not converge inside domain: residual=0.13890068017894538
+48.76554807916667,30.5,Trim did not converge inside domain: residual=0.10204260271126059
+48.76554807916667,31.0,Trim did not converge inside domain: residual=0.06454974585719109
+48.76554807916667,31.5,Trim did not converge inside domain: residual=0.02642006942085051
+48.76554807916667,64.0,Requested operating point is not bracketed
+48.76554807916667,64.5,Requested operating point is not bracketed
+48.76554807916667,65.0,Requested operating point is not bracketed
+48.76554807916667,65.5,Requested operating point is not bracketed
+48.76554807916667,66.0,Requested operating point is not bracketed
+48.76554807916667,66.5,Requested operating point is not bracketed
+48.76554807916667,67.0,Requested operating point is not bracketed
+48.76554807916667,67.5,Requested operating point is not bracketed
+48.76554807916667,68.0,Requested operating point is not bracketed
+48.76554807916667,68.5,Requested operating point is not bracketed
+48.76554807916667,69.0,Requested operating point is not bracketed
+48.76554807916667,69.5,Requested operating point is not bracketed
+48.76554807916667,70.0,Requested operating point is not bracketed
+48.76554807916667,70.5,Requested operating point is not bracketed
+48.76554807916667,71.0,Requested operating point is not bracketed
+48.76554807916667,71.5,Requested operating point is not bracketed
+48.76554807916667,72.0,Requested operating point is not bracketed
+48.76554807916667,72.5,Requested operating point is not bracketed
+48.76554807916667,73.0,Requested operating point is not bracketed
+48.76554807916667,73.5,Requested operating point is not bracketed
+48.76554807916667,74.0,Requested operating point is not bracketed
+46.725256075000004,26.0,Trim did not converge inside domain: residual=0.4016589211999711
+46.725256075000004,26.5,Trim did not converge inside domain: residual=0.3706342990020117
+46.725256075000004,27.0,Trim did not converge inside domain: residual=0.339128712706166
+46.725256075000004,27.5,Trim did not converge inside domain: residual=0.3071346195462345
+46.725256075000004,28.0,Trim did not converge inside domain: residual=0.2746488167724246
+46.725256075000004,28.5,Trim did not converge inside domain: residual=0.24167410362464736
+46.725256075000004,29.0,Trim did not converge inside domain: residual=0.20780743854829062
+46.725256075000004,29.5,Trim did not converge inside domain: residual=0.17256953331368854
+46.725256075000004,30.0,Trim did not converge inside domain: residual=0.13623788819331745
+46.725256075000004,30.5,Trim did not converge inside domain: residual=0.09927546874630357
+46.725256075000004,31.0,Trim did not converge inside domain: residual=0.06167600599067472
+46.725256075000004,31.5,Trim did not converge inside domain: residual=0.023438244900056734
+46.725256075000004,64.0,Requested operating point is not bracketed
+46.725256075000004,64.5,Requested operating point is not bracketed
+46.725256075000004,65.0,Requested operating point is not bracketed
+46.725256075000004,65.5,Requested operating point is not bracketed
+46.725256075000004,66.0,Requested operating point is not bracketed
+46.725256075000004,66.5,Requested operating point is not bracketed
+46.725256075000004,67.0,Requested operating point is not bracketed
+46.725256075000004,67.5,Requested operating point is not bracketed
+46.725256075000004,68.0,Requested operating point is not bracketed
+46.725256075000004,68.5,Requested operating point is not bracketed
+46.725256075000004,69.0,Requested operating point is not bracketed
+46.725256075000004,69.5,Requested operating point is not bracketed
+46.725256075000004,70.0,Requested operating point is not bracketed
+46.725256075000004,70.5,Requested operating point is not bracketed
+46.725256075000004,71.0,Requested operating point is not bracketed
+46.725256075000004,71.5,Requested operating point is not bracketed
+46.725256075000004,72.0,Requested operating point is not bracketed
+46.725256075000004,72.5,Requested operating point is not bracketed
+46.725256075000004,73.0,Requested operating point is not bracketed
+46.725256075000004,73.5,Requested operating point is not bracketed
+46.725256075000004,74.0,Requested operating point is not bracketed
+44.68496407083333,26.0,Trim did not converge inside domain: residual=0.3998026626318569
+44.68496407083333,26.5,Trim did not converge inside domain: residual=0.36869889039347564
+44.68496407083333,27.0,Trim did not converge inside domain: residual=0.3371122451468951
+44.68496407083333,27.5,Trim did not converge inside domain: residual=0.3050353901919956
+44.68496407083333,28.0,Trim did not converge inside domain: residual=0.2724654164711518
+44.68496407083333,28.5,Trim did not converge inside domain: residual=0.23940558516516866
+44.68496407083333,29.0,Trim did not converge inside domain: residual=0.20580181127959202
+44.68496407083333,29.5,Trim did not converge inside domain: residual=0.16999460465522295
+44.68496407083333,30.0,Trim did not converge inside domain: residual=0.1335601062177146
+44.68496407083333,30.5,Trim did not converge inside domain: residual=0.09649274022197751
+44.68496407083333,31.0,Trim did not converge inside domain: residual=0.058786082593672614
+44.68496407083333,31.5,Trim did not converge inside domain: residual=0.02043961927302411
+44.68496407083333,64.0,Requested operating point is not bracketed
+44.68496407083333,64.5,Requested operating point is not bracketed
+44.68496407083333,65.0,Requested operating point is not bracketed
+44.68496407083333,65.5,Requested operating point is not bracketed
+44.68496407083333,66.0,Requested operating point is not bracketed
+44.68496407083333,66.5,Requested operating point is not bracketed
+44.68496407083333,67.0,Requested operating point is not bracketed
+44.68496407083333,67.5,Requested operating point is not bracketed
+44.68496407083333,68.0,Requested operating point is not bracketed
+44.68496407083333,68.5,Requested operating point is not bracketed
+44.68496407083333,69.0,Requested operating point is not bracketed
+44.68496407083333,69.5,Requested operating point is not bracketed
+44.68496407083333,70.0,Requested operating point is not bracketed
+44.68496407083333,70.5,Requested operating point is not bracketed
+44.68496407083333,71.0,Requested operating point is not bracketed
+44.68496407083333,71.5,Requested operating point is not bracketed
+44.68496407083333,72.0,Requested operating point is not bracketed
+44.68496407083333,72.5,Requested operating point is not bracketed
+44.68496407083333,73.0,Requested operating point is not bracketed
+44.68496407083333,73.5,Requested operating point is not bracketed
+44.68496407083333,74.0,Requested operating point is not bracketed
+42.64467206666667,26.0,Trim did not converge inside domain: residual=0.3979365988908686
+42.64467206666667,26.5,Trim did not converge inside domain: residual=0.36675320088876184
+42.64467206666667,27.0,Trim did not converge inside domain: residual=0.33508502173976795
+42.64467206666667,27.5,Trim did not converge inside domain: residual=0.3029249355835042
+42.64467206666667,28.0,Trim did not converge inside domain: residual=0.2702703363817487
+42.64467206666667,28.5,Trim did not converge inside domain: residual=0.23712341652447688
+42.64467206666667,29.0,Trim did not converge inside domain: residual=0.20331367524437252
+42.64467206666667,29.5,Trim did not converge inside domain: residual=0.1674051592164919
+42.64467206666667,30.0,Trim did not converge inside domain: residual=0.13086720648949005
+42.64467206666667,30.5,Trim did not converge inside domain: residual=0.09369428444440965
+42.64467206666667,31.0,Trim did not converge inside domain: residual=0.05587983845351245
+42.64467206666667,31.5,Trim did not converge inside domain: residual=0.017424050282934936
+42.64467206666667,64.0,Requested operating point is not bracketed
+42.64467206666667,64.5,Requested operating point is not bracketed
+42.64467206666667,65.0,Requested operating point is not bracketed
+42.64467206666667,65.5,Requested operating point is not bracketed
+42.64467206666667,66.0,Requested operating point is not bracketed
+42.64467206666667,66.5,Requested operating point is not bracketed
+42.64467206666667,67.0,Requested operating point is not bracketed
+42.64467206666667,67.5,Requested operating point is not bracketed
+42.64467206666667,68.0,Requested operating point is not bracketed
+42.64467206666667,68.5,Requested operating point is not bracketed
+42.64467206666667,69.0,Requested operating point is not bracketed
+42.64467206666667,69.5,Requested operating point is not bracketed
+42.64467206666667,70.0,Requested operating point is not bracketed
+42.64467206666667,70.5,Requested operating point is not bracketed
+42.64467206666667,71.0,Requested operating point is not bracketed
+42.64467206666667,71.5,Requested operating point is not bracketed
+42.64467206666667,72.0,Requested operating point is not bracketed
+42.64467206666667,72.5,Requested operating point is not bracketed
+42.64467206666667,73.0,Requested operating point is not bracketed
+42.64467206666667,73.5,Requested operating point is not bracketed
+42.64467206666667,74.0,Requested operating point is not bracketed
+40.6043800625,26.0,Trim did not converge inside domain: residual=0.39606064687771914
+40.6043800625,26.5,Trim did not converge inside domain: residual=0.3647971439508538
+40.6043800625,27.0,Trim did not converge inside domain: residual=0.3330469526721573
+40.6043800625,27.5,Trim did not converge inside domain: residual=0.30080316304847793
+40.6043800625,28.0,Trim did not converge inside domain: residual=0.2680634819382177
+40.6043800625,28.5,Trim did not converge inside domain: residual=0.23482759030919115
+40.6043800625,29.0,Trim did not converge inside domain: residual=0.200811495475913
+40.6043800625,29.5,Trim did not converge inside domain: residual=0.16480107271256353
+40.6043800625,30.0,Trim did not converge inside domain: residual=0.1281590597916901
+40.6043800625,30.5,Trim did not converge inside domain: residual=0.09087996720696541
+40.6043800625,31.0,Trim did not converge inside domain: residual=0.052957134825920876
+40.6043800625,31.5,Trim did not converge inside domain: residual=0.014391394078725231
+40.6043800625,64.0,Requested operating point is not bracketed
+40.6043800625,64.5,Requested operating point is not bracketed
+40.6043800625,65.0,Requested operating point is not bracketed
+40.6043800625,65.5,Requested operating point is not bracketed
+40.6043800625,66.0,Requested operating point is not bracketed
+40.6043800625,66.5,Requested operating point is not bracketed
+40.6043800625,67.0,Requested operating point is not bracketed
+40.6043800625,67.5,Requested operating point is not bracketed
+40.6043800625,68.0,Requested operating point is not bracketed
+40.6043800625,68.5,Requested operating point is not bracketed
+40.6043800625,69.0,Requested operating point is not bracketed
+40.6043800625,69.5,Requested operating point is not bracketed
+40.6043800625,70.0,Requested operating point is not bracketed
+40.6043800625,70.5,Requested operating point is not bracketed
+40.6043800625,71.0,Requested operating point is not bracketed
+40.6043800625,71.5,Requested operating point is not bracketed
+40.6043800625,72.0,Requested operating point is not bracketed
+40.6043800625,72.5,Requested operating point is not bracketed
+40.6043800625,73.0,Requested operating point is not bracketed
+40.6043800625,73.5,Requested operating point is not bracketed
+40.6043800625,74.0,Requested operating point is not bracketed
+38.56408805833334,26.0,Trim did not converge inside domain: residual=0.3941747226017368
+38.56408805833334,26.5,Trim did not converge inside domain: residual=0.36283063207895216
+38.56408805833334,27.0,Trim did not converge inside domain: residual=0.33099794715383213
+38.56408805833334,27.5,Trim did not converge inside domain: residual=0.29866997898398195
+38.56408805833334,28.0,Trim did not converge inside domain: residual=0.26584475765041427
+38.56408805833334,28.5,Trim did not converge inside domain: residual=0.23250793152969917
+38.56408805833334,29.0,Trim did not converge inside domain: residual=0.19829515117351845
+38.56408805833334,29.5,Trim did not converge inside domain: residual=0.16218221942956318
+38.56408805833334,30.0,Trim did not converge inside domain: residual=0.12543553548325578
+38.56408805833334,30.5,Trim did not converge inside domain: residual=0.0880496528182521
+38.56408805833334,31.0,Trim did not converge inside domain: residual=0.050017831407080396
+38.56408805833334,31.5,Trim did not converge inside domain: residual=0.011341505196641552
+38.56408805833334,64.0,Requested operating point is not bracketed
+38.56408805833334,64.5,Requested operating point is not bracketed
+38.56408805833334,65.0,Requested operating point is not bracketed
+38.56408805833334,65.5,Requested operating point is not bracketed
+38.56408805833334,66.0,Requested operating point is not bracketed
+38.56408805833334,66.5,Requested operating point is not bracketed
+38.56408805833334,67.0,Requested operating point is not bracketed
+38.56408805833334,67.5,Requested operating point is not bracketed
+38.56408805833334,68.0,Requested operating point is not bracketed
+38.56408805833334,68.5,Requested operating point is not bracketed
+38.56408805833334,69.0,Requested operating point is not bracketed
+38.56408805833334,69.5,Requested operating point is not bracketed
+38.56408805833334,70.0,Requested operating point is not bracketed
+38.56408805833334,70.5,Requested operating point is not bracketed
+38.56408805833334,71.0,Requested operating point is not bracketed
+38.56408805833334,71.5,Requested operating point is not bracketed
+38.56408805833334,72.0,Requested operating point is not bracketed
+38.56408805833334,72.5,Requested operating point is not bracketed
+38.56408805833334,73.0,Requested operating point is not bracketed
+38.56408805833334,73.5,Requested operating point is not bracketed
+38.56408805833334,74.0,Requested operating point is not bracketed
+36.52379605416667,26.0,Trim did not converge inside domain: residual=0.39227874114784034
+36.52379605416667,26.5,Trim did not converge inside domain: residual=0.360853576839159
+36.52379605416667,27.0,Trim did not converge inside domain: residual=0.328937913458197
+36.52379605416667,27.5,Trim did not converge inside domain: residual=0.29652528879688916
+36.52379605416667,28.0,Trim did not converge inside domain: residual=0.2636140671604357
+36.52379605416667,28.5,Trim did not converge inside domain: residual=0.2301939326646328
+36.52379605416667,29.0,Trim did not converge inside domain: residual=0.19576452016941912
+36.52379605416667,29.5,Trim did not converge inside domain: residual=0.15954847227132607
+36.52379605416667,30.0,Trim did not converge inside domain: residual=0.12269650142121237
+36.52379605416667,30.5,Trim did not converge inside domain: residual=0.08520320404351807
+36.52379605416667,31.0,Trim did not converge inside domain: residual=0.04706178631403827
+36.52379605416667,31.5,Trim did not converge inside domain: residual=0.00827423653604295
+36.52379605416667,64.0,Requested operating point is not bracketed
+36.52379605416667,64.5,Requested operating point is not bracketed
+36.52379605416667,65.0,Requested operating point is not bracketed
+36.52379605416667,65.5,Requested operating point is not bracketed
+36.52379605416667,66.0,Requested operating point is not bracketed
+36.52379605416667,66.5,Requested operating point is not bracketed
+36.52379605416667,67.0,Requested operating point is not bracketed
+36.52379605416667,67.5,Requested operating point is not bracketed
+36.52379605416667,68.0,Requested operating point is not bracketed
+36.52379605416667,68.5,Requested operating point is not bracketed
+36.52379605416667,69.0,Requested operating point is not bracketed
+36.52379605416667,69.5,Requested operating point is not bracketed
+36.52379605416667,70.0,Requested operating point is not bracketed
+36.52379605416667,70.5,Requested operating point is not bracketed
+36.52379605416667,71.0,Requested operating point is not bracketed
+36.52379605416667,71.5,Requested operating point is not bracketed
+36.52379605416667,72.0,Requested operating point is not bracketed
+36.52379605416667,72.5,Requested operating point is not bracketed
+36.52379605416667,73.0,Requested operating point is not bracketed
+36.52379605416667,73.5,Requested operating point is not bracketed
+36.52379605416667,74.0,Requested operating point is not bracketed
+34.48350405,26.0,Trim did not converge inside domain: residual=0.39037261668427425
+34.48350405,26.5,Trim did not converge inside domain: residual=0.3588658888435075
+34.48350405,27.0,Trim did not converge inside domain: residual=0.326866758884954
+34.48350405,27.5,Trim did not converge inside domain: residual=0.2943689969752866
+34.48350405,28.0,Trim did not converge inside domain: residual=0.26137131323824786
+34.48350405,28.5,Trim did not converge inside domain: residual=0.2278342423745523
+34.48350405,29.0,Trim did not converge inside domain: residual=0.19321947891318286
+34.48350405,29.5,Trim did not converge inside domain: residual=0.15689970268528422
+34.48350405,30.0,Trim did not converge inside domain: residual=0.11994182398556508
+34.48350405,30.5,Trim did not converge inside domain: residual=0.08234030344582956
+34.48350405,31.0,Trim did not converge inside domain: residual=0.04408885606627958
+34.48350405,31.5,Trim did not converge inside domain: residual=0.0051894393362742295
+34.48350405,64.0,Requested operating point is not bracketed
+34.48350405,64.5,Requested operating point is not bracketed
+34.48350405,65.0,Requested operating point is not bracketed
+34.48350405,65.5,Requested operating point is not bracketed
+34.48350405,66.0,Requested operating point is not bracketed
+34.48350405,66.5,Requested operating point is not bracketed
+34.48350405,67.0,Requested operating point is not bracketed
+34.48350405,67.5,Requested operating point is not bracketed
+34.48350405,68.0,Requested operating point is not bracketed
+34.48350405,68.5,Requested operating point is not bracketed
+34.48350405,69.0,Requested operating point is not bracketed
+34.48350405,69.5,Requested operating point is not bracketed
+34.48350405,70.0,Requested operating point is not bracketed
+34.48350405,70.5,Requested operating point is not bracketed
+34.48350405,71.0,Requested operating point is not bracketed
+34.48350405,71.5,Requested operating point is not bracketed
+34.48350405,72.0,Requested operating point is not bracketed
+34.48350405,72.5,Requested operating point is not bracketed
+34.48350405,73.0,Requested operating point is not bracketed
+34.48350405,73.5,Requested operating point is not bracketed
+34.48350405,74.0,Requested operating point is not bracketed
+32.443212045833334,26.0,Trim did not converge inside domain: residual=0.38845626245791326
+32.443212045833334,26.5,Trim did not converge inside domain: residual=0.356867477758405
+32.443212045833334,27.0,Trim did not converge inside domain: residual=0.324784389717624
+32.443212045833334,27.5,Trim did not converge inside domain: residual=0.29220100702960444
+32.443212045833334,28.0,Trim did not converge inside domain: residual=0.25911639776732526
+32.443212045833334,28.5,Trim did not converge inside domain: residual=0.22546159680503444
+32.443212045833334,29.0,Trim did not converge inside domain: residual=0.19065990245331066
+32.443212045833334,29.5,Trim did not converge inside domain: residual=0.1542357806740567
+32.443212045833334,30.0,Trim did not converge inside domain: residual=0.11717136802951827
+32.443212045833334,30.5,Trim did not converge inside domain: residual=0.07946081473871248
+32.443212045833334,31.0,Trim did not converge inside domain: residual=0.041098895553749994
+32.443212045833334,31.5,Trim did not converge inside domain: residual=0.0020869631535720664
+32.443212045833334,64.0,Requested operating point is not bracketed
+32.443212045833334,64.5,Requested operating point is not bracketed
+32.443212045833334,65.0,Requested operating point is not bracketed
+32.443212045833334,65.5,Requested operating point is not bracketed
+32.443212045833334,66.0,Requested operating point is not bracketed
+32.443212045833334,66.5,Requested operating point is not bracketed
+32.443212045833334,67.0,Requested operating point is not bracketed
+32.443212045833334,67.5,Requested operating point is not bracketed
+32.443212045833334,68.0,Requested operating point is not bracketed
+32.443212045833334,68.5,Requested operating point is not bracketed
+32.443212045833334,69.0,Requested operating point is not bracketed
+32.443212045833334,69.5,Requested operating point is not bracketed
+32.443212045833334,70.0,Requested operating point is not bracketed
+32.443212045833334,70.5,Requested operating point is not bracketed
+32.443212045833334,71.0,Requested operating point is not bracketed
+32.443212045833334,71.5,Requested operating point is not bracketed
+32.443212045833334,72.0,Requested operating point is not bracketed
+32.443212045833334,72.5,Requested operating point is not bracketed
+32.443212045833334,73.0,Requested operating point is not bracketed
+32.443212045833334,73.5,Requested operating point is not bracketed
+32.443212045833334,74.0,Requested operating point is not bracketed
+30.40292004166667,26.0,Trim did not converge inside domain: residual=0.3865295907045764
+30.40292004166667,26.5,Trim did not converge inside domain: residual=0.35485825222618744
+30.40292004166667,27.0,Trim did not converge inside domain: residual=0.3226907112633892
+30.40292004166667,27.5,Trim did not converge inside domain: residual=0.29002122146608494
+30.40292004166667,28.0,Trim did not converge inside domain: residual=0.256849221720927
+30.40292004166667,28.5,Trim did not converge inside domain: residual=0.22318034831201258
+30.40292004166667,29.0,Trim did not converge inside domain: residual=0.1880856644098031
+30.40292004166667,29.5,Trim did not converge inside domain: residual=0.1515565747391234
+30.40292004166667,30.0,Trim did not converge inside domain: residual=0.11438499688276936
+30.40292004166667,30.5,Trim did not converge inside domain: residual=0.07656479407299105
+30.40292004166667,31.0,Trim did not converge inside domain: residual=0.03809175802406361
+30.40292004166667,64.0,Requested operating point is not bracketed
+30.40292004166667,64.5,Requested operating point is not bracketed
+30.40292004166667,65.0,Requested operating point is not bracketed
+30.40292004166667,65.5,Requested operating point is not bracketed
+30.40292004166667,66.0,Requested operating point is not bracketed
+30.40292004166667,66.5,Requested operating point is not bracketed
+30.40292004166667,67.0,Requested operating point is not bracketed
+30.40292004166667,67.5,Requested operating point is not bracketed
+30.40292004166667,68.0,Requested operating point is not bracketed
+30.40292004166667,68.5,Requested operating point is not bracketed
+30.40292004166667,69.0,Requested operating point is not bracketed
+30.40292004166667,69.5,Requested operating point is not bracketed
+30.40292004166667,70.0,Requested operating point is not bracketed
+30.40292004166667,70.5,Requested operating point is not bracketed
+30.40292004166667,71.0,Requested operating point is not bracketed
+30.40292004166667,71.5,Requested operating point is not bracketed
+30.40292004166667,72.0,Requested operating point is not bracketed
+30.40292004166667,72.5,Requested operating point is not bracketed
+30.40292004166667,73.0,Requested operating point is not bracketed
+30.40292004166667,73.5,Requested operating point is not bracketed
+30.40292004166667,74.0,Requested operating point is not bracketed
+28.362628037500002,26.0,Trim did not converge inside domain: residual=0.3845925127494679
+28.362628037500002,26.5,Trim did not converge inside domain: residual=0.35283811989931835
+28.362628037500002,27.0,Trim did not converge inside domain: residual=0.3205856278658922
+28.362628037500002,27.5,Trim did not converge inside domain: residual=0.2878295418495617
+28.362628037500002,28.0,Trim did not converge inside domain: residual=0.25456968521359113
+28.362628037500002,28.5,Trim did not converge inside domain: residual=0.22075129657752166
+28.362628037500002,29.0,Trim did not converge inside domain: residual=0.18549663697822988
+28.362628037500002,29.5,Trim did not converge inside domain: residual=0.14886195190814985
+28.362628037500002,30.0,Trim did not converge inside domain: residual=0.11158257230598138
+28.362628037500002,30.5,Trim did not converge inside domain: residual=0.0736520983980219
+28.362628037500002,31.0,Trim did not converge inside domain: residual=0.035067295052102314
+28.362628037500002,64.0,Requested operating point is not bracketed
+28.362628037500002,64.5,Requested operating point is not bracketed
+28.362628037500002,65.0,Requested operating point is not bracketed
+28.362628037500002,65.5,Requested operating point is not bracketed
+28.362628037500002,66.0,Requested operating point is not bracketed
+28.362628037500002,66.5,Requested operating point is not bracketed
+28.362628037500002,67.0,Requested operating point is not bracketed
+28.362628037500002,67.5,Requested operating point is not bracketed
+28.362628037500002,68.0,Requested operating point is not bracketed
+28.362628037500002,68.5,Requested operating point is not bracketed
+28.362628037500002,69.0,Requested operating point is not bracketed
+28.362628037500002,69.5,Requested operating point is not bracketed
+28.362628037500002,70.0,Requested operating point is not bracketed
+28.362628037500002,70.5,Requested operating point is not bracketed
+28.362628037500002,71.0,Requested operating point is not bracketed
+28.362628037500002,71.5,Requested operating point is not bracketed
+28.362628037500002,72.0,Requested operating point is not bracketed
+28.362628037500002,72.5,Requested operating point is not bracketed
+28.362628037500002,73.0,Requested operating point is not bracketed
+28.362628037500002,73.5,Requested operating point is not bracketed
+28.362628037500002,74.0,Requested operating point is not bracketed
+26.322336033333336,26.0,Trim did not converge inside domain: residual=0.38264493892662343
+26.322336033333336,26.5,Trim did not converge inside domain: residual=0.35080698746584565
+26.322336033333336,27.0,Trim did not converge inside domain: residual=0.3184690427817228
+26.322336033333336,27.5,Trim did not converge inside domain: residual=0.2856258687299273
+26.322336033333336,28.0,Trim did not converge inside domain: residual=0.2522776874528912
+26.322336033333336,28.5,Trim did not converge inside domain: residual=0.21830859934153057
+26.322336033333336,29.0,Trim did not converge inside domain: residual=0.1828926908668688
+26.322336033333336,29.5,Trim did not converge inside domain: residual=0.14615177766449097
+26.322336033333336,30.0,Trim did not converge inside domain: residual=0.10876395447769201
+26.322336033333336,30.5,Trim did not converge inside domain: residual=0.07072258303154924
+26.322336033333336,31.0,Trim did not converge inside domain: residual=0.03202535652089321
+26.322336033333336,64.0,Requested operating point is not bracketed
+26.322336033333336,64.5,Requested operating point is not bracketed
+26.322336033333336,65.0,Requested operating point is not bracketed
+26.322336033333336,65.5,Requested operating point is not bracketed
+26.322336033333336,66.0,Requested operating point is not bracketed
+26.322336033333336,66.5,Requested operating point is not bracketed
+26.322336033333336,67.0,Requested operating point is not bracketed
+26.322336033333336,67.5,Requested operating point is not bracketed
+26.322336033333336,68.0,Requested operating point is not bracketed
+26.322336033333336,68.5,Requested operating point is not bracketed
+26.322336033333336,69.0,Requested operating point is not bracketed
+26.322336033333336,69.5,Requested operating point is not bracketed
+26.322336033333336,70.0,Requested operating point is not bracketed
+26.322336033333336,70.5,Requested operating point is not bracketed
+26.322336033333336,71.0,Requested operating point is not bracketed
+26.322336033333336,71.5,Requested operating point is not bracketed
+26.322336033333336,72.0,Requested operating point is not bracketed
+26.322336033333336,72.5,Requested operating point is not bracketed
+26.322336033333336,73.0,Requested operating point is not bracketed
+26.322336033333336,73.5,Requested operating point is not bracketed
+26.322336033333336,74.0,Requested operating point is not bracketed
+24.28204402916667,26.0,Trim did not converge inside domain: residual=0.3806867785579969
+24.28204402916667,26.5,Trim did not converge inside domain: residual=0.3487647605631939
+24.28204402916667,27.0,Trim did not converge inside domain: residual=0.31634085827204095
+24.28204402916667,27.5,Trim did not converge inside domain: residual=0.28341010164451796
+24.28204402916667,28.0,Trim did not converge inside domain: residual=0.24997312678517017
+24.28204402916667,28.5,Trim did not converge inside domain: residual=0.2158521412714454
+24.28204402916667,29.0,Trim did not converge inside domain: residual=0.18027369532180282
+24.28204402916667,29.5,Trim did not converge inside domain: residual=0.14342591596349277
+24.28204402916667,30.0,Trim did not converge inside domain: residual=0.10592900198520107
+24.28204402916667,30.5,Trim did not converge inside domain: residual=0.06777610163640593
+24.28204402916667,31.0,Trim did not converge inside domain: residual=0.02896579059199451
+24.28204402916667,64.0,Requested operating point is not bracketed
+24.28204402916667,64.5,Requested operating point is not bracketed
+24.28204402916667,65.0,Requested operating point is not bracketed
+24.28204402916667,65.5,Requested operating point is not bracketed
+24.28204402916667,66.0,Requested operating point is not bracketed
+24.28204402916667,66.5,Requested operating point is not bracketed
+24.28204402916667,67.0,Requested operating point is not bracketed
+24.28204402916667,67.5,Requested operating point is not bracketed
+24.28204402916667,68.0,Requested operating point is not bracketed
+24.28204402916667,68.5,Requested operating point is not bracketed
+24.28204402916667,69.0,Requested operating point is not bracketed
+24.28204402916667,69.5,Requested operating point is not bracketed
+24.28204402916667,70.0,Requested operating point is not bracketed
+24.28204402916667,70.5,Requested operating point is not bracketed
+24.28204402916667,71.0,Requested operating point is not bracketed
+24.28204402916667,71.5,Requested operating point is not bracketed
+24.28204402916667,72.0,Requested operating point is not bracketed
+24.28204402916667,72.5,Requested operating point is not bracketed
+24.28204402916667,73.0,Requested operating point is not bracketed
+24.28204402916667,73.5,Requested operating point is not bracketed
+24.28204402916667,74.0,Requested operating point is not bracketed
+22.241752025000004,26.0,Trim did not converge inside domain: residual=0.3787179399667186
+22.241752025000004,26.5,Trim did not converge inside domain: residual=0.34671134379809726
+22.241752025000004,27.0,Trim did not converge inside domain: residual=0.3142009755712365
+22.241752025000004,27.5,Trim did not converge inside domain: residual=0.2811821391172354
+22.241752025000004,28.0,Trim did not converge inside domain: residual=0.24765590066551346
+22.241752025000004,28.5,Trim did not converge inside domain: residual=0.21338180587504108
+22.241752025000004,29.0,Trim did not converge inside domain: residual=0.17763951806715855
+22.241752025000004,29.5,Trim did not converge inside domain: residual=0.14068422918656623
+22.241752025000004,30.0,Trim did not converge inside domain: residual=0.10307757177206843
+22.241752025000004,30.5,Trim did not converge inside domain: residual=0.064812506189288
+22.241752025000004,31.0,Trim did not converge inside domain: residual=0.025888443687910156
+22.241752025000004,64.0,Requested operating point is not bracketed
+22.241752025000004,64.5,Requested operating point is not bracketed
+22.241752025000004,65.0,Requested operating point is not bracketed
+22.241752025000004,65.5,Requested operating point is not bracketed
+22.241752025000004,66.0,Requested operating point is not bracketed
+22.241752025000004,66.5,Requested operating point is not bracketed
+22.241752025000004,67.0,Requested operating point is not bracketed
+22.241752025000004,67.5,Requested operating point is not bracketed
+22.241752025000004,68.0,Requested operating point is not bracketed
+22.241752025000004,68.5,Requested operating point is not bracketed
+22.241752025000004,69.0,Requested operating point is not bracketed
+22.241752025000004,69.5,Requested operating point is not bracketed
+22.241752025000004,70.0,Requested operating point is not bracketed
+22.241752025000004,70.5,Requested operating point is not bracketed
+22.241752025000004,71.0,Requested operating point is not bracketed
+22.241752025000004,71.5,Requested operating point is not bracketed
+22.241752025000004,72.0,Requested operating point is not bracketed
+22.241752025000004,72.5,Requested operating point is not bracketed
+22.241752025000004,73.0,Requested operating point is not bracketed
+22.241752025000004,73.5,Requested operating point is not bracketed
+22.241752025000004,74.0,Requested operating point is not bracketed
+20.201460020833338,26.0,Trim did not converge inside domain: residual=0.37673833047122157
+20.201460020833338,26.5,Trim did not converge inside domain: residual=0.34464664072893963
+20.201460020833338,27.0,Trim did not converge inside domain: residual=0.3120492948207434
+20.201460020833338,27.5,Trim did not converge inside domain: residual=0.2789418786868876
+20.201460020833338,28.0,Trim did not converge inside domain: residual=0.24532590565759663
+20.201460020833338,28.5,Trim did not converge inside domain: residual=0.21089747553619886
+20.201460020833338,29.0,Trim did not converge inside domain: residual=0.17499002530461108
+20.201460020833338,29.5,Trim did not converge inside domain: residual=0.13792657812676648
+20.201460020833338,30.0,Trim did not converge inside domain: residual=0.10020951914124661
+20.201460020833338,30.5,Trim did not converge inside domain: residual=0.06183164696821963
+20.201460020833338,31.0,Trim did not converge inside domain: residual=0.02279316046018124
+20.201460020833338,64.0,Requested operating point is not bracketed
+20.201460020833338,64.5,Requested operating point is not bracketed
+20.201460020833338,65.0,Requested operating point is not bracketed
+20.201460020833338,65.5,Requested operating point is not bracketed
+20.201460020833338,66.0,Requested operating point is not bracketed
+20.201460020833338,66.5,Requested operating point is not bracketed
+20.201460020833338,67.0,Requested operating point is not bracketed
+20.201460020833338,67.5,Requested operating point is not bracketed
+20.201460020833338,68.0,Requested operating point is not bracketed
+20.201460020833338,68.5,Requested operating point is not bracketed
+20.201460020833338,69.0,Requested operating point is not bracketed
+20.201460020833338,69.5,Requested operating point is not bracketed
+20.201460020833338,70.0,Requested operating point is not bracketed
+20.201460020833338,70.5,Requested operating point is not bracketed
+20.201460020833338,71.0,Requested operating point is not bracketed
+20.201460020833338,71.5,Requested operating point is not bracketed
+20.201460020833338,72.0,Requested operating point is not bracketed
+20.201460020833338,72.5,Requested operating point is not bracketed
+20.201460020833338,73.0,Requested operating point is not bracketed
+20.201460020833338,73.5,Requested operating point is not bracketed
+20.201460020833338,74.0,Requested operating point is not bracketed
+18.16116801666667,26.0,Trim did not converge inside domain: residual=0.37474785636494923
+18.16116801666667,26.5,Trim did not converge inside domain: residual=0.3425705538778121
+18.16116801666667,27.0,Trim did not converge inside domain: residual=0.3098857151306542
+18.16116801666667,27.5,Trim did not converge inside domain: residual=0.27668921684560277
+18.16116801666667,28.0,Trim did not converge inside domain: residual=0.24298303748468952
+18.16116801666667,28.5,Trim did not converge inside domain: residual=0.2083990314718049
+18.16116801666667,29.0,Trim did not converge inside domain: residual=0.17232508169985455
+18.16116801666667,29.5,Trim did not converge inside domain: residual=0.13515282197184086
+18.16116801666667,30.0,Trim did not converge inside domain: residual=0.09732469772145287
+18.16116801666667,30.5,Trim did not converge inside domain: residual=0.058833372525247445
+18.16116801666667,31.0,Trim did not converge inside domain: residual=0.01967978376908649
+18.16116801666667,64.0,Requested operating point is not bracketed
+18.16116801666667,64.5,Requested operating point is not bracketed
+18.16116801666667,65.0,Requested operating point is not bracketed
+18.16116801666667,65.5,Requested operating point is not bracketed
+18.16116801666667,66.0,Requested operating point is not bracketed
+18.16116801666667,66.5,Requested operating point is not bracketed
+18.16116801666667,67.0,Requested operating point is not bracketed
+18.16116801666667,67.5,Requested operating point is not bracketed
+18.16116801666667,68.0,Requested operating point is not bracketed
+18.16116801666667,68.5,Requested operating point is not bracketed
+18.16116801666667,69.0,Requested operating point is not bracketed
+18.16116801666667,69.5,Requested operating point is not bracketed
+18.16116801666667,70.0,Requested operating point is not bracketed
+18.16116801666667,70.5,Requested operating point is not bracketed
+18.16116801666667,71.0,Requested operating point is not bracketed
+18.16116801666667,71.5,Requested operating point is not bracketed
+18.16116801666667,72.0,Requested operating point is not bracketed
+18.16116801666667,72.5,Requested operating point is not bracketed
+18.16116801666667,73.0,Requested operating point is not bracketed
+18.16116801666667,73.5,Requested operating point is not bracketed
+18.16116801666667,74.0,Requested operating point is not bracketed
+16.120876012500005,26.0,Trim did not converge inside domain: residual=0.3727464228656959
+16.120876012500005,26.5,Trim did not converge inside domain: residual=0.3404829846578161
+16.120876012500005,27.0,Trim did not converge inside domain: residual=0.30771013452743196
+16.120876012500005,27.5,Trim did not converge inside domain: residual=0.2744240490619526
+16.120876012500005,28.0,Trim did not converge inside domain: residual=0.24062719097754653
+16.120876012500005,28.5,Trim did not converge inside domain: residual=0.20627403967080657
+16.120876012500005,29.0,Trim did not converge inside domain: residual=0.16964455032099737
+16.120876012500005,29.5,Trim did not converge inside domain: residual=0.13236281827365234
+16.120876012500005,30.0,Trim did not converge inside domain: residual=0.09442295944395415
+16.120876012500005,30.5,Trim did not converge inside domain: residual=0.0558175296492515
+16.120876012500005,31.0,Trim did not converge inside domain: residual=0.016548154651571036
+16.120876012500005,64.0,Requested operating point is not bracketed
+16.120876012500005,64.5,Requested operating point is not bracketed
+16.120876012500005,65.0,Requested operating point is not bracketed
+16.120876012500005,65.5,Requested operating point is not bracketed
+16.120876012500005,66.0,Requested operating point is not bracketed
+16.120876012500005,66.5,Requested operating point is not bracketed
+16.120876012500005,67.0,Requested operating point is not bracketed
+16.120876012500005,67.5,Requested operating point is not bracketed
+16.120876012500005,68.0,Requested operating point is not bracketed
+16.120876012500005,68.5,Requested operating point is not bracketed
+16.120876012500005,69.0,Requested operating point is not bracketed
+16.120876012500005,69.5,Requested operating point is not bracketed
+16.120876012500005,70.0,Requested operating point is not bracketed
+16.120876012500005,70.5,Requested operating point is not bracketed
+16.120876012500005,71.0,Requested operating point is not bracketed
+16.120876012500005,71.5,Requested operating point is not bracketed
+16.120876012500005,72.0,Requested operating point is not bracketed
+16.120876012500005,72.5,Requested operating point is not bracketed
+16.120876012500005,73.0,Requested operating point is not bracketed
+16.120876012500005,73.5,Requested operating point is not bracketed
+16.120876012500005,74.0,Requested operating point is not bracketed
+14.08058400833334,26.0,Trim did not converge inside domain: residual=0.3707339341230254
+14.08058400833334,26.5,Trim did not converge inside domain: residual=0.3383838334290842
+14.08058400833334,27.0,Trim did not converge inside domain: residual=0.30552244992765626
+14.08058400833334,27.5,Trim did not converge inside domain: residual=0.27214626972971195
+14.08058400833334,28.0,Trim did not converge inside domain: residual=0.2382582601134807
+14.08058400833334,28.5,Trim did not converge inside domain: residual=0.20368560061887414
+14.08058400833334,29.0,Trim did not converge inside domain: residual=0.16694829266755903
+14.08058400833334,29.5,Trim did not converge inside domain: residual=0.1295564229250908
+14.08058400833334,30.0,Trim did not converge inside domain: residual=0.09150415450960536
+14.08058400833334,30.5,Trim did not converge inside domain: residual=0.05278396335701957
+14.08058400833334,31.0,Trim did not converge inside domain: residual=0.013398112303359688
+14.08058400833334,64.0,Requested operating point is not bracketed
+14.08058400833334,64.5,Requested operating point is not bracketed
+14.08058400833334,65.0,Requested operating point is not bracketed
+14.08058400833334,65.5,Requested operating point is not bracketed
+14.08058400833334,66.0,Requested operating point is not bracketed
+14.08058400833334,66.5,Requested operating point is not bracketed
+14.08058400833334,67.0,Requested operating point is not bracketed
+14.08058400833334,67.5,Requested operating point is not bracketed
+14.08058400833334,68.0,Requested operating point is not bracketed
+14.08058400833334,68.5,Requested operating point is not bracketed
+14.08058400833334,69.0,Requested operating point is not bracketed
+14.08058400833334,69.5,Requested operating point is not bracketed
+14.08058400833334,70.0,Requested operating point is not bracketed
+14.08058400833334,70.5,Requested operating point is not bracketed
+14.08058400833334,71.0,Requested operating point is not bracketed
+14.08058400833334,71.5,Requested operating point is not bracketed
+14.08058400833334,72.0,Requested operating point is not bracketed
+14.08058400833334,72.5,Requested operating point is not bracketed
+14.08058400833334,73.0,Requested operating point is not bracketed
+14.08058400833334,73.5,Requested operating point is not bracketed
+14.08058400833334,74.0,Requested operating point is not bracketed
+12.040292004166673,26.0,Trim did not converge inside domain: residual=0.3687102932702921
+12.040292004166673,26.5,Trim did not converge inside domain: residual=0.3362729994487123
+12.040292004166673,27.0,Trim did not converge inside domain: residual=0.3033225571855981
+12.040292004166673,27.5,Trim did not converge inside domain: residual=0.26985577227326013
+12.040292004166673,28.0,Trim did not converge inside domain: residual=0.23587590302183464
+12.040292004166673,28.5,Trim did not converge inside domain: residual=0.20108195656156863
+12.040292004166673,29.0,Trim did not converge inside domain: residual=0.16423616862070528
+12.040292004166673,29.5,Trim did not converge inside domain: residual=0.1267334901318733
+12.040292004166673,30.0,Trim did not converge inside domain: residual=0.08856787820323898
+12.040292004166673,30.5,Trim did not converge inside domain: residual=0.0497325168580892
+12.040292004166673,31.0,Trim did not converge inside domain: residual=0.010229494044612332
+12.040292004166673,64.0,Requested operating point is not bracketed
+12.040292004166673,64.5,Requested operating point is not bracketed
+12.040292004166673,65.0,Requested operating point is not bracketed
+12.040292004166673,65.5,Requested operating point is not bracketed
+12.040292004166673,66.0,Requested operating point is not bracketed
+12.040292004166673,66.5,Requested operating point is not bracketed
+12.040292004166673,67.0,Requested operating point is not bracketed
+12.040292004166673,67.5,Requested operating point is not bracketed
+12.040292004166673,68.0,Requested operating point is not bracketed
+12.040292004166673,68.5,Requested operating point is not bracketed
+12.040292004166673,69.0,Requested operating point is not bracketed
+12.040292004166673,69.5,Requested operating point is not bracketed
+12.040292004166673,70.0,Requested operating point is not bracketed
+12.040292004166673,70.5,Requested operating point is not bracketed
+12.040292004166673,71.0,Requested operating point is not bracketed
+12.040292004166673,71.5,Requested operating point is not bracketed
+12.040292004166673,72.0,Requested operating point is not bracketed
+12.040292004166673,72.5,Requested operating point is not bracketed
+12.040292004166673,73.0,Requested operating point is not bracketed
+12.040292004166673,73.5,Requested operating point is not bracketed
+12.040292004166673,74.0,Requested operating point is not bracketed
+10.0,26.0,Trim did not converge inside domain: residual=0.3666754022953508
+10.0,26.5,Trim did not converge inside domain: residual=0.33415038081871484
+10.0,27.0,Trim did not converge inside domain: residual=0.3011103510252227
+10.0,27.5,Trim did not converge inside domain: residual=0.2675524489997344
+10.0,28.0,Trim did not converge inside domain: residual=0.2334771425694346
+10.0,28.5,Trim did not converge inside domain: residual=0.1984629713611349
+10.0,29.0,Trim did not converge inside domain: residual=0.1615080363944451
+10.0,29.5,Trim did not converge inside domain: residual=0.12389387240065805
+10.0,30.0,Trim did not converge inside domain: residual=0.08561408595224303
+10.0,30.5,Trim did not converge inside domain: residual=0.04666303152965508
+10.0,31.0,Trim did not converge inside domain: residual=0.007042135296486981
+10.0,64.0,Requested operating point is not bracketed
+10.0,64.5,Requested operating point is not bracketed
+10.0,65.0,Requested operating point is not bracketed
+10.0,65.5,Requested operating point is not bracketed
+10.0,66.0,Requested operating point is not bracketed
+10.0,66.5,Requested operating point is not bracketed
+10.0,67.0,Requested operating point is not bracketed
+10.0,67.5,Requested operating point is not bracketed
+10.0,68.0,Requested operating point is not bracketed
+10.0,68.5,Requested operating point is not bracketed
+10.0,69.0,Requested operating point is not bracketed
+10.0,69.5,Requested operating point is not bracketed
+10.0,70.0,Requested operating point is not bracketed
+10.0,70.5,Requested operating point is not bracketed
+10.0,71.0,Requested operating point is not bracketed
+10.0,71.5,Requested operating point is not bracketed
+10.0,72.0,Requested operating point is not bracketed
+10.0,72.5,Requested operating point is not bracketed
+10.0,73.0,Requested operating point is not bracketed
+10.0,73.5,Requested operating point is not bracketed
+10.0,74.0,Requested operating point is not bracketed

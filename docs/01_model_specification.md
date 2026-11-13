@@ -1,6 +1,6 @@
 # Civil C172 model specification
 
-Status: version 0.4.0 includes longitudinal/lateral pulse experiments, integrator comparisons and local perturbation/modal analysis.
+Status: version 0.5.0 includes longitudinal/lateral pulse experiments, integrator comparisons, local perturbation/modal analysis and a separate stationary-propulsion cruise/fuel study.
 
 ## Purpose and reference
 
@@ -20,7 +20,7 @@ Forces are first described in wind axes as drag, side force and lift, transforme
 
 ## Mass and atmosphere
 
-`data/load_case_v0.json` specifies one pilot, half fuel in each tank and other point masses zero. Mass and inertia are constant during a run. Loaded inertia includes parallel-axis contributions and the source isotropic self inertia of the two liquid tanks.
+`data/load_case_v0.json` specifies one pilot, half fuel in each tank and other point masses zero. Mass and inertia are constant during a dynamic pulse run. Loaded inertia includes parallel-axis contributions and the source isotropic self inertia of the two liquid tanks. The separate performance study reconstructs these properties, the CG and moment arms at successive remaining fuel loads; it does not change the dynamic state dimension.
 
 `data/c172_reduced_model.json` is the runtime source of geometry, loaded properties, selected aerodynamic data and reference offsets. Density is 1.1116425003060326 kg/m^3, the ISA value at 1000 m, held constant; gravity is 9.80665 m/s^2; no wind or Earth rotation is modelled.
 
@@ -44,10 +44,12 @@ The demonstration solves straight, level, beta=0 flight at 50 m/s and 1000 m. Sm
 
 The original version 0.1.0 results contain two 30 s runs: steady trim and a -0.5 deg elevator increment between t=2 and t=3 s. DOP853 remains the default, with a maximum adaptive step of 0.05 s. Version 0.2.0 also supports explicit Euler and classical RK4, with a configurable fixed step. Every method splits intervals at input changes. Fixed methods save each step and shorten the last step of a segment; DOP853 separates output spacing from its adaptive internal steps.
 
-The suite contains thirty-five tests covering frames, analytic mechanics, mass/inertia, trim, equilibrium persistence, convergence, input handling, control boundaries, comparison metrics, lateral experiments and local models. Tests requiring unavailable optional runtime libraries are explicitly skipped; complete verification requires all dependencies. The original ten-test result file is historical evidence, not a run of the expanded suite. Measured flight-data validation and quantitative JSBSim comparison remain pending.
+The suite contains forty-two tests covering frames, analytic mechanics, mass/inertia, trim, equilibrium persistence, convergence, input handling, control boundaries, comparison metrics, lateral experiments, local models and quasi-steady performance. Tests requiring unavailable runtime libraries are explicitly skipped; complete verification requires all dependencies. The original ten-test result file is historical evidence, not a run of the expanded suite. Measured flight-data validation and quantitative JSBSim comparison remain pending.
 
 `compare_longitudinal_integrators.py` compares the perturbed trajectory using Euler, RK4 and DOP853, reports sampled numerical errors against a tight and refined DOP853 reference, and measures RHS evaluations and elapsed integration time. Reference convergence checks, failure handling and metric scales are described in [integrators and comparison](04_integrators.md).
 
 `run_lateral_demo.py` adds independent +1 degree effective-aileron and rudder pulses, each held from 2 to 3 seconds in a 30 s run. Only the selected surface changes; the remaining controls stay at trim. The bundled results use checked recorded trim and RK4 with 0.01 s steps, verified against 0.005 s steps. Signs, metrics, outputs and limitations are documented in [lateral experiments](05_lateral_experiments.md).
 
 `run_linear_analysis.py` exports twelve-state local perturbation matrices and eight-state candidate modes. The zero-beta drag cusp is separated analytically, and central LTI/directional approximations are compared with eighteen nonlinear pulse responses. Differentiation and representative integration refinements are recorded. These spectra concern local approximations; they do not establish stability of the nonsmooth nonlinear aircraft. See [local models and modes](06_local_models_and_modes.md).
+
+`run_performance_analysis.py` adds stationary motor/propeller matching from pinned source equations and tables, equal-tank fuel depletion, repeated trim and sampled endurance/range cruise strategies. Its fuel-coordinate mission omits speed-transition, climb and descent costs; the 12-state transient equations retain their original omissions. See [cruise performance](07_cruise_performance.md) for mixture policy, limits and numerical checks.

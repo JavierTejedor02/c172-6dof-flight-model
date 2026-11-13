@@ -2,7 +2,7 @@
 
 ## Scope
 
-Version 0.4.0 implements a nonlinear, rigid-body, 6-DOF civil-aircraft model, independent longitudinal/lateral pulse experiments, local perturbation matrices and candidate modal analysis. The twelve states use true airspeed, angle of attack and sideslip for translational velocity. Euler and RK4 provide educational fixed-step alternatives to the default adaptive DOP853 integrator. JSBSim supplies reference data and is not executed.
+Version 0.5.0 implements a nonlinear, rigid-body, 6-DOF civil-aircraft model, independent longitudinal/lateral pulse experiments, local perturbation matrices, candidate modal analysis and a separate quasi-steady cruise/fuel study. The twelve dynamic states use true airspeed, angle of attack and sideslip for translational velocity. Euler and RK4 provide educational fixed-step alternatives to the default adaptive DOP853 integrator. JSBSim supplies reference data and propulsion equation references; it is not executed.
 
 The [package README](../README.md) provides prerequisites, installation, execution commands, expected outputs and verification instructions. The [equation-to-code reference](03_equations_and_code.md) defines the governing equations.
 
@@ -12,7 +12,7 @@ The loaded inertia tensor combines the base aircraft, pilot and fuel contributio
 
 Structural positions are converted to body-frame offsets relative to the loaded CG. Aerodynamic forces and thrust act at their respective reference locations; their moments include the resulting lever-arm contributions.
 
-Density is the ISA value at 1000 m and remains constant during the examples. Fuel mass is also constant.
+Density is the ISA value at 1000 m and remains constant during the examples. Fuel mass is constant in the dynamic pulse experiments. The separate performance study creates new balanced load snapshots as fuel decreases, updating the CG, tensor and moment arms.
 
 ## Architecture
 
@@ -31,8 +31,12 @@ Density is the ISA value at 1000 m and remains constant during the examples. Fue
 | `compare_longitudinal_integrators.py` | Step sizes, duration and timing repeats | Numerical error/cost reports and comparison figures |
 | `run_linear_analysis.py` | Checked trim, amplitudes and step size | Local matrices, candidate spectra and nonlinear comparisons |
 | `c172sim/linearization.py` | Nonlinear RHS and operating condition | Smooth-part Jacobians, cusp coefficient and modal participation |
+| `run_performance_analysis.py` | Speed/fuel grids and mixture policy | Quasi-steady cruise comparisons and refinement |
+| `c172sim/mass_properties.py` | Remaining fuel | Independent loaded aircraft snapshots |
+| `c172sim/propulsion.py` | Required thrust, axial speed and density | Matched RPM/throttle, shaft power and fuel flow |
+| `c172sim/performance.py` | Candidate speeds and fuel nodes | Sampled strategy selection and integrated time/distance |
 
-The derivative function encodes the physics. SciPy supplies the numerical algorithms for equilibrium optimization and time integration.
+The derivative function encodes the transient physics. SciPy supplies the default equilibrium optimizer and adaptive integrator. The quasi-steady performance path uses bounded NumPy Newton trim solves, bracketed propulsion matches and fuel-coordinate quadrature. See [cruise performance](07_cruise_performance.md) for scope, equations and limitations.
 
 ## Implementation details
 
